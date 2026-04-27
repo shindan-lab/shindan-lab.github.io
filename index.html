@@ -4,12 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>診断Lab — あなたの「なんか」を、言葉にする。</title>
-  <meta name="description" content="育児・仕事・人間関係。「なんかしんどい」を言語化する、無料の診断ツール集。">
+  <meta name="description" content="疲れ・仕事・人間関係・自己理解。うまく言えないモヤモヤを言葉にする、無料の読み物型診断ツール集。">
+  <link rel="canonical" href="https://shindan-lab.github.io/">
   <meta property="og:title" content="診断Lab">
-  <meta property="og:description" content="あなたの「なんか」を、言葉にする。無料の診断ツール集。">
+  <meta property="og:description" content="あなたの「なんか」を、言葉にする。無料の読み物型診断ツール集。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shindan-lab.github.io/">
+  <meta property="og:image" content="https://shindan-lab.github.io/header-banner.png">
+  <meta property="og:image:width" content="1536">
+  <meta property="og:image:height" content="512">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://shindan-lab.github.io/header-banner.png">
   <link rel="icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +38,18 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     .hero {
@@ -267,11 +284,13 @@
 </head>
 <body>
 
+  <h1 class="visually-hidden">診断Lab</h1>
+
   <div class="hero">
     <div class="hero-banner">
-      <img src="header-banner.png" alt="診断Lab ヘッダーバナー">
+      <img src="header-banner.png" alt="診断Lab ヘッダーバナー" width="1536" height="512">
     </div>
-    <p class="hero-desc">育児・仕事・人間関係・お金。<br>うまく言えないモヤモヤの正体を、<br>無料の診断ツールで見つけてみてください。</p>
+    <p class="hero-desc">うまく言えない疲れやモヤモヤを、<br>3分の診断で少しだけ<br>言葉にしてみませんか。</p>
   </div>
 
   <div class="container">
@@ -293,7 +312,7 @@
           </div>
         </div>
         <div class="diag-card-body">
-          <p class="diag-card-desc">「なんか疲れた」の正体、わかります。育児・仕事・家事を両立するあなたの疲れのタイプを20問で診断します。</p>
+          <p class="diag-card-desc">「なんか疲れた」の正体を、やさしく言葉にします。育児・仕事・家事で積もった疲れのタイプが見えてきます。</p>
           <div class="diag-card-cta"><span>診断をはじめる</span><span class="cta-arrow">→</span></div>
         </div>
       </a>
@@ -313,7 +332,7 @@
           </div>
         </div>
         <div class="diag-card-body">
-          <p class="diag-card-desc">「仕事がつらい」の正体、わかります。職場で感じるしんどさのタイプを20問で診断します。</p>
+          <p class="diag-card-desc">仕事量だけでは説明できない、職場でのじわじわしたしんどさを整理します。</p>
           <div class="diag-card-cta"><span>診断をはじめる</span><span class="cta-arrow">→</span></div>
         </div>
       </a>
@@ -333,7 +352,7 @@
           </div>
         </div>
         <div class="diag-card-body">
-          <p class="diag-card-desc">休んでいるのに回復しない…それは休み方が合っていないからかも。自分に合う回復法がわかります。</p>
+          <p class="diag-card-desc">休んでも戻らない理由は、休み方の相性かもしれません。自分に合う回復の入り方が見えてきます。</p>
           <div class="diag-card-cta"><span>診断をはじめる</span><span class="cta-arrow">→</span></div>
         </div>
       </a>
@@ -351,7 +370,7 @@
           </div>
         </div>
         <div class="diag-card-body">
-          <p class="diag-card-desc">「自分の良さって何だろう？」が少し見えてきます。強みがどんな場面で自然に出るかがわかります。</p>
+          <p class="diag-card-desc">自分では気づきにくい良さが、どんな場面で自然に出ているかを見つけます。</p>
           <div class="diag-card-cta"><span>診断をはじめる</span><span class="cta-arrow">→</span></div>
         </div>
       </a>
@@ -371,7 +390,7 @@
           </div>
         </div>
         <div class="diag-card-body">
-          <p class="diag-card-desc">ちゃんとしんどいのに、うまく伝わらない。その&quot;伝わらなさの癖&quot;がわかる診断です。</p>
+          <p class="diag-card-desc">ちゃんとしんどいのに、うまく伝わらない。その“伝わらなさの癖”を整理します。</p>
           <div class="diag-card-cta"><span>診断をはじめる</span><span class="cta-arrow">→</span></div>
         </div>
       </a>
