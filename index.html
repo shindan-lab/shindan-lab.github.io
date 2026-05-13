@@ -28,6 +28,20 @@
     .hero-desc{font-size:14px;line-height:1.9;color:#7A5C52;max-width:340px;margin:18px auto 0}
     .container{max-width:480px;margin:0 auto;padding:0 16px 48px}
     .section-title{font-size:11px;font-weight:700;letter-spacing:.16em;color:#C1714A;margin:40px 0 16px}
+    .guide-card{background:#fff;border:1px solid #E8D5CE;border-radius:22px;padding:22px 18px;box-shadow:0 2px 12px rgba(193,113,74,.07);margin-top:18px}
+    .guide-title{font-size:18px;font-weight:700;line-height:1.5;margin:0 0 8px}
+    .guide-copy{font-size:13px;line-height:1.9;color:#7A5C52;margin:0 0 16px}
+    .guide-picks{display:flex;flex-direction:column;gap:10px}
+    .guide-pick{display:block;text-decoration:none;color:inherit;background:#F8F4F1;border:1px solid #E8D5CE;border-radius:16px;padding:14px 14px 13px}
+    .guide-pick-label{font-size:10px;font-weight:700;letter-spacing:.1em;color:#C1714A;margin-bottom:5px}
+    .guide-pick-title{font-size:15px;font-weight:700;line-height:1.5;margin-bottom:4px}
+    .guide-pick-copy{font-size:12px;line-height:1.7;color:#7A5C52}
+    .theme-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .theme-card{background:#fff;border:1px solid #E8D5CE;border-radius:18px;padding:18px 16px;box-shadow:0 2px 12px rgba(193,113,74,.07)}
+    .theme-name{font-size:15px;font-weight:700;line-height:1.5;margin:0 0 6px}
+    .theme-copy{font-size:13px;line-height:1.8;color:#7A5C52;margin:0 0 12px}
+    .theme-links{display:flex;flex-direction:column;gap:8px}
+    .theme-link{display:block;text-decoration:none;color:#C1714A;background:#FDF0EB;border:1px solid #E8D5CE;border-radius:12px;padding:10px 12px;font-size:13px;font-weight:700}
     .cards-wrap{display:flex;flex-direction:column;gap:14px}
     .diag-card{display:block;text-decoration:none;background:#fff;border:1px solid #E8D5CE;border-radius:18px;box-shadow:0 2px 12px rgba(193,113,74,.07);overflow:hidden;transition:transform .18s,box-shadow .18s}
     .diag-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(193,113,74,.13)}
@@ -61,10 +75,60 @@
     <div class="hero-banner">
       <img src="header-banner.png" alt="診断Lab ヘッダーバナー" width="1536" height="512">
     </div>
-    <p class="hero-desc">いまは言えない疲れやモヤモヤを、<br>3分ほどの診断で少しずつ<br>言葉にしてみませんか。</p>
+    <p class="hero-desc">いまは言えない疲れやモヤモヤを、<br>ひとつの診断から少しずつ<br>言葉にしてみませんか。</p>
   </div>
 
   <div class="container">
+    <div class="guide-card">
+      <p class="guide-title">迷ったら、まずは<br>「疲れのカルテ」から。</p>
+      <p class="guide-copy">診断Labは、答えを当てるための場所というより、今の自分の状態に少し名前をつけるための入口です。最初の1本に迷ったら、広く疲れ方を見られる診断から始めるのがいちばん自然です。</p>
+      <div class="guide-picks">
+        <a class="guide-pick" href="https://shindan-lab.github.io/tsukare-karte/">
+          <div class="guide-pick-label">FIRST PICK</div>
+          <div class="guide-pick-title">疲れのカルテ</div>
+          <div class="guide-pick-copy">今のしんどさが、背負い込みなのか、気配の拾いすぎなのか、余白切れなのか。土台の疲れ方を広く見たいときの入口です。</div>
+        </a>
+        <a class="guide-pick" href="https://shindan-lab.github.io/shokuba-karte/">
+          <div class="guide-pick-label">WORK FIRST</div>
+          <div class="guide-pick-title">職場しんどいカルテ</div>
+          <div class="guide-pick-copy">「しんどい理由はわりと仕事かも」と感じているならこちらから。職場のどこで削られやすいかを先に見られます。</div>
+        </a>
+      </div>
+    </div>
+
+    <p class="section-title">今の状態から選ぶ</p>
+    <div class="theme-grid">
+      <div class="theme-card">
+        <p class="theme-name">まずは、今の疲れの正体を知りたい</p>
+        <p class="theme-copy">「なんかしんどい」が続いているけれど、理由がまだぼんやりしているときに。広く見たいか、仕事に寄せて見たいかで入口を分けています。</p>
+        <div class="theme-links">
+          <a class="theme-link" href="https://shindan-lab.github.io/tsukare-karte/">疲れのカルテを見る</a>
+          <a class="theme-link" href="https://shindan-lab.github.io/shokuba-karte/">職場しんどいカルテを見る</a>
+        </div>
+      </div>
+      <div class="theme-card">
+        <p class="theme-name">休んでも戻らない。合う休み方を知りたい</p>
+        <p class="theme-copy">休んでいるのに回復した感じがしないなら、気合いではなく相性の問題かもしれません。自分に合う整え方を探したいときに。</p>
+        <div class="theme-links">
+          <a class="theme-link" href="https://shindan-lab.github.io/recovery-switch/">あなたの回復スイッチ診断を見る</a>
+        </div>
+      </div>
+      <div class="theme-card">
+        <p class="theme-name">しんどいのに、うまく伝わらない</p>
+        <p class="theme-copy">ちゃんと疲れているのに軽く受け取られる、言う前に止まる、言うとズレる。そういう「伝わりにくさの癖」を見たいときに。</p>
+        <div class="theme-links">
+          <a class="theme-link" href="https://shindan-lab.github.io/tsutawaranai-tsukare/">伝わらない疲れ診断を見る</a>
+        </div>
+      </div>
+      <div class="theme-card">
+        <p class="theme-name">消耗だけでなく、自分の良さも見たい</p>
+        <p class="theme-copy">疲れ方だけで終わらせず、自分の強みがどんな場面で自然に出るかも知りたいときに。立て直しの軸を見つけたい人向けです。</p>
+        <div class="theme-links">
+          <a class="theme-link" href="https://shindan-lab.github.io/strength-style/">あなたの強みの出方診断を見る</a>
+        </div>
+      </div>
+    </div>
+
     <p class="section-title">診断ツール一覧</p>
 
     <div class="cards-wrap">
@@ -83,7 +147,7 @@
           </div>
         </div>
         <div class="diag-card-body">
-          <p class="diag-card-desc">「なんか疲れた」の正体、わかります。育児・仕事・家事を両立するあなたの疲れのタイプを、読み物としてやさしく言葉にする診断です。</p>
+          <p class="diag-card-desc">「なんか疲れた」の正体、わかります。理由がまだぼんやりしているときに、今の疲れ方を広く見たい人向けの入口です。</p>
           <div class="diag-card-cta"><span>診断をはじめる</span><span class="cta-arrow">→</span></div>
         </div>
       </a>
@@ -103,7 +167,7 @@
           </div>
         </div>
         <div class="diag-card-body">
-          <p class="diag-card-desc">「仕事がつらい」の正体、わかります。職場で感じるしんどさの傾向を、読み物としてやさしく言葉にする診断です。</p>
+          <p class="diag-card-desc">「仕事がつらい」の正体、わかります。しんどさの中心が職場や人間関係にありそうなときに向いています。</p>
           <div class="diag-card-cta"><span>診断をはじめる</span><span class="cta-arrow">→</span></div>
         </div>
       </a>
@@ -123,7 +187,7 @@
           </div>
         </div>
         <div class="diag-card-body">
-          <p class="diag-card-desc">休んでいるのに回復しない。それは休み方が合っていないからかも。自分に合う回復法がわかります。</p>
+          <p class="diag-card-desc">休んでいるのに回復しない。それは休み方が合っていないからかも。自分に合う整え方を知りたいときに。</p>
           <div class="diag-card-cta"><span>診断をはじめる</span><span class="cta-arrow">→</span></div>
         </div>
       </a>
@@ -141,7 +205,7 @@
           </div>
         </div>
         <div class="diag-card-body">
-          <p class="diag-card-desc">「自分の良さって何だろう？」が少し見えてきます。強みがどんな場面で自然に出るかがわかります。</p>
+          <p class="diag-card-desc">「自分の良さって何だろう？」が少し見えてきます。消耗の話だけで終わらせず、良さの出方も見たいときに。</p>
           <div class="diag-card-cta"><span>診断をはじめる</span><span class="cta-arrow">→</span></div>
         </div>
       </a>
@@ -161,7 +225,7 @@
           </div>
         </div>
         <div class="diag-card-body">
-          <p class="diag-card-desc">ちゃんとしんどいのに、うまく伝わらない。その「伝わらなさの癖」がわかる診断です。</p>
+          <p class="diag-card-desc">ちゃんとしんどいのに、うまく伝わらない。その「伝わらなさの癖」を言葉にしたいときに。</p>
           <div class="diag-card-cta"><span>診断をはじめる</span><span class="cta-arrow">→</span></div>
         </div>
       </a>
@@ -173,13 +237,14 @@
       <div class="concept-body">
         <p>「なんか疲れてる」「なんかしんどい」。そのモヤモヤを、少しずつ言葉にしてみるための読み物型診断サイトです。</p>
         <p>診断Labは、その場しのぎの結果ではなく、自分の状態を一段深く理解するための言語化を大切にしています。</p>
+        <p>どれから始めるか迷ったら、まずは「疲れのカルテ」からどうぞ。いまの消耗の出方を広く見る入口として使えます。</p>
         <p>読後に「わかってもらえた」と感じる診断体験を、ひとつずつ丁寧につくっていきます。</p>
       </div>
       <div class="concept-tags">
         <span class="concept-tag">#育児と仕事</span>
         <span class="concept-tag">#気持ちの言語化</span>
         <span class="concept-tag">#読み物診断</span>
-        <span class="concept-tag">#スマホで約3分</span>
+        <span class="concept-tag">#スマホで読みやすい</span>
       </div>
     </div>
   </div>
