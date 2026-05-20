@@ -62,9 +62,13 @@
     .concept-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
     .concept-tag{font-size:11px;background:#FDF0EB;color:#C1714A;border:1px solid #E8D5CE;border-radius:20px;padding:3px 10px;font-weight:500}
     footer{margin-top:56px;padding:32px 24px 48px;border-top:1px solid #E8D5CE;text-align:center}
-    .footer-brand{font-size:15px;font-weight:700;margin-bottom:8px}
-    .footer-tagline{font-size:12px;color:#7A5C52;margin:0 0 16px}
-    .footer-copy{font-size:11px;color:#B8A09A;margin:0}
+.footer-logo-wrap{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;text-decoration:none}
+.footer-brand-name{font-size:17px;font-weight:700;color:#3D2B1F;letter-spacing:.04em}
+.footer-brand-name em{font-style:normal;color:#C1714A}
+.footer-tagline{font-size:12px;color:#7A5C52;margin:0 0 14px;letter-spacing:.03em}
+.footer-links{margin:0 0 10px;font-size:12px;line-height:1.8}
+.footer-links a{color:#7A5C52;text-decoration:none}
+.footer-copy{font-size:11px;color:#B0978E;margin:0}
     .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
@@ -250,16 +254,16 @@
   </div>
 
   <footer>
-    <div class="footer-brand">診断Lab</div>
+    <a class="footer-logo-wrap" href="https://shindan-lab.github.io/"><span class="footer-brand-name">診断<em>Lab</em></span></a>
     <p class="footer-tagline">あなたの「なんか」を、言葉にする。</p>
-    <p style="margin:0 0 10px;font-size:12px;line-height:1.8">
-      <a href="https://shindan-lab.github.io/" style="color:#7A5C52;text-decoration:none">トップページ</a>
+    <p class="footer-links">
+      <a href="https://shindan-lab.github.io/">トップページ</a>
       <span style="color:#CBB2A8;margin:0 8px">|</span>
-      <a href="https://shindan-lab.github.io/about.html" style="color:#7A5C52;text-decoration:none">運営情報</a>
+      <a href="https://shindan-lab.github.io/about.html">運営情報</a>
       <span style="color:#CBB2A8;margin:0 8px">|</span>
-      <a href="https://shindan-lab.github.io/privacy.html" style="color:#7A5C52;text-decoration:none">プライバシーポリシー</a>
+      <a href="https://shindan-lab.github.io/privacy.html">プライバシーポリシー</a>
       <span style="color:#CBB2A8;margin:0 8px">|</span>
-      <a href="https://shindan-lab.github.io/disclaimer.html" style="color:#7A5C52;text-decoration:none">免責事項</a>
+      <a href="https://shindan-lab.github.io/disclaimer.html">免責事項</a>
     </p>
     <p class="footer-copy">© 2026 診断Lab</p>
   </footer>
