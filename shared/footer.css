@@ -1,0 +1,55 @@
+.site-footer{
+  margin-top:56px;
+  padding:28px 0 20px;
+  text-align:center;
+  border-top:1px solid #E8D5CE;
+}
+
+.site-footer .footer-logo-wrap{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+  text-decoration:none;
+}
+
+.site-footer .footer-brand-name{
+  font-size:17px;
+  font-weight:700;
+  color:#3D2B1F;
+  letter-spacing:.04em;
+}
+
+.site-footer .footer-brand-name em{
+  font-style:normal;
+  color:#C1714A;
+}
+
+.site-footer .footer-tagline{
+  font-size:12px;
+  color:#7A5C52;
+  margin:0 0 14px;
+  letter-spacing:.03em;
+}
+
+.site-footer .footer-links{
+  margin:0 0 10px;
+  font-size:12px;
+  line-height:1.8;
+}
+
+.site-footer .footer-links a{
+  color:#7A5C52;
+  text-decoration:none;
+}
+
+.site-footer .footer-links span{
+  color:#CBB2A8;
+  margin:0 8px;
+}
+
+.site-footer .footer-copy{
+  font-size:11px;
+  color:#B0978E;
+  margin:0;
+}
