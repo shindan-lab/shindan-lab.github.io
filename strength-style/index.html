@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>あなたの強みの出方診断</title>
+  <meta name="description" content="今のあなたの強みが、どんな場面で自然に出やすいかを言語化する読み物型診断ツールです。">
+  <link rel="canonical" href="https://shindan-lab.github.io/strength-style/">
+  <link rel="icon" href="favicon.png">
+  <meta property="og:title" content="あなたの強みの出方診断｜自然に出る良さが、少し見えてきます。">
+  <meta property="og:description" content="今のあなたの強みがどんな場面で自然に出やすいかを、読み物としてやさしく言葉にする診断ツールです。">
+  <meta property="og:url" content="https://shindan-lab.github.io/strength-style/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shindan-lab.github.io/strength-style/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="あなたの強みの出方診断｜自然に出る良さが、少し見えてきます。">
+  <meta name="twitter:description" content="今のあなたの強みがどんな場面で自然に出やすいかを、読み物としてやさしく言葉にする診断ツールです。">
+  <meta name="twitter:image" content="https://shindan-lab.github.io/strength-style/og-image.png">
+  <meta name="theme-color" content="#C1714A">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="あなたの強みの出方診断">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;background:#FAF7F4;color:#3D2B1F;margin:0}
+    main{max-width:480px;margin:0 auto;padding:24px 16px calc(48px + env(safe-area-inset-bottom))}
+    .card{background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:20px;margin-bottom:14px}
+    .btn,.opt{display:block;width:100%;min-height:44px;border-radius:12px;font:inherit}
+    .btn{border:none;background:#C1714A;color:#fff;padding:16px;cursor:pointer}
+    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:left;padding:14px;margin:8px 0;cursor:pointer}
+    .hide{display:none}
+    .sub{color:#7A5C52}
+    .center{text-align:center}
+    .bar{height:4px;background:#E8D5CE;border-radius:4px;overflow:hidden}
+    .fill{height:100%;background:#C1714A}
+    .pill{display:inline-block;background:#FDF0EB;border:1px solid #E8D5CE;border-radius:999px;padding:4px 12px;color:#C1714A;font-size:13px}
+    .label{font-size:11px;letter-spacing:.14em;color:#C1714A;font-weight:700;margin-bottom:10px}
+    .hero{padding-top:40px}
+    .h1{font-size:32px;font-weight:700;margin:0 0 8px}
+    .result-header-card{background:#fff;border:1px solid #E8D5CE;border-radius:20px;padding:12px;margin-bottom:16px;overflow:hidden}
+    .result-accent{height:8px;border-radius:999px;margin-bottom:14px}
+    .result-header-copy{padding:2px 8px 14px}
+    .result-header-eyebrow{font-size:10px;letter-spacing:.22em;color:#C1714A;margin-bottom:10px;font-weight:700}
+    .result-type-name{font-size:30px;font-weight:700;line-height:1.25;margin:0;color:#2F2119;letter-spacing:.01em}
+    .result-type-image{display:block;width:100%;height:210px;object-fit:cover;object-position:center;border-radius:16px;background:#F8F4F1}
+    .share a{display:inline-block;width:48%;text-align:center;background:#1A1A1A;color:#fff;text-decoration:none;padding:12px 0;border-radius:12px}
+    .site-footer{margin-top:56px;padding:28px 0 20px;text-align:center;border-top:1px solid #E8D5CE}
+    .footer-logo-wrap{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;text-decoration:none}
+    .footer-brand-name{font-size:17px;font-weight:700;color:#3D2B1F;letter-spacing:.04em}
+    .footer-brand-name em{font-style:normal;color:#C1714A}
+    .footer-tagline{font-size:12px;color:#7A5C52;margin-bottom:14px;letter-spacing:.03em}
+    .footer-links{margin:0 0 10px;font-size:12px;line-height:1.8}
+    .footer-links a{color:#7A5C52;text-decoration:none}
+    .footer-copy{font-size:11px;color:#B0978E}
+    #body p{margin:0 0 1em}
+    #body p:last-child{margin-bottom:0}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <main>
+    <section id="top" class="hero center">
+      <a href="https://shindan-lab.github.io/" style="letter-spacing:.18em;color:#C1714A;font-size:12px;margin-bottom:12px;text-decoration:none;display:block">診断Lab</a>
+      <h1 class="h1">あなたの強みの出方診断</h1>
+      <p style="color:#C1714A;font-weight:500">自然に出る良さが、少し見えてきます。</p>
+      <div class="card" style="text-align:left">
+        <p class="sub">あなたが無理なくやっていることの中で、どんな強みが出やすいのかを、日常の場面からたどっていく診断です。</p>
+        <div style="margin-top:12px"><span class="pill">スマホで読みやすい診断です</span></div>
+      </div>
+      <button class="btn" onclick="start()">診断をはじめる</button>
+    </section>
+
+    <section id="quiz" class="hide">
+      <div class="sub" id="ptext">1 / 12</div>
+      <div class="bar"><div class="fill" id="pbar" style="width:8.3%"></div></div>
+      <div style="margin:10px 0"><button onclick="back()" id="backbtn" style="background:none;border:none;color:#7A5C52;padding:0">前の問題に戻る</button></div>
+      <div class="card"><div id="q" style="font-weight:700;line-height:1.7"></div><div id="opts"></div></div>
+    </section>
+
+    <section id="loading" class="hide center" style="padding-top:100px">
+      <div style="width:48px;height:48px;border:4px solid #E8D5CE;border-top-color:#C1714A;border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 24px"></div>
+      <div class="sub" style="font-size:16px;font-weight:500">今のあなたの強みの出方を分析中…</div>
+    </section>
+
+    <section id="result" class="hide">
+      <div class="result-header-card" id="result-header-card">
+        <div class="result-accent" id="result-accent"></div>
+        <div class="result-header-copy">
+          <div class="result-header-eyebrow">あなたの強みタイプ</div>
+          <h2 class="result-type-name" id="result-type-name"></h2>
+        </div>
+        <img class="result-type-image" id="result-type-image" src="" alt="">
+      </div>
+      <div class="card"><div class="label">診断結果</div><div id="headline" style="font-weight:700;line-height:1.7;margin-bottom:12px"></div><div id="body" style="line-height:1.9"></div></div>
+      <div class="card" style="background:#FDF0EB"><div class="label">あなたへ</div><div id="letter" style="line-height:1.9"></div></div>
+      <div class="card" style="border:2px solid #C1714A"><div class="label">今日からできること</div><div id="pres" style="line-height:1.9"></div></div>
+      <div id="aff" class="card hide"><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><div class="label" style="margin-bottom:0">もし気になったら</div><span style="font-size:9px;font-weight:700;color:#B0978E;background:#F0E4DE;padding:2px 6px;border-radius:3px;letter-spacing:.05em">PR</span></div><a id="afflink" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit"><div id="afft" style="font-weight:700"></div><div id="affd" class="sub" style="margin-top:6px"></div><div style="margin-top:10px;color:#BF4500;font-weight:700">楽天で見る →</div></a></div>
+      <div class="share"><a id="sx" target="_blank" rel="noopener noreferrer">Xでシェア</a><a id="st" target="_blank" rel="noopener noreferrer">Threadsでシェア</a></div>
+      <button class="btn" style="margin-top:12px;background:#fff;color:#7A5C52;border:1px solid #E8D5CE" onclick="location.href='https://shindan-lab.github.io/'">他の診断もやってみる</button>
+    </section>
+
+    <footer class="site-footer"><a class="footer-logo-wrap" href="https://shindan-lab.github.io/"><span class="footer-brand-name">診断<em>Lab</em></span></a><p class="footer-tagline">あなたの「なんか」を、言葉にする。</p><p class="footer-links"><a href="https://shindan-lab.github.io/about.html">運営情報</a><span style="color:#CBB2A8;margin:0 8px">|</span><a href="https://shindan-lab.github.io/privacy.html">プライバシーポリシー</a><span style="color:#CBB2A8;margin:0 8px">|</span><a href="https://shindan-lab.github.io/disclaimer.html">免責事項</a></p><p class="footer-copy">© 2026 診断Lab</p></footer>
+  </main>
+
+  <script src="affiliate.js"></script>
+  <script>
+const typeColors = {
+  A:{gradient:'linear-gradient(135deg,#DB2777 0%,#F472B6 100%)'},
+  B:{gradient:'linear-gradient(135deg,#2563EB 0%,#60A5FA 100%)'},
+  C:{gradient:'linear-gradient(135deg,#0F766E 0%,#2DD4BF 100%)'},
+  D:{gradient:'linear-gradient(135deg,#D97706 0%,#FBBF24 100%)'},
+  E:{gradient:'linear-gradient(135deg,#7C3AED 0%,#A78BFA 100%)'},
+  F:{gradient:'linear-gradient(135deg,#6B7280 0%,#9CA3AF 100%)'},
+  G:{gradient:'linear-gradient(135deg,#059669 0%,#34D399 100%)'},
+  H:{gradient:'linear-gradient(135deg,#1D4ED8 0%,#60A5FA 100%)'}
+};
+const TYPE_IMAGE = {
+  A:'type-image-A-v1.png',
+  B:'type-image-B-v1.png',
+  C:'type-image-C-v1.png',
+  D:'type-image-D-v1.png',
+  E:'type-image-E-v1.png',
+  F:'type-image-F-v1.png',
+  G:'type-image-G-v1.png',
+  H:'type-image-H-v1.png'
+};
+const typeIcons = {
+  A:'<svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d="M16 17c4 0 8 2 12 7-2 2-5 5-8 8-6-3-8-9-8-15h4z" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.9)" stroke-width="2.2"/></svg>',
+  B:'<svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="12" width="26" height="18" rx="5" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.9)" stroke-width="2.2"/><path d="M36 18h10" stroke="rgba(255,255,255,.9)" stroke-width="2.2" stroke-linecap="round"/></svg>',
+  C:'<svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="22" r="10" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.9)" stroke-width="2.2"/><path d="M18 38c4-4 16-4 20 0" stroke="rgba(255,255,255,.9)" stroke-width="2.4" stroke-linecap="round"/></svg>',
+  D:'<svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d="M14 30c4-8 8-12 14-12s10 4 14 12" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2.5"/><circle cx="28" cy="30" r="4" fill="rgba(255,255,255,.9)"/></svg>',
+  E:'<svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d="M14 18c5 0 8 5 8 12s-3 12-8 12" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2.5"/><path d="M26 16v24" stroke="rgba(255,255,255,.9)" stroke-width="2.5"/><path d="M32 20c6 0 10 4 10 8s-4 8-10 8" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2.5"/></svg>',
+  F:'<svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d="M20 18c0 10 4 14 8 20 4-6 8-10 8-20" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.9)" stroke-width="2.2"/><circle cx="28" cy="42" r="3" fill="rgba(255,255,255,.9)"/></svg>',
+  G:'<svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d="M12 18h18l-8 10 10 10H18" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  H:'<svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d="M18 42c5-10 9-16 10-24 5 6 10 10 10 16 0 4-4 8-10 8s-10-3-10 0z" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.9)" stroke-width="2.2"/></svg>'
+};
+const Q = [
+  ['誰かが困っている場面で、いちばん自然に出やすい動きは？', [['必要そうなことをそっと手伝う',{A:3}],['状況を整理して見通しをつくる',{B:3}],['何が問題か先に気づいて伝える',{C:3}],['自分から最初の一歩を動かす',{D:3}]]],
+  ['話がまとまっていない場面で、自分がやりがちなのは？', [['伝わる言葉に言い換える',{E:3}],['背景や本質をもう少し考える',{F:3}],['空気が重くなりすぎないようにする',{G:3}],['人と人のつながり方や相性が気になる',{H:3}]]],
+  ['人が集まる場で、自然に出やすい役割は？', [['目立たないところを支えること',{A:3}],['全体がやりやすい流れを整えること',{B:3}],['小さな違和感に先に気づくこと',{C:3}],['最初の動き出しをつくること',{D:3}]]],
+  ['周囲から「助かった」と言われやすいのは？', [['説明がわかりやすいこと',{E:3}],['ちゃんと考えてくれること',{F:3}],['場が話しやすくなること',{G:3}],['人と人のあいだをうまくつなぐこと',{H:3}]]],
+  ['自分では普通だと思っているけれど、人に驚かれやすいのは？', [['支えることを自然にやっていること',{A:3}],['混乱を見やすく整えられること',{B:3}],['変化や違和感にすぐ気づくこと',{C:3}],['迷っている空気を前に動かせること',{D:3}]]],
+  ['説明が難しいことに出会ったとき、自分の反応に近いのは？', [['相手に伝わる言い方を探したくなる',{E:3}],['まず中身を深く理解したくなる',{F:3}],['場が重くならないように気にする',{G:3}],['誰とどう共有すると動きやすいか考える',{H:3}]]],
+  ['誰かがまだ慣れていない場面で、自分に近いのは？', [['困っている部分をそっと支える',{A:3}],['やりやすい形に整えてあげたくなる',{B:2,H:1}],['つまずきそうな点に先に気づく',{C:3}],['まず一緒に最初の一歩をつくる',{D:3}]]],
+  ['会話や説明の場で、自分らしさが出やすいのは？', [['曖昧なことを言葉にできるとき',{E:3}],['表面だけで終わらず深く考えられるとき',{F:3}],['緊張を少しやわらげられるとき',{G:3}],['別々の考えをつないで流れをつくれるとき',{H:3}]]],
+  ['仕事や家事で「自分らしさが出る」のはどんな場面？', [['誰かがやりやすくなるように動く場面',{A:3}],['手順や流れを整える場面',{B:3}],['小さな変化に先に気づく場面',{C:3}],['よし、やろうと流れをつくる場面',{D:3}]]],
+  ['複数の人や話題があるとき、得意寄りなのは？', [['必要な支えが足りていない所を見つけること',{A:2}],['情報や役割を整理すること',{B:3}],['見落とされやすい変化を拾うこと',{C:3}],['人や考えの接点を見つけること',{H:3}]]],
+  ['褒められても自分ではピンと来にくいのは？', [['支えてくれて助かる',{A:3}],['整えてくれて助かる',{B:3}],['気づくのが早い',{C:3}],['言葉にするのがうまい',{E:3}]]],
+  ['もし「あなたの良さ」を一番発揮しやすい場面を選ぶなら？', [['人が安心して動けるようにするとき',{G:2,A:1}],['本質まで考えて意味を深めるとき',{F:3}],['止まりそうな流れを前に進めるとき',{D:2,B:1}],['人や可能性の間によい流れをつくるとき',{H:3}]]]
+];
+const T = {
+  A:['支える力が出るタイプ','あなたの良さは、前に出るより先に土台を整えてしまうところにあります','誰かが困っていたら自然に手を貸す。目立たないところで抜けを埋める。表に立つ人が動きやすいように、そっと支える。段取りの隙間を埋めたり、言われる前に必要そうなものを整えたり、空いている穴に自然と気づいて手を出せる。あなたは、そういう役回りの中で強みが出やすい人です。自分では“たいしたことじゃない”と思っていても、その安心感に救われている人は少なくありません。\n\n支える力は、派手ではないぶん見落とされやすいです。でも、組織でも家庭でも、物事がちゃんと回る背景にはこういう力があります。あなたの強みは、土台をつくること。前に立つ人だけが価値を出しているわけではありません。あなたがいると、周りが本来の力を出しやすくなる。その働き方自体が価値です。','あなたが自然にやってきたことは、ただの気遣いではなく、ちゃんと人や場を支える力です。それを当たり前にできてしまうところに、あなたのすごさがあります。','最近「これなら自然にできた」と思える場面を一つ思い出してみてください。目立たなくても、支えた事実を自分で受け取ることが、強みを活かす第一歩になります。'],
+  B:['整える力が出るタイプ','あなたの強みは、散らかったものを「わかる形」に整えるときに自然に出ています','話があちこちに飛んでいると整理したくなる。曖昧な状態を見ると、順番や形をつけたくなる。バラバラな情報を、みんなが動きやすい形に整える。何が足りないか、どこから手をつけると楽になるかを見つけるのが早い。あなたは、混乱を減らすことで力を発揮しやすい人です。\n\n整える力は、ただ几帳面ということではありません。人が安心して動ける土台をつくる力です。見通しが立つだけで、人はかなり楽になります。最後まで着地させる力も、この強みの延長にあります。あなたは、その“見えにくい安心”をつくれる人です。混乱を責めるのではなく、回る形へ直せるのがあなたの価値です。','あなたが整えることで、周りの人は思っている以上に助かっています。自分では普通にやっていることでも、それは立派な価値です。','今日ひとつだけ、「自分は整えるのが得意かもしれない」と感じた場面をメモしてみてください。得意は、無意識にやっていることの中にあることが多いです。'],
+  C:['気づく力が出るタイプ','あなたの強みは、小さな違和感や変化に「先に気づけること」です','少し元気がない人に気づく。話のズレや違和感を先に感じる。見落とされやすい部分に、自然と目が行く。表に出る前のサインを拾って、空気が大きく崩れる前に「あれ、少し変かも」と感じ取れる。あなたは、そういう早い感度の中で強みが出やすい人です。本人からすると当たり前でも、その気づきがあるから助かっている場面はかなり多いはずです。\n\n気づく力は、繊細さと近いところにあります。だからこそ、自分では“気にしすぎかな”と思ってしまうこともあるかもしれません。でも、その早さや細やかさがあるから防げること、やわらげられること、本格的なトラブルになる前に拾えることがあります。誰かの表情、声のトーン、会話の間、作業の雑音みたいなものを先にキャッチできるのは、立派な能力です。あなたは「問題が起きてから対処する人」ではなく、「問題になる前に気づける人」なのかもしれません。','みんなが見過ごすところに気づけるのは、あなたの感度が高いからです。その力は、静かでも確実に人の役に立っています。','最近「これ、自分だけ先に気づいたかも」と思ったことを一つ書いてみてください。気づく力は、意識して受け取るほど自信につながります。'],
+  D:['前に進める力が出るタイプ','あなたの強みは、止まりそうな空気に「最初の一歩」をつくれることです','迷っている場面で、とりあえずやってみようと言える。考えるだけで止まりそうなとき、まず動き出せる。誰かが決めきれずにいる時に、「じゃあ一回これでやってみよう」と流れを作れる。あなたは、物事の“始まり”をつくる場面で強みが出る人です。最初の一歩を出すのは簡単ではありませんが、それを自然に引き受けられるところにあなたの価値があります。\n\n前に進める力は、勢いだけではありません。みんなが不安で止まっているときに、一歩分の勇気を出せることです。その一歩があるから、流れが動き出し、周りもようやく動けるようになります。完璧な見通しがなくてもゼロを一にできる人は、思っている以上に少ないです。あなたは、停滞をほどく役割を自然に担える人です。動き出したあとを持ち直す力も、この強みの中に含まれています。','動き出せる人って、それだけで周りの景色を変えるんですよね。あなたの一歩に助けられた人は、きっとたくさんいます。','最近「自分が動いたから少し進んだ」ことを一つ思い出してみてください。その感覚を言葉にできると、あなたの強みはもっと使いやすくなります。'],
+  E:['言葉にする力が出るタイプ','あなたの強みは、曖昧なものを「伝わる言葉」に変えられることです','うまく説明できないことを、わかる形に言い換えられる。誰かの気持ちや状況を、聞いた人が理解しやすい言葉にできる。「つまりこういうことだよね」と橋をかける役が自然に回ってくることもあるのではないでしょうか。あなたは、言葉を使って橋をかける場面で強みが出る人です。\n\n言葉にする力は、話がうまいことだけではありません。伝わらないものを、伝わるところまで持っていけることです。説明、翻訳、共有、その全部に価値があります。あなたの言葉があることで、安心できる人がいます。混線していたものが「わかった」に変わる瞬間をつくれるのが、この強みです。','「なんとなく」を「なるほど」に変えられるのは、立派な力です。言葉にすることは、想像以上に人を助けています。','最近、誰かに説明して「わかりやすい」と言われたことがあれば、軽くメモしてみてください。あなたの強みは、そういう場面にすでに出ています。'],
+  F:['深める力が出るタイプ','あなたの強みは、表面だけで終わらず「本質まで見に行けること」です','すぐに結論を出すより、背景や理由まで見たくなる。見えていることの奥に何があるのかを自然に考える。言われたことをそのまま受け取るだけでなく、「なぜそうなっているんだろう」「本当の論点はどこだろう」ともう一段下まで見に行く。あなたは、浅く流さずに掘り下げる場面で強みが出る人です。\n\n深める力は、スピードだけを求める場では見えにくいことがあります。でも、本当に大事な判断や、人の気持ちを扱う場面では、この力が大きな価値になります。表面の正しさだけで決めず、背景まで見てから考えられる人は、雑な判断を減らせます。あなたは、簡単に雑にしない人です。時間がかかることもありますが、そのぶん見落としにくく、薄い理解で終わりにしない強さがあります。','考えすぎではなく、ちゃんと考えられる人なんですよね。その深さがあるから見えることが、確かにあります。','最近「自分だからここまで考えた」と思えることを一つ思い出してみてください。深める力は、時間がかかっても強い価値になります。'],
+  G:['場をやわらげる力が出るタイプ','あなたの強みは、緊張や重さを「少しやわらげること」で自然に出ています','人が話しやすい空気をつくる。張りつめた場を少し軽くする。強く引っ張るわけではないのに、あなたがいると何となくやりやすくなる。言葉の選び方、表情、間の取り方、ちょっとした相づちで、場の温度を少し下げられる。そんな場面があるなら、それは立派な強みです。あなたは、強さで動かすというより、安心感で人を動きやすくする人です。\n\n場をやわらげる力は、目に見える成果として数えにくいです。でも、人が安心して動ける空気は、それだけで大きな価値があります。ピリついた場では言えなかったことが、あなたがいると少し言いやすくなる。黙っていた人が入りやすくなる。そういう変化は派手ではなくても、実務でも関係でもかなり効きます。あなたは、空気を整えることで周りの力を引き出しやすい人です。','「あなたがいると話しやすい」は、とても大きな強みです。やさしさや柔らかさは、ちゃんと場を変える力になります。','最近、自分が入ったことで少し空気がやわらいだ場面を思い出してみてください。見えにくい強みほど、意識して受け取ることが大切です。'],
+  H:['つないで育てる力が出るタイプ','あなたの強みは、人や可能性のあいだに「よい流れ」をつくれることです','この人とこの人は相性が良さそう。今はまだ慣れていないけれど、この人は伸びそう。別々に見えていたものの間に接点や可能性を見つける。誰に何を渡すと動きやすいか、人が安心して伸びるにはどんな関わり方がよさそうかを自然に見ている。あなたは、人や関係の先をよくしていく場面で強みが出る人です。\n\nつないで育てる力は、仲介することだけではありません。孤立を減らし、流れをよくし、相手の伸びしろを信じながら関わることです。急がせすぎず、でもちゃんと前に進む関わり方ができる。あなたは、長い目で人や場をよくしていける人です。その場だけでなく、その先の関係まで少しよくする力とも言えます。','あなたが間に入ることで、うまく流れたことや、安心して伸びられた人がきっといたはずです。その関わり方は、目立たなくても本当に大きな力です。','最近「自分がつないだから進んだ」「この人が前よりやりやすそうだった」と感じた場面を一つ思い返してみてください。あなたの強みは、関係の流れをよくするところにすでに出ています。']
+};
+const TYPE_MAX = { A:21, B:21, C:21, D:17, E:15, F:15, G:14, H:19 };
+const NEXT={A:{lead:'支える力が出やすいなら、疲れや回復まで見ると「いい人」で消耗しすぎない軸がつくりやすいです。',items:[{title:'疲れのカルテ',url:'https://shindan-lab.github.io/tsukare-karte/',desc:'支える側に回りやすい疲れ方の土台を見たいときに。'},{title:'あなたの回復スイッチ診断',url:'https://shindan-lab.github.io/recovery-switch/',desc:'人を支えたあと、自分をどう戻すといいか見たいときに。'}]},B:{lead:'整える力が出やすいなら、疲れ方と回復の相性まで見ると、整え役で張りつめすぎない工夫がしやすくなります。',items:[{title:'疲れのカルテ',url:'https://shindan-lab.github.io/tsukare-karte/',desc:'丁寧さや責任感が疲れにどうつながるかを見たいときに。'},{title:'あなたの回復スイッチ診断',url:'https://shindan-lab.github.io/recovery-switch/',desc:'張った神経を戻しやすい休み方を見たいときに。'}]},C:{lead:'気づく力が出やすいなら、その感度で疲れすぎないために、疲れ方と職場での削られ方も合わせて見るのがおすすめです。',items:[{title:'疲れのカルテ',url:'https://shindan-lab.github.io/tsukare-karte/',desc:'気配を拾いやすい疲れ方の土台を見たいときに。'},{title:'職場しんどいカルテ',url:'https://shindan-lab.github.io/shokuba-karte/',desc:'空気や評価で削られやすい場面を見たいときに。'}]},D:{lead:'前に進める力が出やすいなら、動く力を消耗だけで終わらせないために、疲れ方と回復を続けて見ると役立ちます。',items:[{title:'疲れのカルテ',url:'https://shindan-lab.github.io/tsukare-karte/',desc:'止まれなくなる疲れ方の背景を見たいときに。'},{title:'あなたの回復スイッチ診断',url:'https://shindan-lab.github.io/recovery-switch/',desc:'動いたあとに戻りやすい休み方を見たいときに。'}]},E:{lead:'言葉にする力が出やすいなら、伝えにくさや疲れ方まで見ると、誰かのためだけでなく自分のためにも使いやすくなります。',items:[{title:'伝わらない疲れ診断',url:'https://shindan-lab.github.io/tsutawaranai-tsukare/',desc:'自分のしんどさをどう言葉にしにくいか見たいときに。'},{title:'疲れのカルテ',url:'https://shindan-lab.github.io/tsukare-karte/',desc:'言葉の前にある疲れの土台を見たいときに。'}]},F:{lead:'深める力が出やすいなら、考えすぎる消耗との境目を見るために、疲れ方と回復の相性も続けて見るのがおすすめです。',items:[{title:'疲れのカルテ',url:'https://shindan-lab.github.io/tsukare-karte/',desc:'先回りや飲み込みが疲れにつながっていないか見たいときに。'},{title:'あなたの回復スイッチ診断',url:'https://shindan-lab.github.io/recovery-switch/',desc:'考え続けた頭を戻しやすい整え方を見たいときに。'}]},G:{lead:'場をやわらげる力が出やすいなら、空気を整える側の疲れ方と休み方も合わせて見ると、自分を守りやすくなります。',items:[{title:'職場しんどいカルテ',url:'https://shindan-lab.github.io/shokuba-karte/',desc:'場の空気を背負ってしまう働き方を見たいときに。'},{title:'あなたの回復スイッチ診断',url:'https://shindan-lab.github.io/recovery-switch/',desc:'人に合わせたあと、どう戻るといいか知りたいときに。'}]},H:{lead:'つないで育てる力が出やすいなら、抱えすぎる疲れと回復の相性も見ておくと、長く使える強みに育てやすいです。',items:[{title:'疲れのカルテ',url:'https://shindan-lab.github.io/tsukare-karte/',desc:'支える側に回りやすい疲れ方の土台を見たいときに。'},{title:'あなたの回復スイッチ診断',url:'https://shindan-lab.github.io/recovery-switch/',desc:'人をつないだあと、自分をどう戻すといいか見たいときに。'}]}};
+const AFF_HINT={A:'支える役に偏りすぎないための補助として置いています。',B:'整える力を活かしつつ、自分も張りつめすぎないための入口です。',C:'気づく力を消耗だけで終わらせないための補助として合いやすい内容です。',D:'動き出す力を、空回りではなく前向きに使いやすくするための入口です。',E:'伝える力を、人のためだけでなく自分にも向けたいときに向いています。',F:'深く考えられる力を、苦しさだけで終わらせないための補助として置いています。',G:'場をやわらげる力を出しながら、自分も守りたいときの入口です。',H:'人をつなぐ力を長く使えるようにするための補助として置いています。'};
+function calc(){const scores={A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0};answers.forEach(a=>Object.entries(a).forEach(([k,v])=>{scores[k]+=v;}));const sorted=Object.entries(scores).sort((a,b)=>{const ra=TYPE_MAX[a[0]]?a[1]/TYPE_MAX[a[0]]:0;const rb=TYPE_MAX[b[0]]?b[1]/TYPE_MAX[b[0]]:0;if(rb!==ra)return rb-ra;return b[1]-a[1];});return{main:sorted[0][0],sub:sorted[1][0],ratios:Object.fromEntries(sorted.map(([k,v])=>[k,TYPE_MAX[k]?v/TYPE_MAX[k]:0]))};}
+function share(main){const url='https://shindan-lab.github.io/strength-style/';return `私は「${T[main][0]}」でした。あなたの強みのタイプを診断。\n\n▼あなたの強みの出方診断\n${url}\n\n#強みの出方診断 #診断Lab`;}
+let i=0;let answers=[];
+function ensureDynamicBlocks(){const affCard=document.getElementById('aff');if(!document.getElementById('affnote')){const note=document.createElement('div');note.id='affnote';note.className='sub';note.style.marginBottom='12px';affCard.insertBefore(note,document.getElementById('afflink'));}}
+function sc(id){['top','quiz','loading','result'].forEach(x=>document.getElementById(x).classList.add('hide'));document.getElementById(id).classList.remove('hide');window.scrollTo({top:0,behavior:'instant'});}
+function render(){document.getElementById('ptext').textContent=`${i+1} / ${Q.length}`;document.getElementById('pbar').style.width=`${((i+1)/Q.length)*100}%`;document.getElementById('backbtn').disabled=i===0;document.getElementById('q').textContent=Q[i][0];const o=document.getElementById('opts');o.innerHTML='';Q[i][1].forEach(item=>{const b=document.createElement('button');b.className='opt';b.textContent=item[0];b.onclick=()=>{answers[i]=item[1];if(i<Q.length-1){i+=1;render();return;}sc('loading');setTimeout(show,1200);};o.appendChild(b);});}
+function start(){i=0;answers=[];sc('quiz');render();}
+function back(){if(i>0){i-=1;render();}}
+function show(){const result=calc();const main=T[result.main];ensureDynamicBlocks();document.getElementById('result-accent').style.background=typeColors[result.main].gradient;document.getElementById('result-type-name').textContent=main[0];document.getElementById('result-type-image').src=TYPE_IMAGE[result.main];document.getElementById('result-type-image').alt=`${main[0]}のイメージ画像`;document.getElementById('headline').textContent=main[1];document.getElementById('body').innerHTML=main[2].split('\n\n').map(p=>`<p>${p}</p>`).join('');document.getElementById('letter').textContent=main[3];document.getElementById('pres').textContent=main[4];const affiliate=(typeof affiliateData!=='undefined'&&affiliateData&&affiliateData[result.main]&&typeof affiliateData[result.main].url==='string'&&affiliateData[result.main].url.trim()!=='')?affiliateData[result.main]:null;if(affiliate){document.getElementById('aff').classList.remove('hide');document.getElementById('affnote').textContent=AFF_HINT[result.main];document.getElementById('afft').textContent=affiliate.title;document.getElementById('affd').textContent=affiliate.desc;document.getElementById('afflink').href=affiliate.url;}else{document.getElementById('aff').classList.add('hide');}const shareText=encodeURIComponent(share(result.main));document.getElementById('sx').href=`https://twitter.com/intent/tweet?text=${shareText}`;document.getElementById('st').href=`https://www.threads.net/intent/post?text=${shareText}`;sc('result');}
+function resetQuiz(){sc('top');}
+  </script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>疲れのカルテ</title>
+  <meta name="description" content="今のあなたが抱えやすい疲れ方や、その疲れの出方がわかる読み物型診断ツールです。">
+  <link rel="canonical" href="https://shindan-lab.github.io/tsukare-karte/">
+  <link rel="icon" href="favicon.png">
+  <meta property="og:title" content="疲れのカルテ｜「なんかしんどい」の正体、少し見えてきます。">
+  <meta property="og:description" content="今のあなたが抱えやすい疲れ方や、その疲れの出方がわかる読み物型診断ツールです。">
+  <meta property="og:url" content="https://shindan-lab.github.io/tsukare-karte/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shindan-lab.github.io/tsukare-karte/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="疲れのカルテ｜「なんかしんどい」の正体、少し見えてきます。">
+  <meta name="twitter:description" content="今のあなたが抱えやすい疲れ方や、その疲れの出方がわかる読み物型診断ツールです。">
+  <meta name="twitter:image" content="https://shindan-lab.github.io/tsukare-karte/og-image.png">
+  <meta name="theme-color" content="#C1714A">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="疲れのカルテ">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;background:#FAF7F4;color:#3D2B1F;margin:0}
+    main{max-width:480px;margin:0 auto;padding:24px 16px calc(48px + env(safe-area-inset-bottom))}
+    .card{background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:20px;margin-bottom:14px}
+    .btn,.opt{display:block;width:100%;min-height:44px;border-radius:12px;font:inherit}
+    .btn{border:none;background:#C1714A;color:#fff;padding:16px;cursor:pointer}
+    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:left;padding:14px;margin:8px 0;cursor:pointer}
+    .hide{display:none}
+    .sub{color:#7A5C52}
+    .center{text-align:center}
+    .bar{height:4px;background:#E8D5CE;border-radius:4px;overflow:hidden}
+    .fill{height:100%;background:#C1714A}
+    .pill{display:inline-block;background:#FDF0EB;border:1px solid #E8D5CE;border-radius:999px;padding:4px 12px;color:#C1714A;font-size:13px}
+    .label{font-size:11px;letter-spacing:.14em;color:#C1714A;font-weight:700;margin-bottom:10px}
+    .hero{padding-top:40px}
+    .h1{font-size:32px;font-weight:700;margin:0 0 8px}
+    .result-header-card{background:#fff;border:1px solid #E8D5CE;border-radius:20px;padding:12px;margin-bottom:16px;overflow:hidden}
+    .result-accent{height:8px;border-radius:999px;margin-bottom:14px}
+    .result-header-copy{padding:2px 8px 14px}
+    .result-header-eyebrow{font-size:10px;letter-spacing:.22em;color:#C1714A;margin-bottom:10px;font-weight:700}
+    .result-type-name{font-size:30px;font-weight:700;line-height:1.25;margin:0;color:#2F2119;letter-spacing:.01em}
+    .result-type-image{display:block;width:100%;height:210px;object-fit:cover;object-position:center;border-radius:16px;background:#F8F4F1}
+    .share a{display:inline-block;width:48%;text-align:center;background:#1A1A1A;color:#fff;text-decoration:none;padding:12px 0;border-radius:12px}
+    .site-footer{margin-top:56px;padding:28px 0 20px;text-align:center;border-top:1px solid #E8D5CE}
+    .footer-logo-wrap{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;text-decoration:none}
+    .footer-brand-name{font-size:17px;font-weight:700;color:#3D2B1F;letter-spacing:.04em}
+    .footer-brand-name em{font-style:normal;color:#C1714A}
+.footer-tagline{font-size:12px;color:#7A5C52;margin-bottom:14px;letter-spacing:.03em}
+.footer-copy{font-size:11px;color:#B0978E}
+.footer-links{margin:0 0 10px;font-size:12px;line-height:1.8}
+.footer-links a{color:#7A5C52;text-decoration:none}
+#body p{margin:0 0 1em}
+    #body p:last-child{margin-bottom:0}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <main>
+    <section id="top" class="hero center">
+      <a href="https://shindan-lab.github.io/" style="letter-spacing:.18em;color:#C1714A;font-size:12px;margin-bottom:12px;text-decoration:none;display:block">診断Lab</a>
+      <h1 class="h1">疲れのカルテ</h1>
+      <p style="color:#C1714A;font-weight:500">「なんかしんどい」の正体、少し見えてきます。</p>
+      <div class="card" style="text-align:left">
+        <p class="sub">答えながら、今のあなたが無意識に続けてきた頑張り方や、疲れが強く出やすい場面をたどっていく診断です。</p>
+        <div style="margin-top:12px"><span class="pill">スマホで読みやすい診断です</span></div>
+      </div>
+      <button class="btn" onclick="start()">診断をはじめる</button>
+    </section>
+
+    <section id="quiz" class="hide">
+      <div class="sub" id="ptext">1 / 12</div>
+      <div class="bar"><div class="fill" id="pbar" style="width:8.3%"></div></div>
+      <div style="margin:10px 0">
+        <button onclick="back()" id="backbtn" style="background:none;border:none;color:#7A5C52;padding:0">前の問題に戻る</button>
+      </div>
+      <div class="card">
+        <div id="q" style="font-weight:700;line-height:1.7"></div>
+        <div id="opts"></div>
+      </div>
+    </section>
+
+    <section id="loading" class="hide center" style="padding-top:100px">
+      <div style="width:48px;height:48px;border:4px solid #E8D5CE;border-top-color:#C1714A;border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 24px"></div>
+      <div class="sub" style="font-size:16px;font-weight:500">今のあなたの疲れ方を分析中…</div>
+    </section>
+
+    <section id="result" class="hide">
+      <div class="result-header-card" id="result-header-card">
+        <div class="result-accent" id="result-accent"></div>
+        <div class="result-header-copy">
+          <div class="result-header-eyebrow">あなたの疲れタイプ</div>
+          <h2 class="result-type-name" id="result-type-name"></h2>
+        </div>
+        <img class="result-type-image" id="result-type-image" src="" alt="">
+      </div>
+      <div class="card">
+        <div class="label">診断結果</div>
+        <div id="headline" style="font-weight:700;line-height:1.7;margin-bottom:12px"></div>
+        <div id="body" style="line-height:1.9"></div>
+      </div>
+      <div class="card" style="background:#FDF0EB">
+        <div class="label">あなたへ</div>
+        <div id="letter" style="line-height:1.9"></div>
+      </div>
+      <div class="card" style="border:2px solid #C1714A">
+        <div class="label">今日からできること</div>
+        <div id="pres" style="line-height:1.9"></div>
+      </div>
+      <div id="aff" class="card hide">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div class="label" style="margin-bottom:0">もし気になったら</div>
+          <span style="font-size:9px;font-weight:700;color:#B0978E;background:#F0E4DE;padding:2px 6px;border-radius:3px;letter-spacing:.05em">PR</span>
+        </div>
+        <a id="afflink" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
+          <div id="afft" style="font-weight:700"></div>
+          <div id="affd" class="sub" style="margin-top:6px"></div>
+          <div style="margin-top:10px;color:#BF4500;font-weight:700">楽天で見る →</div>
+        </a>
+      </div>
+      <div class="share">
+        <a id="sx" target="_blank" rel="noopener noreferrer">Xでシェア</a>
+        <a id="st" target="_blank" rel="noopener noreferrer">Threadsでシェア</a>
+      </div>
+      <button class="btn" style="margin-top:12px;background:#fff;color:#7A5C52;border:1px solid #E8D5CE" onclick="location.href='https://shindan-lab.github.io/'">他の診断もやってみる</button>
+    </section>
+
+    <footer class="site-footer">
+      <a class="footer-logo-wrap" href="https://shindan-lab.github.io/"><span class="footer-brand-name">診断<em>Lab</em></span></a>
+      <p class="footer-tagline">あなたの「なんか」を、言葉にする。</p>
+      <p class="footer-links">
+        <a href="https://shindan-lab.github.io/about.html">運営情報</a>
+        <span style="color:#CBB2A8;margin:0 8px">|</span>
+        <a href="https://shindan-lab.github.io/privacy.html">プライバシーポリシー</a>
+        <span style="color:#CBB2A8;margin:0 8px">|</span>
+        <a href="https://shindan-lab.github.io/disclaimer.html">免責事項</a>
+      </p>
+      <p class="footer-copy">© 2026 診断Lab</p>
+    </footer>
+  </main>
+
+  <script src="affiliate.js"></script>
+  <script>
+const typeColors = {
+  A: { gradient: 'linear-gradient(135deg,#7C3AED 0%,#A78BFA 100%)' },
+  B: { gradient: 'linear-gradient(135deg,#DB2777 0%,#F472B6 100%)' },
+  C: { gradient: 'linear-gradient(135deg,#DC2626 0%,#F87171 100%)' },
+  D: { gradient: 'linear-gradient(135deg,#D97706 0%,#FBBF24 100%)' },
+  E: { gradient: 'linear-gradient(135deg,#2563EB 0%,#60A5FA 100%)' },
+  F: { gradient: 'linear-gradient(135deg,#6D28D9 0%,#A78BFA 100%)' },
+  G: { gradient: 'linear-gradient(135deg,#059669 0%,#34D399 100%)' },
+  H: { gradient: 'linear-gradient(135deg,#6B7280 0%,#9CA3AF 100%)' }
+};
+
+const Q = [
+  ['予定外のことが重なった日の終わり、いちばん残りやすいのは？', [
+    ['結局、自分が全部つなぎ直していた感覚', { A: 3 }],
+    ['周りの空気まで拾って消耗した感じ', { B: 3 }],
+    ['うまく回し切れなかった悔しさ', { C: 3 }],
+    ['何がしんどいか整理できない重さ', { H: 3 }]
+  ]],
+  ['頼まれごとを引き受けたあと、近い流れは？', [
+    ['気づけば、自分の持ち分がまた増えている', { A: 3 }],
+    ['期待に応えられたかどうかが気になる', { F: 3 }],
+    ['本当は嫌でも、そのまま飲み込む', { D: 3 }],
+    ['その場は動けるのに、後からどっと落ちる', { H: 2, G: 1 }]
+  ]],
+  ['通知や連絡が続く日に、いちばん削られやすいのは？', [
+    ['空気を読み続けることで頭が休まらない', { B: 3 }],
+    ['返し方や順番を考え続けてしまう', { E: 3 }],
+    ['中途半端に返したくなくて止まれない', { C: 2, F: 1 }],
+    ['見ただけで反応量が多く、少し閉じたくなる', { G: 2, H: 1 }]
+  ]],
+  ['小さなミスや抜け漏れがあったとき、いちばん近いのは？', [
+    ['何度も見返して修正したくなる', { C: 3 }],
+    ['この先の悪い展開まで想像してしまう', { E: 3 }],
+    ['迷惑をかけた分を取り返したくなる', { A: 2, F: 1 }],
+    ['その場では平気でも、後からじわじわ効く', { H: 3 }]
+  ]],
+  ['ひっかかる言い方をされたとき、残りやすい反応は？', [
+    ['その場では流すが、本音は残り続ける', { D: 3 }],
+    ['相手の機嫌や裏の意味まで気になってしまう', { B: 3 }],
+    ['自分がまずかったのか考え込み続ける', { E: 3 }],
+    ['次は期待を外さないように振る舞ってしまう', { F: 3 }]
+  ]],
+  ['休める時間ができたときの自分に近いのは？', [
+    ['止まった途端、やっと消耗が見えてくる', { H: 3 }],
+    ['休んでいても、回復した感じになりにくい', { G: 3 }],
+    ['頭の中だけ先に動き続けている', { E: 2, G: 1 }],
+    ['気になることを片づけないと落ち着かない', { A: 2, C: 1 }]
+  ]],
+  ['疲れに気づくタイミングとして近いのは？', [
+    ['かなり溜まってから急に崩れる', { H: 3 }],
+    ['誰かに言われて、やっと自覚する', { H: 2, A: 1 }],
+    ['違和感はあるが、自分のことは後回しにする', { D: 2, G: 1 }],
+    ['わかっていても、まだやれる方を選びやすい', { A: 2, F: 1 }]
+  ]],
+  ['人と関わったあとに残りやすい疲れは？', [
+    ['相手に合わせて役割を演じ続けた感じ', { F: 3 }],
+    ['場の温度を拾いすぎた感じ', { B: 3 }],
+    ['言えなかったことが胸に残る感じ', { D: 3 }],
+    ['自分が全体を支えていた感じ', { A: 3 }]
+  ]],
+  ['やることが多い日に、最初に削れやすいのは？', [
+    ['ぼんやりできる時間や余白', { G: 3 }],
+    ['考えなくていい先のことを切る線引き', { E: 3 }],
+    ['ほどほどで止める感覚', { C: 3 }],
+    ['自分の状態を確かめる時間', { H: 2, D: 1 }]
+  ]],
+  ['うまくいかなかった出来事があると、その後どうなりやすい？', [
+    ['次はもっと整えて出そうと締める', { C: 3 }],
+    ['別の失敗まで防ごうと考え続ける', { E: 3 }],
+    ['本当は引っかかっているのに整理できず飲み込む', { D: 3 }],
+    ['自分が穴埋めしようとして動いてしまう', { A: 3 }]
+  ]],
+  ['明日ひとつだけ負荷を減らすなら、いちばん効きそうなのは？', [
+    ['自分が持つ役割を少し減らすこと', { A: 3 }],
+    ['全部の空気に反応しないこと', { B: 3 }],
+    ['きちんとやり切る前提をゆるめること', { C: 3 }],
+    ['嫌だったことを自分の中で無かったことにしないこと', { D: 3 }]
+  ]],
+  ['誰かに「無理しないで」と言われたとき、内心いちばん近いのは？', [
+    ['でも自分が抜けると回らない気がする', { A: 3 }],
+    ['そう言われても、気にするのを止めにくい', { B: 2, E: 1 }],
+    ['無理している実感は薄いのに、余裕はない', { H: 3 }],
+    ['弱音や断りを出すほうが難しい', { D: 2, F: 1 }]
+  ]]
+];
+
+const T = {
+  A: ['背負い込み疲れタイプ', '気づくといつも、自分が最後の受け皿になっているのかもしれません', '気づいたら、自分がつなぎ役になっている。抜けた穴を埋める側に回っている。家でも仕事でも、「これを止めると全体が回りにくい」と感じた瞬間に、自分の手を出してきたのではないでしょうか。頼られたときに断れないというより、頼まれる前から持ったほうが早いと判断してきたのかもしれません。あなたは、責任感と処理力があるぶん、自然に負荷を引き受けやすい人です。\n\nこの疲れは、単純な忙しさだけではありません。周りが楽をしているからでも、あなたが弱いからでもない。『持てる人のところに集まる』『回せる人に穴埋めが寄る』という構造の中で、ずっと稼働し続けてきた結果に近いものです。だから休んでも、ただ体力が戻るだけでは軽くなりきらないことがあります。持つ前提そのものが続いているからです。', 'ちゃんと回してきた人ほど、止まる理由を持ちにくいんですよね。周りには頼れる人に見えていても、内側では「もう一個来たらきつい」がずっと続いていたはずです。', '今日ひとつだけ、頼まれごとに即答しないでみてください。「確認してから返します」を挟むだけでも、背負い込みの流れは少し変えられます。'],
+  B: ['気配キャッチ疲れタイプ', 'あなたは、言葉より先に空気の変化を受け取ってしまう人なのかもしれません', '誰かの機嫌、場の温度、言葉の裏にあるニュアンス。少し返事が遅い、いつもより声が固い、家の空気がなんとなく重い。あなたは、表に出ていないものをかなり早く察知する人です。それは気配りの力でもあり、人の変化に先に気づける繊細さでもあります。\n\nでも、その感度が開いたままだと、自分の仕事や自分の用事以外の感情まで処理することになります。自分が何か悪かったのかを考えたり、場が荒れないよう先回りしたり、相手の不機嫌を少しでも和らげようとしたり。本来は背負わなくていい空気まで受け取り続けていれば、消耗するのは当然です。疲れているのは、気にしすぎだからではなく、拾えてしまうからです。', '敏感さは弱さではありません。ずっと気配を拾えるままでいたら、疲れるのは自然です。あなたが悪いわけではなく、感度の高いまま長時間働いてきただけです。', '今日は一度だけ、「これは自分の役目ではない」と心の中で線を引いてみてください。全部に反応しない時間が、回復の入口になります。'],
+  C: ['仕上げすぎ疲れタイプ', 'ちゃんとやろうとする力が、休み時間まで働き続けていたのかもしれません', '抜け漏れを出したくない。中途半端な状態で渡したくない。見直せるなら、もう一度見ておきたい。送信前に余計に確認する、提出後もしばらく気になる、ちょっとした違和感を放置しにくい。あなたは、物事を雑に扱えない人です。その姿勢は、信頼や安心感として周りにも伝わってきたはずです。\n\nただ、その丁寧さが常に全力だと、心の休みどころがなくなります。八割で十分な場面でも、最後まで仕上げ切ろうとしてしまう。やることそのものより、「ちゃんと終わらせるための神経」が先に削れていくんです。今しんどいのは、能力不足だからではなく、むしろ『ちゃんとやり続けてきた反動』に近い状態です。', '雑にできないのは、あなたの誠実さです。その誠実さに助けられてきた人は確実にいます。でも、毎回フル出力のままでは持ちません。終わったあとまで気が張ってしまう人ほど、消耗は深くなります。', '今日のどこか一か所で、「ここは仕上げ切らなくていい」と決めてみてください。少し残すことが、手を抜くことと同じではないと体に覚えさせる時間です。'],
+  D: ['飲み込み疲れタイプ', '言わなかったことが、そのまま静かな重さになって残っているのかもしれません', '本当はひっかかっていた。少し嫌だった。違和感もあった。でも、言うほどではないと思ってやり過ごしてきた。「今ここで言うと面倒になる」「私が飲み込んだ方が早い」が先に出やすい。あなたは、場を荒らさないために本音を奥へしまいやすい人です。\n\nその選び方は、その場を丸く収める力にもなります。ただ、飲み込んだ気持ちは消えません。表には出なくても、あとから別の場面で急にしんどくなったり、相手とは別のことにまでイライラが残ったり、自分でも理由がわからない重さとして出てくることがあります。今のしんどさは、怠けや甘えではなく、ずっと後回しにしてきた反応が静かに溜まったものかもしれません。', '言わない方が早いとわかっている人ほど、自分の中だけが荒れていくんですよね。ここまでよく耐えてきました。丸く収めてきた分だけ、あなたの中には残りやすかったはずです。', 'いきなり相手に伝えなくて大丈夫です。まずは「本当は嫌だったこと」を一つだけ言葉にして、メモに残してみてください。飲み込んだままにしない練習になります。'],
+  E: ['先回り不安疲れタイプ', 'まだ起きていない先のことまで、心が先に働き続けていたのかもしれません', 'これを言ったらどう受け取られるか。次に何が起きるか。失敗したらどこまで影響するか。あなたは、現実より少し先の場面を何通りも想像できる人です。返事が来る前から次の説明を考える、まだ起きていないトラブルの穴埋めまで頭の中で始めてしまう。その力は、準備や危険回避において確かな強みでもあります。\n\nただ、先回りが強く働きすぎると、まだ起きていない出来事の処理で先に疲れてしまいます。実際の出来事はひとつなのに、心の中では何本もの分岐を同時に走っている状態です。だから、やることが終わっても気持ちだけが終わらない。休まらないのは、心が常に少し先の未来で働いているからかもしれません。', 'ちゃんと備えようとしてきたんですよね。考えないと不安だったからこそ、ここまで回してこられた面もあるはずです。でも、頭の中で先に働き続けるのはそれだけで疲れます。', '不安が出たら、「今すぐ手をつけること」と「まだ起きていないこと」を分けてみてください。先の全部を今日の仕事にしないだけで、かなり違います。'],
+  F: ['期待適応疲れタイプ', 'ちゃんと応えようとするほど、自分の輪郭が後ろへ下がっていたのかもしれません', 'ちゃんとしていたい。がっかりさせたくない。求められている役割にはきちんと応えたい。あなたは、人に対して誠実で、期待された位置に自然と自分を合わせられる人です。頼まれたことに応えるだけでなく、「ここではこう振る舞うのがよさそう」を先に読んで、その形へ自分を寄せてきたのではないでしょうか。\n\nでも、それが続くと、「自分はどうしたいか」より「どう見られるか」「何を期待されているか」が先に立ちやすくなります。断ることより合わせることが早くなり、休むことより応えることが先になります。今のしんどさは、わがままの不足ではなく、むしろ合わせる力が高すぎた反動に近いものです。', '期待に応えられる人ほど、自分の疲れを後回しにしやすいんですよね。ちゃんとしてきたからこそ、今しんどいのは自然です。気づく頃には、自分の基準がかなり後ろへ下がっていたはずです。', '今日は一つだけ、「相手が望みそうなこと」ではなく「今の自分に無理がないこと」で選んでみてください。小さくても、自分に戻る練習になります。'],
+  G: ['余白切れ疲れタイプ', '休んでいても戻らないのは、余白そのものが足りなくなっていたからかもしれません', '予定が詰まり切っているわけではないのに、気が休まらない。何もしていない時間にも、情報を見たり考えごとをしたりして、頭の反応だけは止まらない。休んでいるはずの時間まで、次の段取りや通知や小さな判断で埋まりやすい。あなたは、体力より先に余白の不足で消耗しやすいタイプかもしれません。\n\nこの疲れに必要なのは、派手な気分転換より、まず刺激を減らすことです。何かを足すより、少し引く。情報、会話、判断、予定。そうした反応量が減ってはじめて、回復が動き出しやすいタイプです。だから「休んでいるのに戻らない」と感じやすいのは、休み時間そのものではなく、休み方の中にまだ反応が多く残っているからかもしれません。', '何もしない時間が必要なのは、甘えではなく回復条件です。余白がないまま走ってきたなら、しんどいのは当然です。あなたには、空いた時間ではなく「空けた時間」が必要なんだと思います。', '今日は10分だけでも「何も足さない時間」をつくってみてください。スマホも予定も閉じて、反応しない時間を先に確保するのが効きます。'],
+  H: ['気づきにくい消耗タイプ', 'しんどさに気づく前に、長く頑張りすぎていたのかもしれません', '明確な原因は言い切れない。でも元気が戻りにくい。休んでも回復した感じが薄い。何がつらいのか、自分でもうまく言葉にならない。ぼんやり重いのに説明はつかず、「このくらい普通かも」で流してしまいやすい。そんな状態が続いているなら、あなたは「疲れていない」のではなく、「疲れを拾う感覚」が鈍くなっているのかもしれません。\n\n人は限界に近づくと、むしろしんどさを感じにくくなることがあります。危険信号を受け取る余白ごと削れてしまうからです。だから、まだ動けていることと、大丈夫であることは同じではありません。周りから見ると普通にこなしていても、内側ではかなり前から回復が追いついていなかった可能性があります。今必要なのは、もっと頑張ることではなく、自分の状態を見える形に戻すことです。', '気づけないくらい長く頑張ってきたんですよね。理由がはっきりしないからといって、軽い疲れだとは限りません。むしろ、言葉にならないまま続いてきた疲れほど深いことがあります。', '今日は帰宅後に、「今の疲れは10点満点で何点か」だけつけてみてください。曖昧な消耗を数字にするだけでも、自分の状態は見えやすくなります。']
+};
+
+const NEXT = {
+  A: { lead: '持ちすぎやすい疲れ方が出たなら、「どの場面で抱えやすいか」と「どう伝えると軽くなるか」を続けて見るとつながりやすいです。', items: [
+    { title: '職場しんどいカルテ', url: 'https://shindan-lab.github.io/shokuba-karte/', desc: '仕事や役割の中で、どこに負荷が集まりやすいかを見たいときに。' },
+    { title: '伝わらない疲れ診断', url: 'https://shindan-lab.github.io/tsutawaranai-tsukare/', desc: '抱えたまま言えなくなりやすい流れまで見たいときに。' }
+  ]},
+  B: { lead: '気配を拾いすぎる疲れ方が出たなら、職場の空気と休み方の相性を見ると対処がしやすくなります。', items: [
+    { title: '職場しんどいカルテ', url: 'https://shindan-lab.github.io/shokuba-karte/', desc: '仕事中の空気や人間関係で削られやすいところを見たいときに。' },
+    { title: 'あなたの回復スイッチ診断', url: 'https://shindan-lab.github.io/recovery-switch/', desc: '刺激を減らして戻る方法を知りたいときに。' }
+  ]},
+  C: { lead: '丁寧さで疲れやすいなら、「どう休むと戻るか」と「その誠実さがどこで強みになるか」を一緒に見るのがおすすめです。', items: [
+    { title: 'あなたの回復スイッチ診断', url: 'https://shindan-lab.github.io/recovery-switch/', desc: '張った神経を戻しやすい休み方を見たいときに。' },
+    { title: 'あなたの強みの出方診断', url: 'https://shindan-lab.github.io/strength-style/', desc: '雑にできない良さが、どこで価値になるかを見たいときに。' }
+  ]},
+  D: { lead: '飲み込みやすい疲れ方が出たなら、「伝え方の癖」と「仕事のどこで無理が出やすいか」を続けて見ると整理しやすいです。', items: [
+    { title: '伝わらない疲れ診断', url: 'https://shindan-lab.github.io/tsutawaranai-tsukare/', desc: '言う前に止まりやすい流れや、ズレやすさを見たいときに。' },
+    { title: '職場しんどいカルテ', url: 'https://shindan-lab.github.io/shokuba-karte/', desc: '人とのやり取りや役割の中で何が重くなりやすいかを見たいときに。' }
+  ]},
+  E: { lead: '先回りで疲れやすいなら、「休み方の相性」と「仕事で不安が強くなる場所」を見ると打ち手が見えやすくなります。', items: [
+    { title: 'あなたの回復スイッチ診断', url: 'https://shindan-lab.github.io/recovery-switch/', desc: '頭の先回りを止めやすい整え方を見たいときに。' },
+    { title: '職場しんどいカルテ', url: 'https://shindan-lab.github.io/shokuba-karte/', desc: '評価や先読みで削られやすい仕事場面を見たいときに。' }
+  ]},
+  F: { lead: '期待に合わせすぎる疲れ方が出たなら、「伝えにくさ」と「自分の良さ」を一緒に見ると軸を戻しやすくなります。', items: [
+    { title: '伝わらない疲れ診断', url: 'https://shindan-lab.github.io/tsutawaranai-tsukare/', desc: '言いたいことより合わせる方が先になる流れを見たいときに。' },
+    { title: 'あなたの強みの出方診断', url: 'https://shindan-lab.github.io/strength-style/', desc: '合わせること以外の自分の強みを言葉にしたいときに。' }
+  ]},
+  G: { lead: '余白切れの疲れ方が出たなら、まずは戻り方を知って、その上で強みの使いどころを見直すのが相性のいい順番です。', items: [
+    { title: 'あなたの回復スイッチ診断', url: 'https://shindan-lab.github.io/recovery-switch/', desc: '刺激を減らして戻りやすい休み方を見たいときに。' },
+    { title: 'あなたの強みの出方診断', url: 'https://shindan-lab.github.io/strength-style/', desc: '消耗しにくい力の使い方を考えたいときに。' }
+  ]},
+  H: { lead: '消耗に気づきにくい流れが出たなら、「戻り方」と「伝えにくさ」を見て、状態を外に出しやすくするのがおすすめです。', items: [
+    { title: 'あなたの回復スイッチ診断', url: 'https://shindan-lab.github.io/recovery-switch/', desc: '今の自分に合う回復の入口を見つけたいときに。' },
+    { title: '伝わらない疲れ診断', url: 'https://shindan-lab.github.io/tsutawaranai-tsukare/', desc: 'しんどさを言葉にしにくい癖まで見たいときに。' }
+  ]}
+};
+
+const AFF_HINT = {
+  A: '持ちすぎる流れを少しゆるめたいときの入口として置いています。',
+  B: '敏感さそのものを消すのではなく、疲れにくく扱うための補助として合いやすい内容です。',
+  C: '丁寧さを責めずに、張りつめた神経を少しゆるめたいときに向いています。',
+  D: '飲み込んだ気持ちを外へ出す練習をしたいときの補助として置いています。',
+  E: '先回りでふくらみやすい不安を、少し整理したいときに合いやすい一冊です。',
+  F: '相手に合わせすぎる流れから、自分の感覚を戻したいときの入口として置いています。',
+  G: '足し算ではなく、余白を取り戻す感覚を助けたいときに向いています。',
+  H: 'ぼんやりした消耗を見える形にしたいときの補助として置いています。'
+};
+
+const TYPE_IMAGE = {
+  A: 'type-image-A-v1.png',
+  B: 'type-image-B-v1.png',
+  C: 'type-image-C-v1.png',
+  D: 'type-image-D-v1.png',
+  E: 'type-image-E-v1.png',
+  F: 'type-image-F-v1.png',
+  G: 'type-image-G-v1.png',
+  H: 'type-image-H-v1.png'
+};
+
+const TYPE_MAX = { A: 24, B: 17, C: 18, D: 20, E: 18, F: 13, G: 10, H: 20 };
+
+function calc() {
+  const scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 };
+  answers.forEach((answer) => {
+    Object.entries(answer).forEach(([key, value]) => {
+      scores[key] += value;
+    });
+  });
+  const sorted = Object.entries(scores).sort((a, b) => {
+    const ratioA = TYPE_MAX[a[0]] ? a[1] / TYPE_MAX[a[0]] : 0;
+    const ratioB = TYPE_MAX[b[0]] ? b[1] / TYPE_MAX[b[0]] : 0;
+    if (ratioB !== ratioA) return ratioB - ratioA;
+    return b[1] - a[1];
+  });
+  return {
+    main: sorted[0][0],
+    sub: sorted[1][0],
+    scores,
+    ratios: Object.fromEntries(sorted.map(([key, value]) => [key, TYPE_MAX[key] ? value / TYPE_MAX[key] : 0]))
+  };
+}
+
+function share(main) {
+  const url = 'https://shindan-lab.github.io/tsukare-karte/';
+  return `私は「${T[main][0]}」でした。あなたの疲れのタイプを診断。\n\n▼疲れのカルテ\n${url}\n\n#疲れのカルテ #診断Lab`;
+}
+
+function ensureDynamicBlocks() {
+  const affCard = document.getElementById('aff');
+
+  if (!document.getElementById('affnote')) {
+    const note = document.createElement('div');
+    note.id = 'affnote';
+    note.className = 'sub';
+    note.style.marginBottom = '12px';
+    const link = document.getElementById('afflink');
+    affCard.insertBefore(note, link);
+  }
+}
+
+let i = 0;
+let answers = [];
+
+function sc(id) {
+  ['top', 'quiz', 'loading', 'result'].forEach((sectionId) => {
+    document.getElementById(sectionId).classList.add('hide');
+  });
+  document.getElementById(id).classList.remove('hide');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function render() {
+  document.getElementById('ptext').textContent = `${i + 1} / ${Q.length}`;
+  document.getElementById('pbar').style.width = `${((i + 1) / Q.length) * 100}%`;
+  document.getElementById('backbtn').disabled = i === 0;
+  document.getElementById('q').textContent = Q[i][0];
+
+  const options = document.getElementById('opts');
+  options.innerHTML = '';
+  Q[i][1].forEach((item) => {
+    const button = document.createElement('button');
+    button.className = 'opt';
+    button.textContent = item[0];
+    button.onclick = () => {
+      answers[i] = item[1];
+      if (i < Q.length - 1) {
+        i += 1;
+        render();
+        return;
+      }
+      sc('loading');
+      setTimeout(show, 1200);
+    };
+    options.appendChild(button);
+  });
+}
+
+function start() {
+  i = 0;
+  answers = [];
+  sc('quiz');
+  render();
+}
+
+function back() {
+  if (i > 0) {
+    i -= 1;
+    render();
+  }
+}
+
+function show() {
+  const result = calc();
+  const main = T[result.main];
+  ensureDynamicBlocks();
+
+  document.getElementById('result-accent').style.background = typeColors[result.main].gradient;
+  document.getElementById('result-type-name').textContent = main[0];
+  document.getElementById('result-type-image').src = TYPE_IMAGE[result.main];
+  document.getElementById('result-type-image').alt = `${main[0]}のイメージ画像`;
+  document.getElementById('headline').textContent = main[1];
+  document.getElementById('body').innerHTML = main[2].split('\n\n').map((paragraph) => `<p>${paragraph}</p>`).join('');
+
+  document.getElementById('letter').textContent = main[3];
+  document.getElementById('pres').textContent = main[4];
+  const affiliate = (
+    typeof affiliateData !== 'undefined' &&
+    affiliateData &&
+    affiliateData[result.main] &&
+    typeof affiliateData[result.main].url === 'string' &&
+    affiliateData[result.main].url.trim() !== ''
+  ) ? affiliateData[result.main] : null;
+
+  if (affiliate) {
+    document.getElementById('aff').classList.remove('hide');
+    document.getElementById('affnote').textContent = AFF_HINT[result.main];
+    document.getElementById('afft').textContent = affiliate.title;
+    document.getElementById('affd').textContent = affiliate.desc;
+    document.getElementById('afflink').href = affiliate.url;
+  } else {
+    document.getElementById('aff').classList.add('hide');
+  }
+
+  const shareText = encodeURIComponent(share(result.main));
+  document.getElementById('sx').href = `https://twitter.com/intent/tweet?text=${shareText}`;
+  document.getElementById('st').href = `https://www.threads.net/intent/post?text=${shareText}`;
+  sc('result');
+}
+
+function resetQuiz() {
+  sc('top');
+}
+  </script>
+</body>
+</html>
