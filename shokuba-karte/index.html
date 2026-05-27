@@ -30,7 +30,8 @@
     .card{background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:20px;margin-bottom:14px}
     .btn,.opt{display:block;width:100%;min-height:44px;border-radius:12px;font:inherit}
     .btn{border:none;background:#C1714A;color:#fff;padding:16px;cursor:pointer}
-    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:left;padding:14px;margin:8px 0;cursor:pointer}
+    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:center;padding:14px;margin:8px 0;cursor:pointer;font-weight:600}
+    .opt-sub{display:block;margin-top:4px;font-size:12px;font-weight:400;color:#7A5C52}
     .hide{display:none}
     .sub{color:#7A5C52}
     .center{text-align:center}
@@ -169,79 +170,26 @@ const typeIcons = {
   H: '<svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="12" width="18" height="12" rx="4" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.9)" stroke-width="2.2"/><rect x="28" y="28" width="18" height="12" rx="4" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.9)" stroke-width="2.2"/></svg>'
 };
 
+const LEVELS = [
+  { label: 'とても当てはまる', sub: 'かなり近い', weight: 3 },
+  { label: '少し当てはまる', sub: 'まあ近い', weight: 2 },
+  { label: 'あまり当てはまらない', sub: '少し違う', weight: 1 },
+  { label: 'ほとんど当てはまらない', sub: 'かなり違う', weight: 0 }
+];
+
 const Q = [
-  ['月曜の朝、仕事のことを考えたときに近いのは？', [
-    ['今週も周りに気を張りそうだなと思う', { A: 3 }],
-    ['結局また自分が多く持つ気がする', { B: 3 }],
-    ['ちゃんとやらなきゃと気が固くなる', { D: 3 }],
-    ['そこまで重くは感じない', {}]
-  ]],
-  ['上司や先輩に話しかけられたとき、無意識に起きやすいのは？', [
-    ['声色や空気から機嫌を探る', { A: 2, C: 1 }],
-    ['評価につながる話ではないか少し身構える', { C: 3 }],
-    ['何か頼まれる前提で反応してしまう', { E: 2, B: 1 }],
-    ['内容だけを聞けている方だと思う', {}]
-  ]],
-  ['頼まれごとが重なったとき、自分に近い反応は？', [
-    ['きつくても、とりあえず受ける方に傾く', { E: 3 }],
-    ['自分で持った方が早いと思ってしまう', { B: 3 }],
-    ['断った後の印象が少し気になる', { C: 2, E: 1 }],
-    ['状況を見て受けるか決められる', {}]
-  ]],
-  ['仕事でミスや抜け漏れがあったときに近いのは？', [
-    ['かなり引きずって、ずっと気になる', { D: 2, C: 1 }],
-    ['周囲からどう見られたかが一番気になる', { C: 3 }],
-    ['次からはもっと確認しようと自分を締める', { D: 3 }],
-    ['反省はするが、必要以上には引きずらない', {}]
-  ]],
-  ['会議や打ち合わせのあと、どっと疲れやすいのはどんなとき？', [
-    ['場の空気や全員の反応を拾いすぎたとき', { A: 3 }],
-    ['言いたいことを飲み込んだとき', { F: 3 }],
-    ['先の展開や失敗を考えすぎたとき', { G: 3 }],
-    ['そこまで強く消耗しない', {}]
-  ]],
-  ['「助けてほしい」と思ったとき、自分に近いのは？', [
-    ['頼る前に、自分で片づけようとしてしまう', { B: 2, H: 1 }],
-    ['言いたいけど、言葉にしづらくて飲み込む', { F: 3 }],
-    ['頼った後の反応や評価が少し気になる', { C: 2, E: 1 }],
-    ['必要なら比較的相談できる', {}]
-  ]],
-  ['まだ起きていない仕事のことで疲れやすいのは？', [
-    ['会議や提出の先を何パターンも考えてしまうとき', { G: 3 }],
-    ['正解や基準が見えないまま進むとき', { D: 2, G: 1 }],
-    ['役割や範囲が曖昧なまま任されるとき', { E: 2, G: 1 }],
-    ['そこまでは考え込みにくい', {}]
-  ]],
-  ['職場の人間関係で一番削られやすいのは？', [
-    ['誰か一人より、全体の雰囲気や温度感', { A: 3 }],
-    ['評価してくる人や見てくる人の存在', { C: 3 }],
-    ['本音を飲み込む場面が続くこと', { F: 2, A: 1 }],
-    ['そこが主な原因ではない', {}]
-  ]],
-  ['休みの日の自分に近いのは？', [
-    ['仕事のことが頭から離れにくい', { G: 2, H: 1 }],
-    ['休んでも、何がしんどいのかはっきりしない', { H: 3 }],
-    ['「まだちゃんとできていない」感じが残る', { D: 2, B: 1 }],
-    ['比較的切り替えられる方だ', {}]
-  ]],
-  ['最近の自分に近いのは？', [
-    ['嫌というより、じわじわ削られている感じがある', { A: 2, H: 1 }],
-    ['何が原因か曖昧なまま、元気が出にくい', { H: 3 }],
-    ['ちゃんとやっているのに、いつも余裕がない', { B: 2, D: 1 }],
-    ['波はあるが、基本は保てている', {}]
-  ]],
-  ['今の職場でしんどさが強まりやすい場面は？', [
-    ['人の感情や空気に左右される場面', { A: 3 }],
-    ['自分だけが抱えている仕事が増える場面', { B: 2, E: 1 }],
-    ['「これで十分」の線引きがしにくい場面', { D: 3 }],
-    ['特定の場面というより全体的に重い', { H: 3 }]
-  ]],
-  ['もし明日、職場で一つだけ負担を減らせるなら？', [
-    ['周囲の空気まで読まなくていいこと', { A: 2, F: 1 }],
-    ['自分ばかり持っている仕事', { B: 3 }],
-    ['先のことを考えすぎる時間', { G: 3 }],
-    ['自分でも説明しにくい、ずっと重い感じ', { H: 3 }]
-  ]]
+  ['職場の空気や人の機嫌に、仕事以上に気を使ってしまう', { A: 3 }],
+  ['気づくと、自分が持つ仕事や役割が増えていることが多い', { B: 3 }],
+  ['仕事の出来より、周りからどう見られたかが気になりやすい', { C: 3 }],
+  ['小さなミスや抜け漏れがあると、必要以上に引きずりやすい', { D: 3 }],
+  ['自分の担当ではないことまで、流れで引き受けてしまう', { E: 3 }],
+  ['本当は嫌だったことも、職場では飲み込んでしまいやすい', { F: 3 }],
+  ['まだ起きていない仕事の展開まで考えて、先に疲れてしまう', { G: 3 }],
+  ['何が原因かは曖昧でも、職場にいるだけでじわじわ削られる', { H: 3 }],
+  ['頼られる前から、足りないところを自分で埋めようとしてしまう', { B: 2, E: 1 }],
+  ['上司や先輩の反応を、評価と結びつけて考えやすい', { C: 2, A: 1 }],
+  ['休みの日も、仕事のことや未完了のことが頭から離れにくい', { G: 2, H: 1 }],
+  ['相談したい気持ちはあっても、言葉にする前に止めてしまう', { F: 2, H: 1 }]
 ];
 
 const T = {
@@ -301,7 +249,12 @@ const AFF_HINT = {
   H: '曖昧な疲れを見える形にしたいときの入口として置いています。'
 };
 
-const TYPE_MAX = { A: 18, B: 17, C: 13, D: 14, E: 9, F: 9, G: 11, H: 13 };
+const TYPE_MAX = Q.reduce((max, question) => {
+  Object.entries(question[1]).forEach(([key, value]) => {
+    max[key] = (max[key] || 0) + value * LEVELS[0].weight;
+  });
+  return max;
+}, { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 });
 
 function calc() {
   const scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 };
@@ -310,6 +263,15 @@ function calc() {
       scores[key] += value;
     });
   });
+  const total = Object.values(scores).reduce((sum, value) => sum + value, 0);
+  if (total === 0) {
+    return {
+      main: 'H',
+      sub: 'G',
+      scores,
+      ratios: Object.fromEntries(Object.keys(scores).map((key) => [key, 0]))
+    };
+  }
   const sorted = Object.entries(scores).sort((a, b) => {
     const ratioA = TYPE_MAX[a[0]] ? a[1] / TYPE_MAX[a[0]] : 0;
     const ratioB = TYPE_MAX[b[0]] ? b[1] / TYPE_MAX[b[0]] : 0;
@@ -359,12 +321,14 @@ function render() {
 
   const options = document.getElementById('opts');
   options.innerHTML = '';
-  Q[i][1].forEach((item) => {
+  LEVELS.forEach((level) => {
     const button = document.createElement('button');
     button.className = 'opt';
-    button.textContent = item[0];
+    button.innerHTML = `${level.label}<span class="opt-sub">${level.sub}</span>`;
     button.onclick = () => {
-      answers[i] = item[1];
+      answers[i] = Object.fromEntries(
+        Object.entries(Q[i][1]).map(([key, value]) => [key, value * level.weight])
+      );
       if (i < Q.length - 1) {
         i += 1;
         render();

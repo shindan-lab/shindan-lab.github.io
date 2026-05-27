@@ -30,7 +30,8 @@
     .card{background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:20px;margin-bottom:14px}
     .btn,.opt{display:block;width:100%;min-height:44px;border-radius:12px;font:inherit}
     .btn{border:none;background:#C1714A;color:#fff;padding:16px;cursor:pointer}
-    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:left;padding:14px;margin:8px 0;cursor:pointer}
+    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:center;padding:14px;margin:8px 0;cursor:pointer;font-weight:600}
+    .opt-sub{display:block;margin-top:4px;font-size:12px;font-weight:400;color:#7A5C52}
     .hide{display:none}
     .sub{color:#7A5C52}
     .center{text-align:center}
@@ -169,79 +170,26 @@ const typeIcons = {
   H: '<svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="12" width="18" height="12" rx="4" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.9)" stroke-width="2.2"/><rect x="28" y="28" width="18" height="12" rx="4" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.9)" stroke-width="2.2"/></svg>'
 };
 
+const LEVELS = [
+  { label: 'とても当てはまる', sub: 'かなり近い', weight: 3 },
+  { label: '少し当てはまる', sub: 'まあ近い', weight: 2 },
+  { label: 'あまり当てはまらない', sub: '少し違う', weight: 1 },
+  { label: 'ほとんど当てはまらない', sub: 'かなり違う', weight: 0 }
+];
+
 const Q = [
-  ['疲れた日の夜、いちばん自然に近いのは？', [
-    ['誰にも反応しないで静かにいたい', { A: 3, H: 1 }],
-    ['とにかく横になって眠りたい', { B: 3 }],
-    ['誰かに少し聞いてほしい気がする', { C: 3 }],
-    ['いったん外の空気を変えたい', { D: 3 }]
-  ]],
-  ['休んだはずなのに、あまり戻らなかった日に近いのは？', [
-    ['静かな一人時間が足りなかった', { A: 3 }],
-    ['結局ちゃんと眠れていなかった', { B: 3 }],
-    ['気持ちを出せないまま終わった', { C: 2, F: 1 }],
-    ['同じ場所にずっといて切り替わらなかった', { D: 3 }]
-  ]],
-  ['落ち着きたいとき、つい選びがちなのは？', [
-    ['入浴や温かい飲み物など、いつもの整え方', { E: 3 }],
-    ['書き出したりメモしたりすること', { F: 3 }],
-    ['少し片づける、少し動くなど手を動かすこと', { G: 3 }],
-    ['何もしないで刺激を減らすこと', { H: 3 }]
-  ]],
-  ['気持ちが重い日に、わりと効きやすいのは？', [
-    ['人と距離をとって静かに過ごすこと', { A: 2, H: 1 }],
-    ['少しでも眠って区切ること', { B: 3 }],
-    ['少し話してほぐすこと', { C: 3 }],
-    ['散歩や外出で空気を変えること', { D: 3 }]
-  ]],
-  ['「なんか整ってきた」と感じる瞬間に近いのは？', [
-    ['いつもの手順をなぞれたとき', { E: 3 }],
-    ['頭の中が言葉になったとき', { F: 3 }],
-    ['少し動いて流れが変わったとき', { G: 3 }],
-    ['情報や予定が減って静かになったとき', { H: 3 }]
-  ]],
-  ['誰かから「気分転換したら？」と言われたとき、しっくり来やすいのは？', [
-    ['一人になれる時間をもらうこと', { A: 3 }],
-    ['まず休んで寝ること', { B: 3 }],
-    ['話を聞いてもらうこと', { C: 3 }],
-    ['少し外に出ること', { D: 3 }]
-  ]],
-  ['疲れたとき、逆にしんどくなりやすい休み方は？', [
-    ['人と関わりすぎる休み方', { A: 3 }],
-    ['眠れないのに予定を入れること', { B: 3 }],
-    ['抱えたまま何も話せず終わること', { C: 2, F: 1 }],
-    ['ずっと同じ場所でこもり続けること', { D: 3 }]
-  ]],
-  ['自分に「効くな」と感じやすい整え方は？', [
-    ['香り・お風呂・飲み物など五感を整えること', { E: 3 }],
-    ['考えを書いて見える化すること', { F: 3 }],
-    ['軽く歩く、片づける、伸ばすなど少し動くこと', { G: 3 }],
-    ['スマホや予定を切って何も足さないこと', { H: 3 }]
-  ]],
-  ['元気がないとき、人から見れば地味でも自分には効くのは？', [
-    ['一人で静かに過ごすこと', { A: 3 }],
-    ['寝る・横になること', { B: 3 }],
-    ['少し話して気持ちを外に出すこと', { C: 3 }],
-    ['少しだけ外へ出ること', { D: 3 }]
-  ]],
-  ['しんどいとき、ついやってしまう「戻るための動き」に近いのは？', [
-    ['いつもの整え習慣に戻る', { E: 3 }],
-    ['メモや日記に書く', { F: 3 }],
-    ['片づけ、家事、散歩など少し手を動かす', { G: 3 }],
-    ['予定も情報も減らしてぼーっとする', { H: 3 }]
-  ]],
-  ['何となくモヤモヤするとき、回復の近道になりやすいのは？', [
-    ['静かな時間をとって反応を減らす', { A: 2, H: 1 }],
-    ['少しでも眠って区切る', { B: 2 }],
-    ['言葉にして整理する', { C: 1, F: 2 }],
-    ['少し動いて流れを変える', { D: 1, G: 2 }]
-  ]],
-  ['もし明日、自由に自分を回復させていいなら何を選ぶ？', [
-    ['一人で静かに過ごせる時間', { A: 3 }],
-    ['しっかり眠れる時間', { B: 3 }],
-    ['書く・話す・整える時間', { E: 1, F: 2, C: 1 }],
-    ['少し動くか、何もしないかを自分で選べる余白', { G: 2, H: 2 }]
-  ]]
+  ['疲れた日は、誰にも反応せず一人で静かにいたくなる', { A: 3, H: 1 }],
+  ['回復には、まず寝ることや横になることが一番効きやすい', { B: 3 }],
+  ['気持ちを少し話せると、それだけで軽くなることがある', { C: 3 }],
+  ['同じ場所にいるより、外の空気や場所を変えると戻りやすい', { D: 3 }],
+  ['お風呂、香り、飲み物など、いつもの整え方があると落ち着く', { E: 3 }],
+  ['頭の中を書き出したり、言葉にしたりすると整理されやすい', { F: 3 }],
+  ['少し片づける、歩く、手を動かすことで流れが変わりやすい', { G: 3 }],
+  ['予定や情報を減らして、何も足さない時間があると回復しやすい', { H: 3 }],
+  ['人と関わりすぎる休み方だと、逆に疲れが残りやすい', { A: 2, H: 1 }],
+  ['眠れないまま予定を入れると、回復した感じになりにくい', { B: 2, D: 1 }],
+  ['抱えたまま何も話せないと、気持ちの疲れが残りやすい', { C: 2, F: 1 }],
+  ['気分転換より先に、刺激を減らす方が効くことが多い', { H: 2, A: 1 }]
 ];
 
 const T = {
@@ -301,7 +249,12 @@ const AFF_HINT = {
   H: '何も足さない時間を、ちゃんと休みとして守りたいときの補助として置いています。'
 };
 
-const TYPE_MAX = { A: 22, B: 23, C: 18, D: 19, E: 13, F: 18, G: 16, H: 17 };
+const TYPE_MAX = Q.reduce((max, question) => {
+  Object.entries(question[1]).forEach(([key, value]) => {
+    max[key] = (max[key] || 0) + value * LEVELS[0].weight;
+  });
+  return max;
+}, { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 });
 
 function calc() {
   const scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 };
@@ -310,6 +263,14 @@ function calc() {
       scores[key] += value;
     });
   });
+  const total = Object.values(scores).reduce((sum, value) => sum + value, 0);
+  if (total === 0) {
+    return {
+      main: 'H',
+      sub: 'A',
+      ratios: Object.fromEntries(Object.keys(scores).map((key) => [key, 0]))
+    };
+  }
   const sorted = Object.entries(scores).sort((a, b) => {
     const ratioA = TYPE_MAX[a[0]] ? a[1] / TYPE_MAX[a[0]] : 0;
     const ratioB = TYPE_MAX[b[0]] ? b[1] / TYPE_MAX[b[0]] : 0;
@@ -359,12 +320,14 @@ function render() {
 
   const options = document.getElementById('opts');
   options.innerHTML = '';
-  Q[i][1].forEach((item) => {
+  LEVELS.forEach((level) => {
     const button = document.createElement('button');
     button.className = 'opt';
-    button.textContent = item[0];
+    button.innerHTML = `${level.label}<span class="opt-sub">${level.sub}</span>`;
     button.onclick = () => {
-      answers[i] = item[1];
+      answers[i] = Object.fromEntries(
+        Object.entries(Q[i][1]).map(([key, value]) => [key, value * level.weight])
+      );
       if (i < Q.length - 1) {
         i += 1;
         render();
