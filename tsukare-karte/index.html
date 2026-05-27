@@ -30,7 +30,8 @@
     .card{background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:20px;margin-bottom:14px}
     .btn,.opt{display:block;width:100%;min-height:44px;border-radius:12px;font:inherit}
     .btn{border:none;background:#C1714A;color:#fff;padding:16px;cursor:pointer}
-    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:left;padding:14px;margin:8px 0;cursor:pointer}
+    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:center;padding:14px;margin:8px 0;cursor:pointer;font-weight:600}
+    .opt-sub{display:block;margin-top:4px;font-size:12px;font-weight:400;color:#7A5C52}
     .hide{display:none}
     .sub{color:#7A5C52}
     .center{text-align:center}
@@ -147,79 +148,26 @@ const typeColors = {
   H: { gradient: 'linear-gradient(135deg,#6B7280 0%,#9CA3AF 100%)' }
 };
 
+const LEVELS = [
+  { label: 'とても当てはまる', sub: 'かなり近い', weight: 3 },
+  { label: '少し当てはまる', sub: 'まあ近い', weight: 2 },
+  { label: 'あまり当てはまらない', sub: '少し違う', weight: 1 },
+  { label: 'ほとんど当てはまらない', sub: 'かなり違う', weight: 0 }
+];
+
 const Q = [
-  ['予定外のことが重なった日の終わり、いちばん残りやすいのは？', [
-    ['結局、自分が全部つなぎ直していた感覚', { A: 3 }],
-    ['周りの空気まで拾って消耗した感じ', { B: 3 }],
-    ['うまく回し切れなかった悔しさ', { C: 3 }],
-    ['何がしんどいか整理できない重さ', { H: 3 }]
-  ]],
-  ['頼まれごとを引き受けたあと、近い流れは？', [
-    ['気づけば、自分の持ち分がまた増えている', { A: 3 }],
-    ['期待に応えられたかどうかが気になる', { F: 3 }],
-    ['本当は嫌でも、そのまま飲み込む', { D: 3 }],
-    ['その場は動けるのに、後からどっと落ちる', { H: 2, G: 1 }]
-  ]],
-  ['通知や連絡が続く日に、いちばん削られやすいのは？', [
-    ['空気を読み続けることで頭が休まらない', { B: 3 }],
-    ['返し方や順番を考え続けてしまう', { E: 3 }],
-    ['中途半端に返したくなくて止まれない', { C: 2, F: 1 }],
-    ['見ただけで反応量が多く、少し閉じたくなる', { G: 2, H: 1 }]
-  ]],
-  ['小さなミスや抜け漏れがあったとき、いちばん近いのは？', [
-    ['何度も見返して修正したくなる', { C: 3 }],
-    ['この先の悪い展開まで想像してしまう', { E: 3 }],
-    ['迷惑をかけた分を取り返したくなる', { A: 2, F: 1 }],
-    ['その場では平気でも、後からじわじわ効く', { H: 3 }]
-  ]],
-  ['ひっかかる言い方をされたとき、残りやすい反応は？', [
-    ['その場では流すが、本音は残り続ける', { D: 3 }],
-    ['相手の機嫌や裏の意味まで気になってしまう', { B: 3 }],
-    ['自分がまずかったのか考え込み続ける', { E: 3 }],
-    ['次は期待を外さないように振る舞ってしまう', { F: 3 }]
-  ]],
-  ['休める時間ができたときの自分に近いのは？', [
-    ['止まった途端、やっと消耗が見えてくる', { H: 3 }],
-    ['休んでいても、回復した感じになりにくい', { G: 3 }],
-    ['頭の中だけ先に動き続けている', { E: 2, G: 1 }],
-    ['気になることを片づけないと落ち着かない', { A: 2, C: 1 }]
-  ]],
-  ['疲れに気づくタイミングとして近いのは？', [
-    ['かなり溜まってから急に崩れる', { H: 3 }],
-    ['誰かに言われて、やっと自覚する', { H: 2, A: 1 }],
-    ['違和感はあるが、自分のことは後回しにする', { D: 2, G: 1 }],
-    ['わかっていても、まだやれる方を選びやすい', { A: 2, F: 1 }]
-  ]],
-  ['人と関わったあとに残りやすい疲れは？', [
-    ['相手に合わせて役割を演じ続けた感じ', { F: 3 }],
-    ['場の温度を拾いすぎた感じ', { B: 3 }],
-    ['言えなかったことが胸に残る感じ', { D: 3 }],
-    ['自分が全体を支えていた感じ', { A: 3 }]
-  ]],
-  ['やることが多い日に、最初に削れやすいのは？', [
-    ['ぼんやりできる時間や余白', { G: 3 }],
-    ['考えなくていい先のことを切る線引き', { E: 3 }],
-    ['ほどほどで止める感覚', { C: 3 }],
-    ['自分の状態を確かめる時間', { H: 2, D: 1 }]
-  ]],
-  ['うまくいかなかった出来事があると、その後どうなりやすい？', [
-    ['次はもっと整えて出そうと締める', { C: 3 }],
-    ['別の失敗まで防ごうと考え続ける', { E: 3 }],
-    ['本当は引っかかっているのに整理できず飲み込む', { D: 3 }],
-    ['自分が穴埋めしようとして動いてしまう', { A: 3 }]
-  ]],
-  ['明日ひとつだけ負荷を減らすなら、いちばん効きそうなのは？', [
-    ['自分が持つ役割を少し減らすこと', { A: 3 }],
-    ['全部の空気に反応しないこと', { B: 3 }],
-    ['きちんとやり切る前提をゆるめること', { C: 3 }],
-    ['嫌だったことを自分の中で無かったことにしないこと', { D: 3 }]
-  ]],
-  ['誰かに「無理しないで」と言われたとき、内心いちばん近いのは？', [
-    ['でも自分が抜けると回らない気がする', { A: 3 }],
-    ['そう言われても、気にするのを止めにくい', { B: 2, E: 1 }],
-    ['無理している実感は薄いのに、余裕はない', { H: 3 }],
-    ['弱音や断りを出すほうが難しい', { D: 2, F: 1 }]
-  ]]
+  ['予定外のことが重なると、自分が全体をつなぎ直そうとしやすい', { A: 3 }],
+  ['人の表情や場の空気の変化に、気づきすぎて疲れることがある', { B: 3 }],
+  ['小さな抜けや中途半端さが残ると、何度も整えたくなる', { C: 3 }],
+  ['本当は嫌だったことも、その場では飲み込んでしまいやすい', { D: 3 }],
+  ['まだ起きていないことまで考えて、先に疲れてしまう', { E: 3 }],
+  ['期待されている役割に合わせて、自分を後回しにしやすい', { F: 3 }],
+  ['休む時間があっても、頭や気持ちの余白が戻りにくい', { G: 3 }],
+  ['しんどさに気づく頃には、かなり溜まっていることが多い', { H: 3 }],
+  ['頼まれる前から、足りないところを自分が埋めようとしてしまう', { A: 2, F: 1 }],
+  ['連絡や通知が続くと、返し方や相手の反応を考え続けてしまう', { B: 1, E: 2 }],
+  ['その場では平気なふりをして、後からじわじわ重くなる', { D: 2, H: 1 }],
+  ['何もしない時間にも、気になることが残って落ち着きにくい', { G: 2, C: 1 }]
 ];
 
 const T = {
@@ -290,7 +238,12 @@ const TYPE_IMAGE = {
   H: 'type-image-H-v1.png'
 };
 
-const TYPE_MAX = { A: 24, B: 17, C: 18, D: 20, E: 18, F: 13, G: 10, H: 20 };
+const TYPE_MAX = Q.reduce((max, question) => {
+  Object.entries(question[1]).forEach(([key, value]) => {
+    max[key] = (max[key] || 0) + value * LEVELS[0].weight;
+  });
+  return max;
+}, { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 });
 
 function calc() {
   const scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 };
@@ -299,6 +252,15 @@ function calc() {
       scores[key] += value;
     });
   });
+  const total = Object.values(scores).reduce((sum, value) => sum + value, 0);
+  if (total === 0) {
+    return {
+      main: 'H',
+      sub: 'G',
+      scores,
+      ratios: Object.fromEntries(Object.keys(scores).map((key) => [key, 0]))
+    };
+  }
   const sorted = Object.entries(scores).sort((a, b) => {
     const ratioA = TYPE_MAX[a[0]] ? a[1] / TYPE_MAX[a[0]] : 0;
     const ratioB = TYPE_MAX[b[0]] ? b[1] / TYPE_MAX[b[0]] : 0;
@@ -350,12 +312,14 @@ function render() {
 
   const options = document.getElementById('opts');
   options.innerHTML = '';
-  Q[i][1].forEach((item) => {
+  LEVELS.forEach((level) => {
     const button = document.createElement('button');
     button.className = 'opt';
-    button.textContent = item[0];
+    button.innerHTML = `${level.label}<span class="opt-sub">${level.sub}</span>`;
     button.onclick = () => {
-      answers[i] = item[1];
+      answers[i] = Object.fromEntries(
+        Object.entries(Q[i][1]).map(([key, value]) => [key, value * level.weight])
+      );
       if (i < Q.length - 1) {
         i += 1;
         render();
