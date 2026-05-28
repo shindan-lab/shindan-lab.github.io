@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>育児イライラの正体診断</title>
+  <meta name="description" content="子どもに怒りたいわけじゃないのに、ついイライラしてしまう。その奥で何が削れているのかを言葉にする読み物型診断です。">
+  <link rel="canonical" href="https://shindan-lab.github.io/ikuji-iraira/">
+  <link rel="icon" href="favicon.png">
+  <meta property="og:title" content="育児イライラの正体診断｜怒りの前に、何が削れている？">
+  <meta property="og:description" content="子どもに怒りたいわけじゃないのに、ついイライラしてしまう。その奥で何が削れているのかを言葉にする診断です。">
+  <meta property="og:url" content="https://shindan-lab.github.io/ikuji-iraira/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shindan-lab.github.io/ikuji-iraira/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="育児イライラの正体診断｜怒りの前に、何が削れている？">
+  <meta name="twitter:description" content="子どもに怒りたいわけじゃないのに、ついイライラしてしまう。その奥で何が削れているのかを言葉にする診断です。">
+  <meta name="twitter:image" content="https://shindan-lab.github.io/ikuji-iraira/og-image.png">
+  <meta name="theme-color" content="#C1714A">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="診断Lab">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;background:#FAF7F4;color:#3D2B1F;margin:0}
+    main{max-width:480px;margin:0 auto;padding:24px 16px calc(48px + env(safe-area-inset-bottom))}
+    .card{background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:20px;margin-bottom:14px}
+    .btn,.opt{display:block;width:100%;min-height:44px;border-radius:12px;font:inherit}
+    .btn{border:none;background:#C1714A;color:#fff;padding:16px;cursor:pointer}
+    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:center;padding:14px;margin:8px 0;cursor:pointer;font-weight:600}
+    .opt-sub{display:block;margin-top:4px;font-size:12px;font-weight:400;color:#7A5C52}
+    .hide{display:none}
+    .sub{color:#7A5C52}
+    .center{text-align:center}
+    .bar{height:4px;background:#E8D5CE;border-radius:4px;overflow:hidden}
+    .fill{height:100%;background:#C1714A}
+    .pill{display:inline-block;background:#FDF0EB;border:1px solid #E8D5CE;border-radius:999px;padding:4px 12px;color:#C1714A;font-size:13px}
+    .label{font-size:11px;letter-spacing:.14em;color:#C1714A;font-weight:700;margin-bottom:10px}
+    .hero{padding-top:40px}
+    .h1{font-size:31px;font-weight:700;margin:0 0 8px;line-height:1.35}
+    .result-header-card{background:#fff;border:1px solid #E8D5CE;border-radius:20px;padding:12px;margin-bottom:16px;overflow:hidden}
+    .result-accent{height:8px;border-radius:999px;margin-bottom:14px}
+    .result-header-copy{padding:2px 8px 14px}
+    .result-header-eyebrow{font-size:10px;letter-spacing:.22em;color:#C1714A;margin-bottom:10px;font-weight:700}
+    .result-type-name{font-size:29px;font-weight:700;line-height:1.25;margin:0;color:#2F2119}
+    .result-type-image{display:block;width:100%;height:210px;object-fit:cover;object-position:center;border-radius:16px;background:#F8F4F1}
+    .share a{display:inline-block;width:48%;text-align:center;background:#1A1A1A;color:#fff;text-decoration:none;padding:12px 0;border-radius:12px}
+    .site-footer{margin-top:56px;padding:28px 0 20px;text-align:center;border-top:1px solid #E8D5CE}
+    #body p{margin:0 0 1em}
+    #body p:last-child{margin-bottom:0}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <main>
+    <section id="top" class="hero center">
+      <a href="https://shindan-lab.github.io/" style="letter-spacing:.18em;color:#C1714A;font-size:12px;margin-bottom:12px;text-decoration:none;display:block">診断Lab</a>
+      <h1 class="h1">育児イライラの正体診断</h1>
+      <p style="color:#C1714A;font-weight:500">怒りの前に、何が削れている？</p>
+      <div class="card" style="text-align:left">
+        <p class="sub">子どもに怒りたいわけじゃないのに、つい強く反応してしまう。そんな日の奥にある「削れ方」をたどっていく診断です。</p>
+        <div style="margin-top:12px"><span class="pill">12問・4段階で答える診断です</span></div>
+      </div>
+      <button class="btn" onclick="start()">診断をはじめる</button>
+    </section>
+
+    <section id="quiz" class="hide">
+      <div class="sub" id="ptext">1 / 12</div>
+      <div class="bar"><div class="fill" id="pbar" style="width:8.3%"></div></div>
+      <div style="margin:10px 0">
+        <button onclick="back()" id="backbtn" style="background:none;border:none;color:#7A5C52;padding:0">前の問題に戻る</button>
+      </div>
+      <div class="card">
+        <div id="q" style="font-weight:700;line-height:1.7"></div>
+        <div id="opts"></div>
+      </div>
+    </section>
+
+    <section id="loading" class="hide center" style="padding-top:100px">
+      <div style="width:48px;height:48px;border:4px solid #E8D5CE;border-top-color:#C1714A;border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 24px"></div>
+      <div class="sub" style="font-size:16px;font-weight:500">今のイライラの奥を整理中…</div>
+    </section>
+
+    <section id="result" class="hide">
+      <div class="result-header-card">
+        <div class="result-accent" id="result-accent"></div>
+        <div class="result-header-copy">
+          <div class="result-header-eyebrow">あなたの育児イライラタイプ</div>
+          <h2 class="result-type-name" id="result-type-name"></h2>
+        </div>
+        <img class="result-type-image" id="result-type-image" src="" alt="">
+      </div>
+      <div class="card">
+        <div class="label">診断結果</div>
+        <div id="headline" style="font-weight:700;line-height:1.7;margin-bottom:12px"></div>
+        <div id="body" style="line-height:1.9"></div>
+      </div>
+      <div class="card" style="background:#FDF0EB">
+        <div class="label">あなたへ</div>
+        <div id="letter" style="line-height:1.9"></div>
+      </div>
+      <div class="card" style="border:2px solid #C1714A">
+        <div class="label">今日からできること</div>
+        <div id="pres" style="line-height:1.9"></div>
+      </div>
+      <div id="aff" class="card hide">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div class="label" style="margin-bottom:0">もし気になったら</div>
+          <span style="font-size:9px;font-weight:700;color:#B0978E;background:#F0E4DE;padding:2px 6px;border-radius:3px;letter-spacing:.05em">PR</span>
+        </div>
+        <a id="afflink" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
+          <div id="afft" style="font-weight:700"></div>
+          <div id="affd" class="sub" style="margin-top:6px"></div>
+          <div style="margin-top:10px;color:#BF4500;font-weight:700">楽天で見る →</div>
+        </a>
+      </div>
+      <div class="share">
+        <a id="sx" target="_blank" rel="noopener noreferrer">Xでシェア</a>
+        <a id="st" target="_blank" rel="noopener noreferrer">Threadsでシェア</a>
+      </div>
+      <button class="btn" style="margin-top:12px;background:#fff;color:#7A5C52;border:1px solid #E8D5CE" onclick="location.href='https://shindan-lab.github.io/'">他の診断もやってみる</button>
+    </section>
+
+    <footer class="site-footer" data-root=".."></footer>
+  </main>
+
+  <script src="affiliate.js"></script>
+  <script src="../shared/footer.js"></script>
+  <script>
+const typeColors = {
+  A: { gradient: 'linear-gradient(135deg,#C2410C 0%,#FDBA74 100%)' },
+  B: { gradient: 'linear-gradient(135deg,#7C3AED 0%,#C4B5FD 100%)' },
+  C: { gradient: 'linear-gradient(135deg,#2563EB 0%,#93C5FD 100%)' },
+  D: { gradient: 'linear-gradient(135deg,#DB2777 0%,#F9A8D4 100%)' },
+  E: { gradient: 'linear-gradient(135deg,#059669 0%,#86EFAC 100%)' },
+  F: { gradient: 'linear-gradient(135deg,#D97706 0%,#FDE68A 100%)' },
+  G: { gradient: 'linear-gradient(135deg,#4F46E5 0%,#A5B4FC 100%)' },
+  H: { gradient: 'linear-gradient(135deg,#6B7280 0%,#D1D5DB 100%)' }
+};
+
+const TYPE_IMAGE = {
+  A: 'type-image-A-v1.png',
+  B: 'type-image-B-v1.png',
+  C: 'type-image-C-v1.png',
+  D: 'type-image-D-v1.png',
+  E: 'type-image-E-v1.png',
+  F: 'type-image-F-v1.png',
+  G: 'type-image-G-v1.png',
+  H: 'type-image-H-v1.png'
+};
+
+const LEVELS = [
+  { label: 'とても当てはまる', sub: 'かなり近い', weight: 3 },
+  { label: '少し当てはまる', sub: 'まあ近い', weight: 2 },
+  { label: 'あまり当てはまらない', sub: '少し違う', weight: 1 },
+  { label: 'ほとんど当てはまらない', sub: 'かなり違う', weight: 0 }
+];
+
+const Q = [
+  ['子どもに怒りたいわけじゃないのに、声が強くなってしまうことがある', { A: 3, H: 1 }],
+  ['家事も育児も、自分だけが全体を回している感じがしやすい', { B: 3 }],
+  ['一度イライラすると、気持ちの切り替えに時間がかかる', { C: 3 }],
+  ['本当は誰かに気づいてほしいのに、結局言わずに抱えやすい', { D: 3 }],
+  ['音、散らかり、呼びかけが重なると一気に限界が近づく', { E: 3 }],
+  ['自分の時間がほとんどないと、些細なことで反応が強くなる', { F: 3 }],
+  ['ちゃんと育てなきゃ、ちゃんと向き合わなきゃと思いすぎる', { G: 3 }],
+  ['怒ったあとに、言いすぎたかもと強く落ち込みやすい', { H: 3 }],
+  ['予定通りに進まない日ほど、余裕が削れて怒りやすくなる', { A: 2, C: 1 }],
+  ['手伝ってほしいより先に、なぜ私ばかりと思ってしまう', { B: 2, D: 1 }],
+  ['家の中の音や散らかりが続くと、頭が休まらなくなる', { E: 2, F: 1 }],
+  ['怒りより先に、疲れや不安がたまっていた気がする', { H: 2, G: 1 }]
+];
+
+const T = {
+  A: ['余裕切れ反応タイプ', '怒りの正体は、性格のきつさではなく「余裕の残量」がかなり減っていることかもしれません', '朝から予定が崩れる。呼ばれる。こぼれる。泣かれる。何かひとつなら受け止められることでも、重なると急に声が強くなる。そんな日があるのではないでしょうか。\n\nこのタイプのイライラは、子どもが嫌だから起きるものではありません。反応する余白がもう少ない状態で、次の出来事が来てしまうから起きます。普段なら流せることが流せない。優しく言いたいのに、短い言葉しか出てこない。あなたが悪いというより、余裕が空になるまで動き続けていた可能性があります。', '本当はもっとやわらかく言いたかったんですよね。怒りたい人ではなく、余裕がない中で何とか回してきた人なんだと思います。', '今日は「怒らない」より先に、ひとつだけ負荷を減らしてみてください。夕飯を簡単にする、片づけを後回しにする、返事を一拍置く。それだけでも反応は少し変わります。'],
+  B: ['ひとり背負いタイプ', 'イライラの奥には、「自分ばかりが回している」という偏りの疲れがあるのかもしれません', '子どものこと、家のこと、明日の準備、細かい確認。誰かに頼む前に自分が気づいてしまう。気づくから動く。動くから、また自分の担当みたいになっていく。そんな流れが続いていませんか。\n\nこのタイプのイライラは、目の前の子どもへの怒りだけではありません。「なぜ私だけが覚えているのか」「なぜ私だけが先に動くのか」という負担の偏りが、静かに積み上がったものです。ちゃんと回せる人ほど、周りからは大丈夫そうに見えます。でも、内側ではずっと持ちすぎていたのかもしれません。', 'ここまで本当によく回してきました。できてしまう人ほど、しんどさが見えにくいんですよね。', '今日ひとつだけ、「これは私が今すぐ持たなくていいかも」と線を引いてみてください。頼む前に、まず自分の中で持ちすぎを確認するだけでも一歩です。'],
+  C: ['切り替え不能タイプ', '一度崩れた流れを戻すための力が、かなり消耗しているのかもしれません', '朝の支度がずれる。寝かしつけが長引く。片づけたそばから散らかる。そこで一度イライラすると、次の場面まで気持ちが残ってしまう。そんなことがあるかもしれません。\n\nこのタイプは、出来事そのものより「流れが切れたあとに戻す負荷」で疲れやすい状態です。育児は中断の連続です。途中で止められ、呼ばれ、予定が変わる。そのたびに気持ちを戻すのは、思っている以上に大きな作業です。切り替えが苦手なのではなく、切り替えを求められる回数が多すぎるのかもしれません。', '何度も立て直してきたんですよね。うまく切り替えられない日があるのは、あなたの未熟さではなく、戻す回数が多すぎたからかもしれません。', 'イライラしたあとにすぐ機嫌を直そうとしなくて大丈夫です。まずは水を飲む、深呼吸する、別の部屋に一歩移動するなど、小さな区切りを作ってみてください。'],
+  D: ['察してほしい限界タイプ', '「手伝って」より前に、「気づいてほしかった」が積もっているのかもしれません', '言えばいいとわかっている。でも、毎回言わないと動かないこと自体に疲れる。子どものことも家のことも、見ればわかるはずなのにと思ってしまう。そんな気持ちが出ることはありませんか。\n\nこのタイプのイライラは、単なる不満ではありません。説明し続ける疲れ、頼む前に状況を整理する疲れ、気づいてもらえなかった寂しさが重なっています。怒りの形で出ていても、奥には「一緒に見てほしい」「同じ温度で気づいてほしい」という願いがあるのかもしれません。', '本当は責めたいというより、一緒に背負ってほしかったんですよね。言わないと伝わらないことが続くと、しんどくなるのは自然です。', '次に頼むときは、「これをやって」だけでなく「今、手が足りない」と状態も一言足してみてください。気づいてほしい気持ちを、少しだけ言葉に置き換える練習です。'],
+  E: ['刺激過多タイプ', '音や散らかりや呼びかけが重なって、頭の中の余白が埋まりやすいのかもしれません', '泣き声、動画の音、きょうだいの声、散らかった床、何度も呼ばれる声。ひとつひとつは小さくても、同時に来ると急に限界が近づく。そんな感覚があるかもしれません。\n\nこのタイプのイライラは、心の狭さではありません。刺激を処理する量が多すぎる状態です。育児中の家は、音も物も判断も増えやすい場所です。ずっと反応し続けていれば、頭が休まらなくなるのは当然です。怒りに見えているものは、実は「もう入ってこないで」というサインに近いのかもしれません。', '静かな時間がほしいと思うのは、子どもを遠ざけたいからではありません。あなたの頭と心に、反応しない時間が必要なだけです。', '5分だけでも音を減らす時間を作ってみてください。テレビを消す、イヤホンを外す、ひとつだけ片づける。刺激を減らすことは、立派な回復です。'],
+  F: ['自分時間不足タイプ', '自分のために使える時間が足りず、心の回復が追いついていないのかもしれません', 'トイレもお風呂もゆっくりできない。好きなことを始めてもすぐ中断される。自分の時間が細切れになりすぎて、気づくと何も満たされないまま一日が終わる。そんな日が続いていませんか。\n\nこのタイプのイライラは、わがままではありません。自分を戻す時間が足りないまま、人のために動き続けている状態です。少しの自由や一人時間がないと、人はやさしさを出し続けるのが難しくなります。子どもに向いた怒りに見えても、奥では「私の時間も少しほしい」という自然な欲求が削られているのかもしれません。', '自分の時間がほしいと思うことに、罪悪感を持たなくて大丈夫です。あなたが戻る時間は、家のためにも必要です。', '今日は10分だけ「誰かのためではない時間」を先に決めてみてください。スマホでもお茶でも何でもいいです。自分に戻る小さな時間を予定に入れることが大切です。'],
+  G: ['ちゃんと育てなきゃタイプ', 'イライラの奥に、「ちゃんと向き合わなきゃ」という強い責任感があるのかもしれません', '怒りたくない。ちゃんと受け止めたい。よくない言い方をしたくない。そう思うほど、できなかった日に自分を責めてしまう。そんなことはありませんか。\n\nこのタイプは、子どもを大切に思っているからこそ疲れやすい状態です。育児情報、周りの目、自分の理想。いろいろな「ちゃんと」が積み重なると、子どもと向き合う時間そのものが試験のようになってしまいます。怒りの奥には、失敗したくない気持ちや、いい親でいたい気持ちがあるのかもしれません。', 'ちゃんとしたいと思っている時点で、あなたは十分向き合っています。完璧にできない日があることと、大切にしていないことは別です。', '今日は「ちゃんと」をひとつだけ減らしてみてください。食事、片づけ、声かけ。全部を満点にしなくても、親子の一日は続いていきます。'],
+  H: ['あと悔やみタイプ', '怒ったあとに自分を責める時間が長く、心が休まらなくなっているのかもしれません', '怒っている瞬間より、その後の後悔の方がつらい。寝顔を見て落ち込む。あんな言い方しなければよかったと何度も思い出す。そんなことがあるかもしれません。\n\nこのタイプのイライラは、怒りそのものだけでなく「怒った後の自責」でさらに疲れやすい状態です。反省できるのは大切な力です。でも、毎回自分を責め続けると、回復する前に次の育児が始まってしまいます。後悔が強い人ほど、実は子どもを大事に思っている人でもあります。', '言いすぎたかもと思えるのは、あなたが関係を大切にしているからです。責め続けるより、戻り方を持つ方が親子には効きます。', '怒ったあとは、長い反省より短い修復を意識してみてください。「さっき強く言いすぎたね」「大事だから言ったけど、声は大きかったね」など、一言戻すだけでも十分です。']
+};
+
+const NEXT = {
+  A: { lead: '余裕切れが出ているなら、まずは疲れ方と回復の相性を見ると、怒る前の削れ方をつかみやすくなります。', items: [
+    { title: '疲れのカルテ', url: 'https://shindan-lab.github.io/tsukare-karte/', desc: '育児以外も含めて、疲れ方の土台を見たいときに。' },
+    { title: 'あなたの回復スイッチ診断', url: 'https://shindan-lab.github.io/recovery-switch/', desc: '短い時間で戻りやすい休み方を知りたいときに。' }
+  ]},
+  B: { lead: 'ひとりで背負いやすいなら、職場や家庭でも出やすい「抱え込み」の形を見ておくと整理しやすいです。', items: [
+    { title: '疲れのカルテ', url: 'https://shindan-lab.github.io/tsukare-karte/', desc: '持ちすぎやすい疲れ方の土台を見たいときに。' },
+    { title: '伝わらない疲れ診断', url: 'https://shindan-lab.github.io/tsutawaranai-tsukare/', desc: '言う前に抱えやすい流れを見たいときに。' }
+  ]},
+  C: { lead: '切り替えの負荷が大きいなら、回復スイッチを見て「戻すための小さな区切り」を探すのがおすすめです。', items: [
+    { title: 'あなたの回復スイッチ診断', url: 'https://shindan-lab.github.io/recovery-switch/', desc: '崩れたあとに戻りやすい整え方を見たいときに。' },
+    { title: '疲れのカルテ', url: 'https://shindan-lab.github.io/tsukare-karte/', desc: '切り替えづらさの奥にある疲れ方を見たいときに。' }
+  ]},
+  D: { lead: '察してほしい限界が出ているなら、伝わりにくさの癖を見ておくと、言葉に置き換えやすくなります。', items: [
+    { title: '伝わらない疲れ診断', url: 'https://shindan-lab.github.io/tsutawaranai-tsukare/', desc: '気づいてほしい気持ちをどう出しにくいか見たいときに。' },
+    { title: '疲れのカルテ', url: 'https://shindan-lab.github.io/tsukare-karte/', desc: '抱えたまま重くなりやすい疲れ方を見たいときに。' }
+  ]},
+  E: { lead: '刺激過多が出ているなら、まずは刺激を減らす回復の形を見つけると、怒りの前で止まりやすくなります。', items: [
+    { title: 'あなたの回復スイッチ診断', url: 'https://shindan-lab.github.io/recovery-switch/', desc: '反応量を減らして戻る方法を知りたいときに。' },
+    { title: '疲れのカルテ', url: 'https://shindan-lab.github.io/tsukare-karte/', desc: '余白切れの疲れ方がないか見たいときに。' }
+  ]},
+  F: { lead: '自分時間不足が出ているなら、回復の相性と強みの使い方を見て、自分に戻る時間を確保しやすくしましょう。', items: [
+    { title: 'あなたの回復スイッチ診断', url: 'https://shindan-lab.github.io/recovery-switch/', desc: '短くても戻りやすい休み方を見たいときに。' },
+    { title: 'あなたの強みの出方診断', url: 'https://shindan-lab.github.io/strength-style/', desc: '自分の良さを育児以外の言葉でも受け取りたいときに。' }
+  ]},
+  G: { lead: 'ちゃんと育てなきゃが強いなら、疲れ方と強みを一緒に見ると、責任感を責めずに扱いやすくなります。', items: [
+    { title: '疲れのカルテ', url: 'https://shindan-lab.github.io/tsukare-karte/', desc: 'ちゃんとしようとする疲れ方を見たいときに。' },
+    { title: 'あなたの強みの出方診断', url: 'https://shindan-lab.github.io/strength-style/', desc: '責任感や丁寧さを強みとして見直したいときに。' }
+  ]},
+  H: { lead: 'あと悔やみが強いなら、伝わり方と回復の順番を見ると、責めるより修復に向かいやすくなります。', items: [
+    { title: '伝わらない疲れ診断', url: 'https://shindan-lab.github.io/tsutawaranai-tsukare/', desc: '強く出たあとに本音をどう伝えるか見たいときに。' },
+    { title: 'あなたの回復スイッチ診断', url: 'https://shindan-lab.github.io/recovery-switch/', desc: '自責から戻る整え方を知りたいときに。' }
+  ]}
+};
+
+const AFF_HINT = {
+  A: '余裕が切れやすい日に、まず自分を戻すための補助として置いています。',
+  B: '抱え込みすぎる流れを少しゆるめたいときの入口です。',
+  C: '切り替えが難しい日に、小さな区切りを作る補助として置いています。',
+  D: '察してほしさを少し言葉に変えたいときに向いています。',
+  E: '刺激が多すぎる日に、反応量を減らすための補助です。',
+  F: '自分時間を取り戻すきっかけとして置いています。',
+  G: 'ちゃんとしなきゃを少しゆるめたいときの入口です。',
+  H: '怒った後の自責から、修復に戻るための補助として置いています。'
+};
+
+const TYPE_MAX = Q.reduce((max, question) => {
+  Object.entries(question[1]).forEach(([key, value]) => {
+    max[key] = (max[key] || 0) + value * LEVELS[0].weight;
+  });
+  return max;
+}, { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 });
+
+function calc() {
+  const scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 };
+  answers.forEach((answer) => {
+    Object.entries(answer).forEach(([key, value]) => {
+      scores[key] += value;
+    });
+  });
+  const total = Object.values(scores).reduce((sum, value) => sum + value, 0);
+  if (total === 0) {
+    return {
+      main: 'F',
+      sub: 'A',
+      scores,
+      ratios: Object.fromEntries(Object.keys(scores).map((key) => [key, 0]))
+    };
+  }
+  const sorted = Object.entries(scores).sort((a, b) => {
+    const ratioA = TYPE_MAX[a[0]] ? a[1] / TYPE_MAX[a[0]] : 0;
+    const ratioB = TYPE_MAX[b[0]] ? b[1] / TYPE_MAX[b[0]] : 0;
+    if (ratioB !== ratioA) return ratioB - ratioA;
+    return b[1] - a[1];
+  });
+  return {
+    main: sorted[0][0],
+    sub: sorted[1][0],
+    scores,
+    ratios: Object.fromEntries(sorted.map(([key, value]) => [key, TYPE_MAX[key] ? value / TYPE_MAX[key] : 0]))
+  };
+}
+
+function share(main) {
+  const url = 'https://shindan-lab.github.io/ikuji-iraira/';
+  return `私は「${T[main][0]}」でした。育児イライラの正体を診断。\n\n▼育児イライラの正体診断\n${url}\n\n#育児イライラの正体診断 #診断Lab`;
+}
+
+function ensureDynamicBlocks() {
+  const affCard = document.getElementById('aff');
+  if (!document.getElementById('affnote')) {
+    const note = document.createElement('div');
+    note.id = 'affnote';
+    note.className = 'sub';
+    note.style.marginBottom = '12px';
+    affCard.insertBefore(note, document.getElementById('afflink'));
+  }
+}
+
+let i = 0;
+let answers = [];
+
+function sc(id) {
+  ['top', 'quiz', 'loading', 'result'].forEach((sectionId) => {
+    document.getElementById(sectionId).classList.add('hide');
+  });
+  document.getElementById(id).classList.remove('hide');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function render() {
+  document.getElementById('ptext').textContent = `${i + 1} / ${Q.length}`;
+  document.getElementById('pbar').style.width = `${((i + 1) / Q.length) * 100}%`;
+  document.getElementById('backbtn').disabled = i === 0;
+  document.getElementById('q').textContent = Q[i][0];
+  const options = document.getElementById('opts');
+  options.innerHTML = '';
+  LEVELS.forEach((level) => {
+    const button = document.createElement('button');
+    button.className = 'opt';
+    button.innerHTML = `${level.label}<span class="opt-sub">${level.sub}</span>`;
+    button.onclick = () => {
+      answers[i] = Object.fromEntries(
+        Object.entries(Q[i][1]).map(([key, value]) => [key, value * level.weight])
+      );
+      if (i < Q.length - 1) {
+        i += 1;
+        render();
+        return;
+      }
+      sc('loading');
+      setTimeout(show, 1200);
+    };
+    options.appendChild(button);
+  });
+}
+
+function start() {
+  i = 0;
+  answers = [];
+  sc('quiz');
+  render();
+}
+
+function back() {
+  if (i > 0) {
+    i -= 1;
+    render();
+  }
+}
+
+function show() {
+  const result = calc();
+  const main = T[result.main];
+  ensureDynamicBlocks();
+  document.getElementById('result-accent').style.background = typeColors[result.main].gradient;
+  document.getElementById('result-type-name').textContent = main[0];
+  document.getElementById('result-type-image').src = TYPE_IMAGE[result.main];
+  document.getElementById('result-type-image').alt = `${main[0]}のイメージ画像`;
+  document.getElementById('headline').textContent = main[1];
+  document.getElementById('body').innerHTML = main[2].split('\n\n').map((paragraph) => `<p>${paragraph}</p>`).join('');
+  document.getElementById('letter').textContent = main[3];
+  document.getElementById('pres').textContent = main[4];
+  const affiliate = (
+    typeof affiliateData !== 'undefined' &&
+    affiliateData &&
+    affiliateData[result.main] &&
+    typeof affiliateData[result.main].url === 'string' &&
+    affiliateData[result.main].url.trim() !== ''
+  ) ? affiliateData[result.main] : null;
+  if (affiliate) {
+    document.getElementById('aff').classList.remove('hide');
+    document.getElementById('affnote').textContent = AFF_HINT[result.main];
+    document.getElementById('afft').textContent = affiliate.title;
+    document.getElementById('affd').textContent = affiliate.desc;
+    document.getElementById('afflink').href = affiliate.url;
+  } else {
+    document.getElementById('aff').classList.add('hide');
+  }
+  const shareText = encodeURIComponent(share(result.main));
+  document.getElementById('sx').href = `https://twitter.com/intent/tweet?text=${shareText}`;
+  document.getElementById('st').href = `https://www.threads.net/intent/post?text=${shareText}`;
+  sc('result');
+}
+  </script>
+</body>
+</html>
