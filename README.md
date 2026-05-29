@@ -11,6 +11,7 @@
 - 強みの出方診断: `https://shindan-lab.github.io/strength-style/`
 - 伝わらない疲れ診断: `https://shindan-lab.github.io/tsutawaranai-tsukare/`
 - 育児イライラの正体診断: `https://shindan-lab.github.io/ikuji-iraira/`
+- 夫婦のすれ違い疲れ診断: `https://shindan-lab.github.io/fuufu-surechigai/`
 
 ## 構成
 
@@ -27,6 +28,7 @@
 - `strength-style/`
 - `tsutawaranai-tsukare/`
 - `ikuji-iraira/`
+- `fuufu-surechigai/`
 
 ## 運用ルール
 
