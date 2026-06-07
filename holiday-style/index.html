@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>理想の休日タイプ診断</title>
+  <meta name="description" content="今のあなたが本当に求めている休日の過ごし方を、12問でゆるく見つける診断です。">
+  <link rel="canonical" href="https://shindan-lab.github.io/holiday-style/">
+  <link rel="icon" href="../header-banner.svg" type="image/svg+xml">
+  <meta property="og:title" content="理想の休日タイプ診断｜今のあなたが求めている休日は？">
+  <meta property="og:description" content="寝たい、出かけたい、整えたい、何も決めたくない。今のあなたに合う休日の形を診断します。">
+  <meta property="og:url" content="https://shindan-lab.github.io/holiday-style/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shindan-lab.github.io/header-banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#C1714A">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="診断Lab">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;background:#FAF7F4;color:#3D2B1F;margin:0}
+    main{max-width:480px;margin:0 auto;padding:24px 16px calc(48px + env(safe-area-inset-bottom))}
+    .card{background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:20px;margin-bottom:14px;box-shadow:0 2px 12px rgba(193,113,74,.08)}
+    .btn,.opt{display:block;width:100%;min-height:44px;border-radius:12px;font:inherit}
+    .btn{border:none;background:#C1714A;color:#fff;padding:16px;cursor:pointer;font-weight:700}
+    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:center;padding:14px;margin:8px 0;cursor:pointer;font-weight:600}
+    .opt-sub{display:block;margin-top:4px;font-size:12px;font-weight:400;color:#7A5C52}
+    .hide{display:none}.sub{color:#7A5C52}.center{text-align:center}
+    .bar{height:4px;background:#E8D5CE;border-radius:4px;overflow:hidden}.fill{height:100%;background:#C1714A;transition:width .2s}
+    .pill{display:inline-block;background:#FDF0EB;border:1px solid #E8D5CE;border-radius:999px;padding:4px 12px;color:#C1714A;font-size:13px}
+    .label{font-size:11px;letter-spacing:.14em;color:#C1714A;font-weight:700;margin-bottom:10px}
+    .hero{padding-top:36px}.h1{font-size:31px;font-weight:700;margin:0 0 8px;line-height:1.35}
+    .visual{display:block;width:100%;height:150px;object-fit:cover;border-radius:16px;margin:14px 0;background:#F8F4F1}
+    .result-head{background:#fff;border:1px solid #E8D5CE;border-radius:20px;padding:12px;margin-bottom:16px;overflow:hidden}
+    .accent{height:8px;border-radius:999px;margin-bottom:14px}.type-name{font-size:29px;font-weight:700;line-height:1.25;margin:0;color:#2F2119}
+    .share a{display:inline-block;width:48%;text-align:center;background:#1A1A1A;color:#fff;text-decoration:none;padding:12px 0;border-radius:12px}
+    .site-footer{margin-top:56px;padding:28px 0 20px;text-align:center;border-top:1px solid #E8D5CE}
+    #body p{margin:0 0 1em}#body p:last-child{margin-bottom:0}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <main>
+    <section id="top" class="hero center">
+      <a href="https://shindan-lab.github.io/" style="letter-spacing:.18em;color:#C1714A;font-size:12px;margin-bottom:12px;text-decoration:none;display:block">診断Lab</a>
+      <h1 class="h1">理想の休日タイプ診断</h1>
+      <p style="color:#C1714A;font-weight:500">今のあなたが求めている休日は？</p>
+      <img class="visual" src="../header-banner.png" alt="診断Lab">
+      <div class="card" style="text-align:left">
+        <p class="sub">寝たい、出かけたい、整えたい、何も決めたくない。今のあなたに合う休日の形をゆるく見つける診断です。</p>
+        <div style="margin-top:12px"><span class="pill">12問・4段階で答える診断です</span></div>
+      </div>
+      <button class="btn" onclick="start()">診断をはじめる</button>
+    </section>
+
+    <section id="quiz" class="hide">
+      <div class="sub" id="ptext">1 / 12</div>
+      <div class="bar"><div class="fill" id="pbar" style="width:8.3%"></div></div>
+      <div style="margin:10px 0"><button onclick="back()" id="backbtn" style="background:none;border:none;color:#7A5C52;padding:0">前の問題に戻る</button></div>
+      <div class="card"><div id="q" style="font-weight:700;line-height:1.7"></div><div id="opts"></div></div>
+    </section>
+
+    <section id="loading" class="hide center" style="padding-top:100px">
+      <div style="width:48px;height:48px;border:4px solid #E8D5CE;border-top-color:#C1714A;border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 24px"></div>
+      <div class="sub" style="font-size:16px;font-weight:500">休日の過ごし方を整理中…</div>
+    </section>
+
+    <section id="result" class="hide">
+      <div class="result-head">
+        <div class="accent" id="accent"></div>
+        <div style="font-size:10px;letter-spacing:.22em;color:#C1714A;margin-bottom:10px;font-weight:700">あなたの理想の休日タイプ</div>
+        <h2 class="type-name" id="type-name"></h2>
+      </div>
+      <div class="card"><div class="label">診断結果</div><div id="headline" style="font-weight:700;line-height:1.7;margin-bottom:12px"></div><div id="body" style="line-height:1.9"></div></div>
+      <div class="card" style="background:#FDF0EB"><div class="label">休日の合言葉</div><div id="letter" style="line-height:1.9"></div></div>
+      <div class="card" style="border:2px solid #C1714A"><div class="label">次の休日に試すなら</div><div id="pres" style="line-height:1.9"></div></div>
+      <div id="aff" class="card hide">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><div class="label" style="margin-bottom:0">休日のお供に</div><span style="font-size:9px;font-weight:700;color:#B0978E;background:#F0E4DE;padding:2px 6px;border-radius:3px">PR</span></div>
+        <a id="afflink" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit"><div id="afft" style="font-weight:700"></div><div id="affd" class="sub" style="margin-top:6px"></div><div style="margin-top:10px;color:#BF4500;font-weight:700">楽天で見る →</div></a>
+      </div>
+      <div class="share"><a id="sx" target="_blank" rel="noopener noreferrer">Xでシェア</a><a id="st" target="_blank" rel="noopener noreferrer">Threadsでシェア</a></div>
+      <button class="btn" style="margin-top:12px;background:#fff;color:#7A5C52;border:1px solid #E8D5CE" onclick="location.href='https://shindan-lab.github.io/'">他の診断もやってみる</button>
+    </section>
+    <footer class="site-footer" data-root=".."></footer>
+  </main>
+  <script src="affiliate.js"></script>
+  <script src="../shared/footer.js"></script>
+  <script>
+const LEVELS=[{label:'とても当てはまる',sub:'かなり近い',weight:3},{label:'少し当てはまる',sub:'まあ近い',weight:2},{label:'あまり当てはまらない',sub:'少し違う',weight:1},{label:'ほとんど当てはまらない',sub:'かなり違う',weight:0}];
+const COLORS={A:'#8B5CF6',B:'#0EA5E9',C:'#10B981',D:'#F59E0B',E:'#EC4899',F:'#64748B'};
+const Q=[
+['休日の朝は、予定よりもまず体を休ませたい',{A:3,F:1}],
+['少しでも外に出ると、気持ちが切り替わりやすい',{B:3}],
+['部屋や持ち物が整うと、休日をちゃんと過ごせた気がする',{C:3}],
+['家族や身近な人と、ゆるく過ごす時間があるとうれしい',{D:3}],
+['ひとりで好きなことに没頭する時間がいちばん満たされる',{E:3}],
+['休日は予定を決めすぎず、その場の気分で動きたい',{F:3}],
+['昼寝や二度寝に、かなり幸せを感じる',{A:2,F:1}],
+['カフェ、公園、買い物など小さなおでかけがあると元気になる',{B:2}],
+['掃除や片づけを少し進めると、心まで軽くなる',{C:2}],
+['休日らしさは、誰かと同じものを食べたり笑ったりする中にある',{D:2}],
+['趣味、読書、動画、推し時間などに集中できると満足度が高い',{E:2}],
+['何もしなかった日でも、気分がよければそれでいいと思う',{F:2,A:1}]
+];
+const T={
+A:['とことん休眠タイプ','今のあなたに必要なのは、予定を足す休日より「回復に全振りする休日」かもしれません','理想の休日と聞かれて、何か楽しい予定を入れなきゃと思う必要はありません。あなたの場合、まず求めているのは体と頭を止める時間です。\n\n寝る、横になる、ぼーっとする。生産性はなくても、ちゃんと意味があります。何かを取り戻す休日ではなく、減りすぎたものを戻す休日。今のあなたには、そんな過ごし方が合っています。','何もしない休日は、失敗ではありません。回復を選んだ休日です。','次の休日は、午前中だけでも予定を入れない時間を確保してみてください。起きる時間を決めないだけでも、体の緊張は少しゆるみます。'],
+B:['気分転換おでかけタイプ','あなたの休日は、少し場所を変えるだけで気持ちが動き出すタイプです','遠くに行かなくても、カフェ、公園、本屋、スーパー以外の寄り道。少し景色が変わるだけで、気分が切り替わることがあるのではないでしょうか。\n\nこのタイプは、家で休むだけだと気持ちが沈みやすいことがあります。外の空気、歩く感覚、人の気配。そういう小さな刺激が、休日の満足感につながりやすい人です。','ちゃんとしたレジャーじゃなくて大丈夫です。近所の寄り道でも、あなたには十分なリセットになります。','次の休日は「30分だけ外に出る」を予定にしてみてください。目的地より、家の外に気分を移すことが大事です。'],
+C:['暮らし整えタイプ','あなたの休日は、少し整えることで心まで軽くなるタイプです','片づけ、掃除、洗濯、収納、買い出し。休日なのに家のことをするなんて、と思われるかもしれません。でもあなたにとっては、暮らしが整うこと自体が回復につながる場合があります。\n\n全部を完璧にする必要はありません。ひとつの棚、洗面台、バッグの中。小さな場所が整うだけで、気持ちに余白が戻る。そんな休日が合っています。','整えることは、休んでいないのではなく、自分が過ごしやすい場所を作る休み方です。','次の休日は、15分で終わる小さな場所をひとつだけ整えてみてください。やりすぎないことが満足感を残すコツです。'],
+D:['家族ゆる時間タイプ','あなたの休日は、身近な人とゆるく同じ時間を過ごすことで満たされやすいタイプです','特別なイベントより、一緒に朝ごはんを食べる、散歩する、同じテレビを見る。そんな何気ない時間に、休日らしさを感じやすいのではないでしょうか。\n\nこのタイプは、予定を詰め込むより「同じ空間でゆるく過ごす」ことが合っています。頑張る家族サービスではなく、無理のない共有時間。そこに満足感が生まれやすい人です。','豪華な休日にしなくても、同じ時間を少し楽しめたら十分です。','次の休日は、家族や身近な人と「短くて楽な予定」をひとつだけ入れてみてください。散歩やおやつ時間くらいがちょうどいいです。'],
+E:['ひとり没頭タイプ','あなたの休日は、自分の世界に戻る時間があるほど満たされるタイプです','読書、動画、推し、手芸、ゲーム、音楽。誰かのためではなく、自分だけの好きに集中できる時間があると、気持ちが戻ってくるのではないでしょうか。\n\nこのタイプにとって、ひとり時間はぜいたくではなく必要な栄養です。短くても、邪魔されずに好きなものへ向かう時間があると、休日の満足度が大きく変わります。','自分の好きなものに戻る時間は、ちゃんと生活を支える力になります。','次の休日は、30分だけ「誰にも説明しなくていい好きな時間」を確保してみてください。内容は役に立たなくて大丈夫です。'],
+F:['ノープラン余白タイプ','あなたの休日は、決めすぎないことそのものが心地よいタイプです','せっかくの休日だから有意義にしなきゃ。そう思うほど疲れてしまうことはありませんか。あなたには、予定を詰めるより、気分で動ける余白が必要です。\n\n起きてから考える。行きたくなったら行く。何もしなくてもよしとする。そんなゆるさが、今のあなたの休日には合っています。','予定がない休日は、空っぽではありません。自由に選べる余白がある休日です。','次の休日は、あえて半日だけ予定を空けておいてください。何をするかは、その時の自分に決めさせてあげましょう。']
+};
+const TYPE_MAX=Q.reduce((m,q)=>{Object.entries(q[1]).forEach(([k,v])=>m[k]=(m[k]||0)+v*3);return m;},{});
+let i=0,answers=[];
+function sc(id){['top','quiz','loading','result'].forEach(x=>document.getElementById(x).classList.add('hide'));document.getElementById(id).classList.remove('hide');scrollTo(0,0)}
+function start(){i=0;answers=[];sc('quiz');render()}
+function back(){if(i>0){i--;render()}}
+function render(){document.getElementById('ptext').textContent=`${i+1} / ${Q.length}`;document.getElementById('pbar').style.width=`${((i+1)/Q.length)*100}%`;document.getElementById('backbtn').disabled=i===0;document.getElementById('q').textContent=Q[i][0];const o=document.getElementById('opts');o.innerHTML='';LEVELS.forEach(l=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`${l.label}<span class="opt-sub">${l.sub}</span>`;b.onclick=()=>{answers[i]=Object.fromEntries(Object.entries(Q[i][1]).map(([k,v])=>[k,v*l.weight]));if(i<Q.length-1){i++;render()}else{sc('loading');setTimeout(show,1000)}};o.appendChild(b)})}
+function calc(){const s={A:0,B:0,C:0,D:0,E:0,F:0};answers.forEach(a=>Object.entries(a).forEach(([k,v])=>s[k]+=v));return Object.keys(s).sort((a,b)=>(s[b]/TYPE_MAX[b])-(s[a]/TYPE_MAX[a])||s[b]-s[a])[0]}
+function share(k){return `私は「${T[k][0]}」でした。理想の休日タイプを診断。\n\n▼理想の休日タイプ診断\nhttps://shindan-lab.github.io/holiday-style/\n\n#理想の休日タイプ診断 #診断Lab`}
+function show(){const k=calc(),t=T[k];document.getElementById('accent').style.background=COLORS[k];document.getElementById('type-name').textContent=t[0];document.getElementById('headline').textContent=t[1];document.getElementById('body').innerHTML=t[2].split('\n\n').map(p=>`<p>${p}</p>`).join('');document.getElementById('letter').textContent=t[3];document.getElementById('pres').textContent=t[4];const a=typeof affiliateData!=='undefined'&&affiliateData[k];if(a){document.getElementById('aff').classList.remove('hide');document.getElementById('afft').textContent=a.title;document.getElementById('affd').textContent=a.desc;document.getElementById('afflink').href=a.url}const tx=encodeURIComponent(share(k));document.getElementById('sx').href=`https://twitter.com/intent/tweet?text=${tx}`;document.getElementById('st').href=`https://www.threads.net/intent/post?text=${tx}`;sc('result')}
+  </script>
+</body>
+</html>

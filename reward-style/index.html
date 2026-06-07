@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>自分へのごほうび診断</title>
+  <meta name="description" content="今のあなたに合う自分へのごほうびを、12問で見つける明るめの読み物型診断です。">
+  <link rel="canonical" href="https://shindan-lab.github.io/reward-style/">
+  <link rel="icon" href="../header-banner.svg" type="image/svg+xml">
+  <meta property="og:title" content="自分へのごほうび診断｜今のあなたに合う満たし方は？">
+  <meta property="og:description" content="甘いもの、お風呂、物語、香り、便利アイテム、ひとり時間。今のあなたに合うごほうびを診断します。">
+  <meta property="og:url" content="https://shindan-lab.github.io/reward-style/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shindan-lab.github.io/header-banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#C1714A">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="診断Lab">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;background:#FAF7F4;color:#3D2B1F;margin:0}
+    main{max-width:480px;margin:0 auto;padding:24px 16px calc(48px + env(safe-area-inset-bottom))}
+    .card{background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:20px;margin-bottom:14px;box-shadow:0 2px 12px rgba(193,113,74,.08)}
+    .btn,.opt{display:block;width:100%;min-height:44px;border-radius:12px;font:inherit}
+    .btn{border:none;background:#C1714A;color:#fff;padding:16px;cursor:pointer;font-weight:700}
+    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:center;padding:14px;margin:8px 0;cursor:pointer;font-weight:600}
+    .opt-sub{display:block;margin-top:4px;font-size:12px;font-weight:400;color:#7A5C52}
+    .hide{display:none}.sub{color:#7A5C52}.center{text-align:center}
+    .bar{height:4px;background:#E8D5CE;border-radius:4px;overflow:hidden}.fill{height:100%;background:#C1714A;transition:width .2s}
+    .pill{display:inline-block;background:#FDF0EB;border:1px solid #E8D5CE;border-radius:999px;padding:4px 12px;color:#C1714A;font-size:13px}
+    .label{font-size:11px;letter-spacing:.14em;color:#C1714A;font-weight:700;margin-bottom:10px}
+    .hero{padding-top:36px}.h1{font-size:31px;font-weight:700;margin:0 0 8px;line-height:1.35}
+    .visual{display:block;width:100%;height:150px;object-fit:cover;border-radius:16px;margin:14px 0;background:#F8F4F1}
+    .result-head{background:#fff;border:1px solid #E8D5CE;border-radius:20px;padding:12px;margin-bottom:16px;overflow:hidden}
+    .accent{height:8px;border-radius:999px;margin-bottom:14px}.type-name{font-size:29px;font-weight:700;line-height:1.25;margin:0;color:#2F2119}
+    .share a{display:inline-block;width:48%;text-align:center;background:#1A1A1A;color:#fff;text-decoration:none;padding:12px 0;border-radius:12px}
+    .site-footer{margin-top:56px;padding:28px 0 20px;text-align:center;border-top:1px solid #E8D5CE}
+    #body p{margin:0 0 1em}#body p:last-child{margin-bottom:0}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <main>
+    <section id="top" class="hero center">
+      <a href="https://shindan-lab.github.io/" style="letter-spacing:.18em;color:#C1714A;font-size:12px;margin-bottom:12px;text-decoration:none;display:block">診断Lab</a>
+      <h1 class="h1">自分へのごほうび診断</h1>
+      <p style="color:#C1714A;font-weight:500">今のあなたに合う満たし方は？</p>
+      <img class="visual" src="../header-banner.png" alt="診断Lab">
+      <div class="card" style="text-align:left">
+        <p class="sub">甘いもの、お風呂、物語、香り、便利アイテム、ひとり時間。今のあなたに合う「自分の満たし方」を見つける診断です。</p>
+        <div style="margin-top:12px"><span class="pill">12問・4段階で答える診断です</span></div>
+      </div>
+      <button class="btn" onclick="start()">診断をはじめる</button>
+    </section>
+
+    <section id="quiz" class="hide">
+      <div class="sub" id="ptext">1 / 12</div>
+      <div class="bar"><div class="fill" id="pbar" style="width:8.3%"></div></div>
+      <div style="margin:10px 0"><button onclick="back()" id="backbtn" style="background:none;border:none;color:#7A5C52;padding:0">前の問題に戻る</button></div>
+      <div class="card"><div id="q" style="font-weight:700;line-height:1.7"></div><div id="opts"></div></div>
+    </section>
+
+    <section id="loading" class="hide center" style="padding-top:100px">
+      <div style="width:48px;height:48px;border:4px solid #E8D5CE;border-top-color:#C1714A;border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 24px"></div>
+      <div class="sub" style="font-size:16px;font-weight:500">ごほうびの相性を整理中…</div>
+    </section>
+
+    <section id="result" class="hide">
+      <div class="result-head">
+        <div class="accent" id="accent"></div>
+        <div style="font-size:10px;letter-spacing:.22em;color:#C1714A;margin-bottom:10px;font-weight:700">あなたのごほうびタイプ</div>
+        <h2 class="type-name" id="type-name"></h2>
+      </div>
+      <div class="card"><div class="label">診断結果</div><div id="headline" style="font-weight:700;line-height:1.7;margin-bottom:12px"></div><div id="body" style="line-height:1.9"></div></div>
+      <div class="card" style="background:#FDF0EB"><div class="label">ごほうびの合言葉</div><div id="letter" style="line-height:1.9"></div></div>
+      <div class="card" style="border:2px solid #C1714A"><div class="label">今日できる小さなごほうび</div><div id="pres" style="line-height:1.9"></div></div>
+      <div id="aff" class="card hide">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><div class="label" style="margin-bottom:0">ごほうび候補</div><span style="font-size:9px;font-weight:700;color:#B0978E;background:#F0E4DE;padding:2px 6px;border-radius:3px">PR</span></div>
+        <a id="afflink" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit"><div id="afft" style="font-weight:700"></div><div id="affd" class="sub" style="margin-top:6px"></div><div style="margin-top:10px;color:#BF4500;font-weight:700">楽天で見る →</div></a>
+      </div>
+      <div class="share"><a id="sx" target="_blank" rel="noopener noreferrer">Xでシェア</a><a id="st" target="_blank" rel="noopener noreferrer">Threadsでシェア</a></div>
+      <button class="btn" style="margin-top:12px;background:#fff;color:#7A5C52;border:1px solid #E8D5CE" onclick="location.href='https://shindan-lab.github.io/'">他の診断もやってみる</button>
+    </section>
+    <footer class="site-footer" data-root=".."></footer>
+  </main>
+  <script src="affiliate.js"></script>
+  <script src="../shared/footer.js"></script>
+  <script>
+const LEVELS=[{label:'とても当てはまる',sub:'かなり近い',weight:3},{label:'少し当てはまる',sub:'まあ近い',weight:2},{label:'あまり当てはまらない',sub:'少し違う',weight:1},{label:'ほとんど当てはまらない',sub:'かなり違う',weight:0}];
+const COLORS={A:'#F97316',B:'#0EA5E9',C:'#8B5CF6',D:'#10B981',E:'#D97706',F:'#64748B'};
+const Q=[
+['がんばった日は、分かりやすくおいしいものがあるとうれしい',{A:3}],
+['お風呂や眠る前の時間が整うと、自分を大事にできた気がする',{B:3}],
+['映画、ドラマ、本、漫画など、物語に入る時間が好き',{C:3}],
+['香り、音楽、花、部屋の空気などで気分が変わりやすい',{D:3}],
+['便利なものや時短になるものを買うと、かなり満足する',{E:3}],
+['誰にも邪魔されないひとり時間が、いちばんのごほうびだと思う',{F:3}],
+['少し高い飲み物やスイーツで、気分がかなり上がる',{A:2}],
+['体の疲れが抜けるものにお金を使うのはありだと思う',{B:2}],
+['現実から少し離れられる時間があると、また頑張れる',{C:2,F:1}],
+['部屋や持ち物に好きな雰囲気があると、日常が楽しくなる',{D:2}],
+['長く使えるもの、毎日楽になるものを選びがち',{E:2}],
+['ごほうびは、人に説明できるものより自分が落ち着くものがいい',{F:2,D:1}]
+];
+const T={
+A:['甘やかしスイーツタイプ','今のあなたに合うごほうびは、分かりやすく気分が上がる「おいしい満足」です','難しく考えなくても、好きな飲み物、少し特別なおやつ、いつもより良いスイーツ。そういう分かりやすいごほうびが、今のあなたには合っています。\n\nごほうびは大きな買い物でなくても大丈夫です。ひと口で気分が変わるもの、今日の終わりに楽しみがあること。それだけで、一日の印象は少し変わります。','おいしいものを楽しみにするのは、ちゃんと自分を回復させる方法です。','今日の帰り道や買い物で、ひとつだけ自分用のおやつを選んでみてください。誰かのついでではなく、自分のために選ぶのがポイントです。'],
+B:['お風呂ほどけタイプ','今のあなたに合うごほうびは、体の力を抜いて一日を終える時間です','がんばった自分を満たすなら、派手なことより、体がゆるむ時間が合っています。お風呂、温かい飲み物、眠る前の静かな時間。そういうものが、あなたのごほうびになりやすいタイプです。\n\n心を切り替えようとしても難しい日は、先に体をゆるめる方が早いことがあります。体が少しほどけると、気持ちも後からついてきます。','休む準備に手をかけることは、ぜいたくではありません。今日をちゃんと終えるための支度です。','今夜はお風呂か寝る前に、5分だけ自分を急かさない時間を作ってみてください。'],
+C:['物語トリップタイプ','今のあなたに合うごほうびは、現実の役割から少し離れる時間です','映画、ドラマ、漫画、本、動画。物語に入っている間だけは、いつもの役割から少し離れられる。そんな時間があなたには合っています。\n\n現実逃避というと悪く聞こえるかもしれません。でも、ときどき別の世界へ入ることは、気持ちを戻すために役立ちます。何者かでいなければならない時間から、ただ楽しむ時間へ移る。それがごほうびになります。','物語に浸る時間は、サボりではありません。心を別の景色に連れていく回復です。','今日は1話だけ、1章だけ、短くてもいいので好きな世界に入る時間を作ってみてください。'],
+D:['雰囲気ときめきタイプ','今のあなたに合うごほうびは、日常の空気を少し好きに変えることです','香り、花、音楽、照明、かわいい小物。大きな変化ではなくても、目に入るものや空気が少し変わるだけで気分が上がりやすいタイプです。\n\nあなたにとってごほうびは、物そのものだけではなく「雰囲気」です。いつもの部屋、いつもの時間に、少しだけ好きな感じを足す。そうすると、日常が自分のものに戻ってくる感覚があります。','好きな雰囲気を作ることは、自分の居場所を整えることでもあります。','今日は香り、音楽、花、照明のどれかひとつで、部屋の空気を少し変えてみてください。'],
+E:['暮らしラク化タイプ','今のあなたに合うごほうびは、毎日の面倒を少し減らしてくれるものです','便利グッズ、時短アイテム、使いやすい道具。買った瞬間だけでなく、その後の毎日が少し楽になるものに満足しやすいタイプです。\n\n自分へのごほうびというと、消える楽しみを想像しがちですが、あなたの場合は「これで少し楽になる」が大きな満足につながります。生活を軽くするものにお金を使うのは、自分を大事にする選択です。','楽をするための買い物は、手抜きではありません。未来の自分を助けるごほうびです。','最近少し面倒に感じている家事や準備をひとつ思い浮かべて、それを軽くする方法を探してみてください。'],
+F:['ひとり余白タイプ','今のあなたに合うごほうびは、誰にも合わせず自分のペースでいられる時間です','何を買うかより、誰にも急かされないこと。話しかけられないこと。自分の気分で動けること。そういう余白が、今のあなたにはいちばん効きやすいごほうびです。\n\nひとり時間は、寂しい時間ではありません。自分の感覚を取り戻す時間です。何かをするためではなく、誰にも合わせないための時間。それがあなたには必要なのかもしれません。','自分だけの時間をほしがることに、理由はいりません。ひとりで戻る人もいます。','今日は10分だけでも、誰にも合わせない時間を作ってみてください。スマホを見るだけでも、お茶を飲むだけでも大丈夫です。']
+};
+const TYPE_MAX=Q.reduce((m,q)=>{Object.entries(q[1]).forEach(([k,v])=>m[k]=(m[k]||0)+v*3);return m;},{});
+let i=0,answers=[];
+function sc(id){['top','quiz','loading','result'].forEach(x=>document.getElementById(x).classList.add('hide'));document.getElementById(id).classList.remove('hide');scrollTo(0,0)}
+function start(){i=0;answers=[];sc('quiz');render()}
+function back(){if(i>0){i--;render()}}
+function render(){document.getElementById('ptext').textContent=`${i+1} / ${Q.length}`;document.getElementById('pbar').style.width=`${((i+1)/Q.length)*100}%`;document.getElementById('backbtn').disabled=i===0;document.getElementById('q').textContent=Q[i][0];const o=document.getElementById('opts');o.innerHTML='';LEVELS.forEach(l=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`${l.label}<span class="opt-sub">${l.sub}</span>`;b.onclick=()=>{answers[i]=Object.fromEntries(Object.entries(Q[i][1]).map(([k,v])=>[k,v*l.weight]));if(i<Q.length-1){i++;render()}else{sc('loading');setTimeout(show,1000)}};o.appendChild(b)})}
+function calc(){const s={A:0,B:0,C:0,D:0,E:0,F:0};answers.forEach(a=>Object.entries(a).forEach(([k,v])=>s[k]+=v));return Object.keys(s).sort((a,b)=>(s[b]/TYPE_MAX[b])-(s[a]/TYPE_MAX[a])||s[b]-s[a])[0]}
+function share(k){return `私は「${T[k][0]}」でした。自分へのごほうびタイプを診断。\n\n▼自分へのごほうび診断\nhttps://shindan-lab.github.io/reward-style/\n\n#自分へのごほうび診断 #診断Lab`}
+function show(){const k=calc(),t=T[k];document.getElementById('accent').style.background=COLORS[k];document.getElementById('type-name').textContent=t[0];document.getElementById('headline').textContent=t[1];document.getElementById('body').innerHTML=t[2].split('\n\n').map(p=>`<p>${p}</p>`).join('');document.getElementById('letter').textContent=t[3];document.getElementById('pres').textContent=t[4];const a=typeof affiliateData!=='undefined'&&affiliateData[k];if(a){document.getElementById('aff').classList.remove('hide');document.getElementById('afft').textContent=a.title;document.getElementById('affd').textContent=a.desc;document.getElementById('afflink').href=a.url}const tx=encodeURIComponent(share(k));document.getElementById('sx').href=`https://twitter.com/intent/tweet?text=${tx}`;document.getElementById('st').href=`https://www.threads.net/intent/post?text=${tx}`;sc('result')}
+  </script>
+</body>
+</html>
