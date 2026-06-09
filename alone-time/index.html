@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>ひとり時間の必要度診断</title>
+  <meta name="description" content="今のあなたにどれくらいひとり時間が必要か、どんなひとり時間で戻りやすいかを12問で診断します。">
+  <link rel="canonical" href="https://shindan-lab.github.io/alone-time/">
+  <link rel="icon" href="../header-banner.svg" type="image/svg+xml">
+  <meta property="og:title" content="ひとり時間の必要度診断｜今どれくらい一人になりたい？">
+  <meta property="og:description" content="静かになりたい、好きなことに没頭したい、少しだけ離れたい。今のあなたに必要なひとり時間を診断します。">
+  <meta property="og:url" content="https://shindan-lab.github.io/alone-time/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shindan-lab.github.io/header-banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#C1714A">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="診断Lab">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;background:#FAF7F4;color:#3D2B1F;margin:0}
+    main{max-width:480px;margin:0 auto;padding:24px 16px calc(48px + env(safe-area-inset-bottom))}
+    .card{background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:20px;margin-bottom:14px;box-shadow:0 2px 12px rgba(193,113,74,.08)}
+    .btn,.opt{display:block;width:100%;min-height:44px;border-radius:12px;font:inherit}
+    .btn{border:none;background:#C1714A;color:#fff;padding:16px;cursor:pointer;font-weight:700}
+    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:center;padding:14px;margin:8px 0;cursor:pointer;font-weight:600}
+    .opt-sub{display:block;margin-top:4px;font-size:12px;font-weight:400;color:#7A5C52}
+    .hide{display:none}.sub{color:#7A5C52}.center{text-align:center}
+    .bar{height:4px;background:#E8D5CE;border-radius:4px;overflow:hidden}.fill{height:100%;background:#C1714A;transition:width .2s}
+    .pill{display:inline-block;background:#FDF0EB;border:1px solid #E8D5CE;border-radius:999px;padding:4px 12px;color:#C1714A;font-size:13px}
+    .label{font-size:11px;letter-spacing:.14em;color:#C1714A;font-weight:700;margin-bottom:10px}
+    .hero{padding-top:36px}.h1{font-size:31px;font-weight:700;margin:0 0 8px;line-height:1.35}
+    .visual{display:block;width:100%;height:150px;object-fit:cover;border-radius:16px;margin:14px 0;background:#F8F4F1}
+    .result-head{background:#fff;border:1px solid #E8D5CE;border-radius:20px;padding:12px;margin-bottom:16px;overflow:hidden}
+    .accent{height:8px;border-radius:999px;margin-bottom:14px}.type-name{font-size:29px;font-weight:700;line-height:1.25;margin:0;color:#2F2119}
+    .share a{display:inline-block;width:48%;text-align:center;background:#1A1A1A;color:#fff;text-decoration:none;padding:12px 0;border-radius:12px}
+    .site-footer{margin-top:56px;padding:28px 0 20px;text-align:center;border-top:1px solid #E8D5CE}
+    #body p{margin:0 0 1em}#body p:last-child{margin-bottom:0}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <main>
+    <section id="top" class="hero center">
+      <a href="https://shindan-lab.github.io/" style="letter-spacing:.18em;color:#C1714A;font-size:12px;margin-bottom:12px;text-decoration:none;display:block">診断Lab</a>
+      <h1 class="h1">ひとり時間の必要度診断</h1>
+      <p style="color:#C1714A;font-weight:500">今どれくらい一人になりたい？</p>
+      <img class="visual" src="../header-banner.png" alt="診断Lab">
+      <div class="card" style="text-align:left">
+        <p class="sub">静かになりたい、好きなことに没頭したい、少しだけ離れたい。今のあなたに必要なひとり時間を、軽く見ていく診断です。</p>
+        <div style="margin-top:12px"><span class="pill">12問・4段階で答える診断です</span></div>
+      </div>
+      <button class="btn" onclick="start()">診断をはじめる</button>
+    </section>
+
+    <section id="quiz" class="hide">
+      <div class="sub" id="ptext">1 / 12</div>
+      <div class="bar"><div class="fill" id="pbar" style="width:8.3%"></div></div>
+      <div style="margin:10px 0"><button onclick="back()" id="backbtn" style="background:none;border:none;color:#7A5C52;padding:0">前の問題に戻る</button></div>
+      <div class="card"><div id="q" style="font-weight:700;line-height:1.7"></div><div id="opts"></div></div>
+    </section>
+
+    <section id="loading" class="hide center" style="padding-top:100px">
+      <div style="width:48px;height:48px;border:4px solid #E8D5CE;border-top-color:#C1714A;border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 24px"></div>
+      <div class="sub" style="font-size:16px;font-weight:500">ひとり時間の必要度を整理中…</div>
+    </section>
+
+    <section id="result" class="hide">
+      <div class="result-head">
+        <div class="accent" id="accent"></div>
+        <div style="font-size:10px;letter-spacing:.22em;color:#C1714A;margin-bottom:10px;font-weight:700">あなたのひとり時間タイプ</div>
+        <h2 class="type-name" id="type-name"></h2>
+      </div>
+      <div class="card"><div class="label">診断結果</div><div id="headline" style="font-weight:700;line-height:1.7;margin-bottom:12px"></div><div id="body" style="line-height:1.9"></div></div>
+      <div class="card" style="background:#FDF0EB"><div class="label">あなたへ</div><div id="letter" style="line-height:1.9"></div></div>
+      <div class="card" style="border:2px solid #C1714A"><div class="label">今日できる小さなひとり時間</div><div id="pres" style="line-height:1.9"></div></div>
+      <div id="aff" class="card hide">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><div class="label" style="margin-bottom:0">ひとり時間のお供に</div><span style="font-size:9px;font-weight:700;color:#B0978E;background:#F0E4DE;padding:2px 6px;border-radius:3px">PR</span></div>
+        <a id="afflink" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit"><div id="afft" style="font-weight:700"></div><div id="affd" class="sub" style="margin-top:6px"></div><div style="margin-top:10px;color:#BF4500;font-weight:700">楽天で見る →</div></a>
+      </div>
+      <div class="share"><a id="sx" target="_blank" rel="noopener noreferrer">Xでシェア</a><a id="st" target="_blank" rel="noopener noreferrer">Threadsでシェア</a></div>
+      <button class="btn" style="margin-top:12px;background:#fff;color:#7A5C52;border:1px solid #E8D5CE" onclick="location.href='https://shindan-lab.github.io/'">他の診断もやってみる</button>
+    </section>
+    <footer class="site-footer" data-root=".."></footer>
+  </main>
+  <script src="affiliate.js"></script>
+  <script src="../shared/footer.js"></script>
+  <script>
+const LEVELS=[{label:'とても当てはまる',sub:'かなり近い',weight:3},{label:'少し当てはまる',sub:'まあ近い',weight:2},{label:'あまり当てはまらない',sub:'少し違う',weight:1},{label:'ほとんど当てはまらない',sub:'かなり違う',weight:0}];
+const COLORS={A:'#6B7280',B:'#2563EB',C:'#7C3AED',D:'#059669',E:'#D97706',F:'#DB2777'};
+const Q=[
+['誰かと一緒にいる時間が続くと、理由なく疲れやすい',{A:3}],
+['音や話し声が多い場所にいると、早く静かになりたいと思う',{B:3}],
+['好きなことに集中できる時間がないと、気持ちがしぼみやすい',{C:3}],
+['完全に一人になれなくても、10分だけ離れられれば少し戻れる',{D:3}],
+['お風呂、トイレ、寝る前などの短い一人時間がかなり大事だと思う',{E:3}],
+['人と話すことで元気になるけれど、その後に少し一人で整えたい',{F:3}],
+['休日でも家族とずっと一緒だと、途中で一人になりたくなる',{A:2,E:1}],
+['テレビ、動画、通知、呼びかけが重なると頭がいっぱいになる',{B:2}],
+['読書、動画、推し、趣味などに入れる時間があると満たされる',{C:2}],
+['カフェ、散歩、買い物など短い単独行動で気分が変わる',{D:2}],
+['一人時間がほしいと思うことに、少し罪悪感がある',{E:2,A:1}],
+['一人も好きだけど、誰かと笑う時間もちゃんと必要だと思う',{F:2}]
+];
+const T={
+A:['今すぐ一人になりたい度高めタイプ','今のあなたは、誰かと一緒にいる時間が続きすぎて、かなり一人の余白を求めているかもしれません','嫌いなわけではない。大切じゃないわけでもない。でも、ずっと誰かに合わせていると、自分の感覚が薄くなっていく。そんな状態に近いかもしれません。\n\nこのタイプは、まとまった一人時間が必要です。短い休憩だけでは戻りきらず、誰にも話しかけられない時間、予定を聞かれない時間、自分のペースでいられる時間があると回復しやすくなります。','一人になりたいと思うことは、冷たいことではありません。あなたが自分に戻るための時間です。','今日は15分だけでも「今は話しかけないでほしい時間」を作ってみてください。宣言できるなら、それだけでかなり違います。'],
+B:['静かな場所で回復タイプ','あなたに必要なのは、一人時間の中でも特に「音と刺激が少ない時間」かもしれません','人が嫌というより、音や情報が多いと疲れやすい。話し声、通知、テレビ、家の中の音。そういうものが重なると、頭が休まらなくなるタイプです。\n\nこのタイプは、完全な孤独よりも「静けさ」が大事です。誰かが近くにいても、音が少なく、反応しなくていい時間があるだけで少し戻れます。','静かな時間がほしいのは、わがままではありません。刺激を減らすことは、ちゃんとした回復です。','今日は5分だけ音を減らしてみてください。テレビを消す、通知を切る、イヤホンを外す。小さくても効果があります。'],
+C:['好きなこと没頭タイプ','あなたに必要なのは、ただ一人になることより「好きな世界に入る時間」です','ぼーっとするより、好きな動画を見る、本を読む、推しを見る、作る、遊ぶ。自分の好きに集中できると、気持ちが戻ってくるタイプです。\n\nこのタイプにとって、ひとり時間は空白ではなく補給です。自分の好きなものに触れている間、役割や段取りから離れられます。','好きなことに時間を使うのは、ちゃんと自分を保つ方法です。役に立たなくても大丈夫です。','今日は20分だけ、好きなものに入る時間を確保してみてください。途中でやめてもいいので、まず始めることが大事です。'],
+D:['ちょこっと単独行動タイプ','あなたに必要なのは、長い一人時間より「短く離れる時間」かもしれません','丸一日一人になりたいわけではない。でも、少しだけ一人で歩く、買い物する、カフェに寄る。そういう短い単独行動で気分が変わりやすいタイプです。\n\nこのタイプは、日常の中に小さな出口があると戻りやすいです。長時間の自由が取れなくても、10分、15分の一人行動で呼吸がしやすくなります。','大きな自由じゃなくても、あなたには小さな単独行動が効きます。','次の外出で、5分だけ一人の寄り道を入れてみてください。コンビニでも散歩でも十分です。'],
+E:['家の中で一人に戻るタイプ','あなたに必要なのは、家族がいても自分だけに戻れる小さな場所や時間です','外に出るほどではない。でも、お風呂、寝る前、台所でのお茶、少し早く起きた時間。家の中にある短い一人時間が大事なタイプです。\n\nこのタイプは、完全な自由より「自分の場所」があると落ち着きます。家族と同じ家にいても、少しだけ自分に戻れる場所があると気持ちが整いやすくなります。','家の中にも、あなたの時間があっていいです。誰かのためだけの場所にしなくて大丈夫です。','今日はお風呂か寝る前の5分を、自分だけの時間として守ってみてください。短くても名前をつけると変わります。'],
+F:['人とも一人ともバランスタイプ','あなたは人との時間も一人時間も、どちらも必要なタイプです','誰かと話すと元気になる。笑うと軽くなる。でも、その後に少し一人で整える時間もほしい。そんなバランス型です。\n\nこのタイプは、一人になりたいから人が嫌いなわけではありません。人との時間で動いた気持ちを、一人の時間で落ち着かせる必要があります。','人と過ごした後に一人になりたいのは、距離を置きたいからではなく、整えたいからです。','人と会う予定の後に、10分だけ一人で帰る・飲む・歩く時間を足してみてください。余韻を整えやすくなります。']
+};
+const TYPE_MAX=Q.reduce((m,q)=>{Object.entries(q[1]).forEach(([k,v])=>m[k]=(m[k]||0)+v*3);return m;},{});
+let i=0,answers=[];
+function sc(id){['top','quiz','loading','result'].forEach(x=>document.getElementById(x).classList.add('hide'));document.getElementById(id).classList.remove('hide');scrollTo(0,0)}
+function start(){i=0;answers=[];sc('quiz');render()}
+function back(){if(i>0){i--;render()}}
+function render(){document.getElementById('ptext').textContent=`${i+1} / ${Q.length}`;document.getElementById('pbar').style.width=`${((i+1)/Q.length)*100}%`;document.getElementById('backbtn').disabled=i===0;document.getElementById('q').textContent=Q[i][0];const o=document.getElementById('opts');o.innerHTML='';LEVELS.forEach(l=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`${l.label}<span class="opt-sub">${l.sub}</span>`;b.onclick=()=>{answers[i]=Object.fromEntries(Object.entries(Q[i][1]).map(([k,v])=>[k,v*l.weight]));if(i<Q.length-1){i++;render()}else{sc('loading');setTimeout(show,1000)}};o.appendChild(b)})}
+function calc(){const s={A:0,B:0,C:0,D:0,E:0,F:0};answers.forEach(a=>Object.entries(a).forEach(([k,v])=>s[k]+=v));return Object.keys(s).sort((a,b)=>(s[b]/TYPE_MAX[b])-(s[a]/TYPE_MAX[a])||s[b]-s[a])[0]}
+function share(k){return `私は「${T[k][0]}」でした。ひとり時間の必要度を診断。\n\n▼ひとり時間の必要度診断\nhttps://shindan-lab.github.io/alone-time/\n\n#ひとり時間の必要度診断 #診断Lab`}
+function show(){const k=calc(),t=T[k];document.getElementById('accent').style.background=COLORS[k];document.getElementById('type-name').textContent=t[0];document.getElementById('headline').textContent=t[1];document.getElementById('body').innerHTML=t[2].split('\n\n').map(p=>`<p>${p}</p>`).join('');document.getElementById('letter').textContent=t[3];document.getElementById('pres').textContent=t[4];const a=typeof affiliateData!=='undefined'&&affiliateData[k];if(a){document.getElementById('aff').classList.remove('hide');document.getElementById('afft').textContent=a.title;document.getElementById('affd').textContent=a.desc;document.getElementById('afflink').href=a.url}const tx=encodeURIComponent(share(k));document.getElementById('sx').href=`https://twitter.com/intent/tweet?text=${tx}`;document.getElementById('st').href=`https://www.threads.net/intent/post?text=${tx}`;sc('result')}
+  </script>
+</body>
+</html>
