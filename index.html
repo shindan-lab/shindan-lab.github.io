@@ -40,7 +40,8 @@
     .list{display:flex;flex-direction:column;gap:10px}
     .diag{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;text-decoration:none;background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:13px 12px;box-shadow:0 2px 12px rgba(193,113,74,.07)}
     .diag:active{transform:translateY(1px)}
-    .icon{width:44px;height:44px;border-radius:13px;background:#FDF0EB;display:flex;align-items:center;justify-content:center;color:#C1714A;font-size:20px;font-weight:700}
+    .icon{width:44px;height:44px;border-radius:13px;background:#FDF0EB;display:block;overflow:hidden}
+    .icon img{display:block;width:100%;height:100%;object-fit:cover}
     .diag-name{display:block;font-size:15px;font-weight:700;line-height:1.45;margin:0 0 3px}
     .diag-desc{display:block;font-size:12px;line-height:1.65;color:#7A5C52;margin:0}
     .arrow{color:#C1714A;font-size:22px;line-height:1;padding:0 2px}
@@ -89,22 +90,22 @@
       </div>
       <div class="list">
         <a class="diag" href="https://shindan-lab.github.io/tsukare-karte/">
-          <span class="icon">疲</span>
+          <span class="icon"><img src="shared/diagnosis-icons/tsukare-karte.png" alt="" width="320" height="320" loading="lazy"></span>
           <span><span class="diag-name">疲れのカルテ</span><span class="diag-desc">「なんか疲れた」の正体を広く見たいときに。</span></span>
           <span class="arrow">→</span>
         </a>
         <a class="diag" href="https://shindan-lab.github.io/shokuba-karte/">
-          <span class="icon">職</span>
+          <span class="icon"><img src="shared/diagnosis-icons/shokuba-karte.png" alt="" width="320" height="320" loading="lazy"></span>
           <span><span class="diag-name">職場しんどいカルテ</span><span class="diag-desc">仕事や職場で削られやすい場所を見たいときに。</span></span>
           <span class="arrow">→</span>
         </a>
         <a class="diag" href="https://shindan-lab.github.io/tsutawaranai-tsukare/">
-          <span class="icon">言</span>
+          <span class="icon"><img src="shared/diagnosis-icons/tsutawaranai-tsukare.png" alt="" width="320" height="320" loading="lazy"></span>
           <span><span class="diag-name">伝わらない疲れ診断</span><span class="diag-desc">しんどいのに、うまく伝わらないと感じるときに。</span></span>
           <span class="arrow">→</span>
         </a>
         <a class="diag" href="https://shindan-lab.github.io/alone-time/">
-          <span class="icon">独</span>
+          <span class="icon"><img src="shared/diagnosis-icons/alone-time.png" alt="" width="320" height="320" loading="lazy"></span>
           <span><span class="diag-name">ひとり時間の必要度診断</span><span class="diag-desc">今どれくらい一人になりたいか見たいときに。</span></span>
           <span class="arrow">→</span>
         </a>
@@ -118,12 +119,12 @@
       </div>
       <div class="list">
         <a class="diag" href="https://shindan-lab.github.io/ikuji-iraira/">
-          <span class="icon">育</span>
+          <span class="icon"><img src="shared/diagnosis-icons/ikuji-iraira.png" alt="" width="320" height="320" loading="lazy"></span>
           <span><span class="diag-name">育児イライラの正体診断</span><span class="diag-desc">子どもに怒りたいわけじゃないのにイライラするときに。</span></span>
           <span class="arrow">→</span>
         </a>
         <a class="diag" href="https://shindan-lab.github.io/fuufu-surechigai/">
-          <span class="icon">夫</span>
+          <span class="icon"><img src="shared/diagnosis-icons/fuufu-surechigai.png" alt="" width="320" height="320" loading="lazy"></span>
           <span><span class="diag-name">夫婦のすれ違い疲れ診断</span><span class="diag-desc">分担、会話、察してほしさが積もっているときに。</span></span>
           <span class="arrow">→</span>
         </a>
@@ -137,12 +138,12 @@
       </div>
       <div class="list">
         <a class="diag" href="https://shindan-lab.github.io/money-anxiety/">
-          <span class="icon">円</span>
+          <span class="icon"><img src="shared/diagnosis-icons/money-anxiety.png" alt="" width="320" height="320" loading="lazy"></span>
           <span><span class="diag-name">お金の不安の正体診断</span><span class="diag-desc">お金の不安がどこから来やすいか見たいときに。</span></span>
           <span class="arrow">→</span>
         </a>
         <a class="diag" href="https://shindan-lab.github.io/recovery-switch/">
-          <span class="icon">休</span>
+          <span class="icon"><img src="shared/diagnosis-icons/recovery-switch.png" alt="" width="320" height="320" loading="lazy"></span>
           <span><span class="diag-name">あなたの回復スイッチ診断</span><span class="diag-desc">自分に合う休み方を知りたいときに。</span></span>
           <span class="arrow">→</span>
         </a>
@@ -156,17 +157,17 @@
       </div>
       <div class="list">
         <a class="diag" href="https://shindan-lab.github.io/holiday-style/">
-          <span class="icon">休</span>
+          <span class="icon"><img src="shared/diagnosis-icons/holiday-style.png" alt="" width="320" height="320" loading="lazy"></span>
           <span><span class="diag-name">理想の休日タイプ診断</span><span class="diag-desc">今の自分が求めている休日の形を見たいときに。</span></span>
           <span class="arrow">→</span>
         </a>
         <a class="diag" href="https://shindan-lab.github.io/reward-style/">
-          <span class="icon">贈</span>
+          <span class="icon"><img src="shared/diagnosis-icons/reward-style.png" alt="" width="320" height="320" loading="lazy"></span>
           <span><span class="diag-name">自分へのごほうび診断</span><span class="diag-desc">今の自分に合う満たし方を知りたいときに。</span></span>
           <span class="arrow">→</span>
         </a>
         <a class="diag" href="https://shindan-lab.github.io/strength-style/">
-          <span class="icon">強</span>
+          <span class="icon"><img src="shared/diagnosis-icons/strength-style.png" alt="" width="320" height="320" loading="lazy"></span>
           <span><span class="diag-name">あなたの強みの出方診断</span><span class="diag-desc">消耗だけでなく、自分の良さも見たいときに。</span></span>
           <span class="arrow">→</span>
         </a>
