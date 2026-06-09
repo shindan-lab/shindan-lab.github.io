@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>お金の不安の正体診断</title>
+  <meta name="description" content="将来不安、使った後の罪悪感、家計管理、家族優先。あなたのお金の不安がどこから来やすいかを言葉にする診断です。">
+  <link rel="canonical" href="https://shindan-lab.github.io/money-anxiety/">
+  <link rel="icon" href="../header-banner.svg" type="image/svg+xml">
+  <meta property="og:title" content="お金の不安の正体診断｜何が不安を強めている？">
+  <meta property="og:description" content="将来不安、罪悪感、家計管理、家族優先。お金の不安がどこから来やすいかを診断します。">
+  <meta property="og:url" content="https://shindan-lab.github.io/money-anxiety/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://shindan-lab.github.io/header-banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#C1714A">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="診断Lab">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;background:#FAF7F4;color:#3D2B1F;margin:0}
+    main{max-width:480px;margin:0 auto;padding:24px 16px calc(48px + env(safe-area-inset-bottom))}
+    .card{background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:20px;margin-bottom:14px;box-shadow:0 2px 12px rgba(193,113,74,.08)}
+    .btn,.opt{display:block;width:100%;min-height:44px;border-radius:12px;font:inherit}
+    .btn{border:none;background:#C1714A;color:#fff;padding:16px;cursor:pointer;font-weight:700}
+    .opt{background:#FAF7F4;border:1px solid #E8D5CE;color:#3D2B1F;text-align:center;padding:14px;margin:8px 0;cursor:pointer;font-weight:600}
+    .opt-sub{display:block;margin-top:4px;font-size:12px;font-weight:400;color:#7A5C52}
+    .hide{display:none}.sub{color:#7A5C52}.center{text-align:center}
+    .bar{height:4px;background:#E8D5CE;border-radius:4px;overflow:hidden}.fill{height:100%;background:#C1714A;transition:width .2s}
+    .pill{display:inline-block;background:#FDF0EB;border:1px solid #E8D5CE;border-radius:999px;padding:4px 12px;color:#C1714A;font-size:13px}
+    .label{font-size:11px;letter-spacing:.14em;color:#C1714A;font-weight:700;margin-bottom:10px}
+    .hero{padding-top:36px}.h1{font-size:31px;font-weight:700;margin:0 0 8px;line-height:1.35}
+    .visual{display:block;width:100%;height:150px;object-fit:cover;border-radius:16px;margin:14px 0;background:#F8F4F1}
+    .result-head{background:#fff;border:1px solid #E8D5CE;border-radius:20px;padding:12px;margin-bottom:16px;overflow:hidden}
+    .accent{height:8px;border-radius:999px;margin-bottom:14px}.type-name{font-size:29px;font-weight:700;line-height:1.25;margin:0;color:#2F2119}
+    .share a{display:inline-block;width:48%;text-align:center;background:#1A1A1A;color:#fff;text-decoration:none;padding:12px 0;border-radius:12px}
+    .site-footer{margin-top:56px;padding:28px 0 20px;text-align:center;border-top:1px solid #E8D5CE}
+    #body p{margin:0 0 1em}#body p:last-child{margin-bottom:0}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <main>
+    <section id="top" class="hero center">
+      <a href="https://shindan-lab.github.io/" style="letter-spacing:.18em;color:#C1714A;font-size:12px;margin-bottom:12px;text-decoration:none;display:block">診断Lab</a>
+      <h1 class="h1">お金の不安の正体診断</h1>
+      <p style="color:#C1714A;font-weight:500">何が不安を強めている？</p>
+      <img class="visual" src="../header-banner.png" alt="診断Lab">
+      <div class="card" style="text-align:left">
+        <p class="sub">将来不安、使った後の罪悪感、家計管理、家族優先。あなたのお金の不安がどこから来やすいかを、責めずに整理する診断です。</p>
+        <div style="margin-top:12px"><span class="pill">12問・4段階で答える診断です</span></div>
+      </div>
+      <button class="btn" onclick="start()">診断をはじめる</button>
+    </section>
+
+    <section id="quiz" class="hide">
+      <div class="sub" id="ptext">1 / 12</div>
+      <div class="bar"><div class="fill" id="pbar" style="width:8.3%"></div></div>
+      <div style="margin:10px 0"><button onclick="back()" id="backbtn" style="background:none;border:none;color:#7A5C52;padding:0">前の問題に戻る</button></div>
+      <div class="card"><div id="q" style="font-weight:700;line-height:1.7"></div><div id="opts"></div></div>
+    </section>
+
+    <section id="loading" class="hide center" style="padding-top:100px">
+      <div style="width:48px;height:48px;border:4px solid #E8D5CE;border-top-color:#C1714A;border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 24px"></div>
+      <div class="sub" style="font-size:16px;font-weight:500">お金の不安の出どころを整理中…</div>
+    </section>
+
+    <section id="result" class="hide">
+      <div class="result-head">
+        <div class="accent" id="accent"></div>
+        <div style="font-size:10px;letter-spacing:.22em;color:#C1714A;margin-bottom:10px;font-weight:700">あなたのお金の不安タイプ</div>
+        <h2 class="type-name" id="type-name"></h2>
+      </div>
+      <div class="card"><div class="label">診断結果</div><div id="headline" style="font-weight:700;line-height:1.7;margin-bottom:12px"></div><div id="body" style="line-height:1.9"></div></div>
+      <div class="card" style="background:#FDF0EB"><div class="label">あなたへ</div><div id="letter" style="line-height:1.9"></div></div>
+      <div class="card" style="border:2px solid #C1714A"><div class="label">今日できる小さな整理</div><div id="pres" style="line-height:1.9"></div></div>
+      <div id="aff" class="card hide">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><div class="label" style="margin-bottom:0">もし気になったら</div><span style="font-size:9px;font-weight:700;color:#B0978E;background:#F0E4DE;padding:2px 6px;border-radius:3px">PR</span></div>
+        <a id="afflink" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit"><div id="afft" style="font-weight:700"></div><div id="affd" class="sub" style="margin-top:6px"></div><div style="margin-top:10px;color:#BF4500;font-weight:700">楽天で見る →</div></a>
+      </div>
+      <div class="share"><a id="sx" target="_blank" rel="noopener noreferrer">Xでシェア</a><a id="st" target="_blank" rel="noopener noreferrer">Threadsでシェア</a></div>
+      <button class="btn" style="margin-top:12px;background:#fff;color:#7A5C52;border:1px solid #E8D5CE" onclick="location.href='https://shindan-lab.github.io/'">他の診断もやってみる</button>
+    </section>
+    <footer class="site-footer" data-root=".."></footer>
+  </main>
+  <script src="affiliate.js"></script>
+  <script src="../shared/footer.js"></script>
+  <script>
+const LEVELS=[{label:'とても当てはまる',sub:'かなり近い',weight:3},{label:'少し当てはまる',sub:'まあ近い',weight:2},{label:'あまり当てはまらない',sub:'少し違う',weight:1},{label:'ほとんど当てはまらない',sub:'かなり違う',weight:0}];
+const COLORS={A:'#2563EB',B:'#DB2777',C:'#D97706',D:'#059669',E:'#7C3AED',F:'#64748B'};
+const Q=[
+['将来のお金を考えると、今は大丈夫でも不安が先に来る',{A:3}],
+['自分のためにお金を使うと、あとで少し罪悪感が出やすい',{B:3}],
+['細かい支出や値上げが気になって、気持ちが落ち着かない',{C:3}],
+['家族や子どものための出費は出せても、自分のことは後回しにしがち',{D:3}],
+['安いものを探し続けて、買う前から疲れてしまうことがある',{E:3}],
+['貯金や収入を見ても、なぜか安心しきれない',{F:3,A:1}],
+['老後、教育費、住宅、急な出費などを考え始めると止まらない',{A:2}],
+['欲しいものを買った後、買わなくてもよかったかもと考えやすい',{B:2}],
+['家計簿や明細を見るたび、何か間違っている気がしてしまう',{C:2}],
+['家族の必要なものを優先して、自分の欲しいものは削りやすい',{D:2}],
+['お得に買えたかどうかで、その買い物の満足度が左右されやすい',{E:2}],
+['お金の不安はあるけれど、何が不安なのかうまく説明できない',{F:3}]
+];
+const T={
+A:['将来先回り不安タイプ','あなたのお金の不安は、「まだ起きていない未来」を考え続けるところから強まりやすいのかもしれません','老後、教育費、住宅、急な病気、もし収入が減ったら。今すぐ困っているわけではなくても、先のことを考え始めると不安が広がっていく。そんな感覚があるかもしれません。\n\nこのタイプは、無計画だから不安なのではありません。むしろ先を見ようとする力があるからこそ、不安も見えやすい状態です。ただ、未来の全部を今日の頭で抱えようとすると、どれだけ備えても安心しきれなくなります。お金の不安というより、「未来を一人で背負いすぎる不安」に近いのかもしれません。','先のことを考えられるのは、あなたの強みです。ただ、全部を今日解決しなくても大丈夫です。', '今日できることと、今日は考えても答えが出ないことを分けてみてください。不安を消すより、置き場所を作るのが第一歩です。'],
+B:['使ったあと罪悪感タイプ','あなたのお金の不安は、「自分に使ってよかったのかな」という後ろめたさから来やすいのかもしれません','必要なものなら買える。家族のためなら出せる。でも、自分のために使った後だけ、少し気持ちが落ち着かない。そんなことはありませんか。\n\nこのタイプは、浪費家だから不安なのではありません。むしろ、自分より先に家族や生活を考える癖が強い人です。そのぶん、自分の楽しみや休息にお金を使うと、後から「本当に必要だった？」と自分を問い詰めやすくなります。お金の不安の奥に、自分を後回しにしてきた時間があるのかもしれません。','自分に使うお金は、無駄とは限りません。あなたが戻るための支出もあります。','次に何かを買うときは、「これは私を少し楽にする？」と聞いてみてください。必要か不要かだけでなく、戻れるかどうかで見ても大丈夫です。'],
+C:['毎月ヒヤヒヤ管理タイプ','あなたのお金の不安は、日々の支出をずっと見張っている疲れから来やすいのかもしれません','スーパーでの値上げ、光熱費、日用品、子どもの出費。ひとつひとつは小さくても、積み重なると「今月大丈夫かな」と頭の中で計算し続けてしまう。そんな状態がありませんか。\n\nこのタイプは、お金を使うたびに小さな確認作業が入ります。だから買い物そのものより、考え続けることに疲れやすい。家計を守ろうとしているからこそ、支出のたびに気が張っているのです。不安の正体は金額だけではなく、毎日ずっと管理者でいることかもしれません。','ずっと気にしてきたんですよね。家計を見ている人ほど、気が休まりにくいものです。','今日だけは、支出を「固定費」「食費」「その他」の3つくらいにざっくり分けて見てみてください。細かく見すぎない整理も必要です。'],
+D:['家族優先あと回しタイプ','あなたのお金の不安は、「自分の分を削るのが当たり前」になっているところから来やすいのかもしれません','子どものもの、家族の予定、家に必要なもの。そこにはお金を使えるのに、自分の服や休息や楽しみになると急に手が止まる。そんなことがあるかもしれません。\n\nこのタイプは、家族思いで責任感が強い人です。ただ、ずっと自分の分を削っていると、お金の不安だけでなく「自分の扱いが小さくなる不満」も積もっていきます。家族のために使えることは大切です。でも、自分のために使えない状態が続くと、心の余白は減っていきます。','あなたの分も、家計の中にあっていいです。自分を削ることだけが家族思いではありません。','月に一度でいいので、「自分用の小さな予算」を先に決めてみてください。金額より、最初から枠を作ることが大切です。'],
+E:['安さ探し疲れタイプ','あなたのお金の不安は、「損したくない」と考え続ける疲れから来やすいのかもしれません','少しでも安く買いたい。失敗したくない。もっとお得なものがあるかもしれない。そう考えて調べ続けるうちに、買う前から疲れてしまうことはありませんか。\n\nこのタイプは、節約上手な面があります。でも、安さを探すことに時間と気力を使いすぎると、買い物がずっと判断の連続になります。お得に買えたかどうかで安心が決まるので、買った後も比較が残りやすい。不安の正体は、金額そのものより「損したくない緊張」かもしれません。','安く買おうとするのは悪いことではありません。ただ、あなたの時間と気力も大事な資源です。','次の買い物では、調べる時間を10分だけにしてみてください。最安値ではなく「十分納得できる」で止める練習です。'],
+F:['理由不明モヤモヤタイプ','あなたのお金の不安は、はっきりした原因より「なんとなく安心できない感覚」として出やすいのかもしれません','収入が極端に足りないわけではない。使いすぎているつもりもない。でも、なぜかお金のことを考えると気持ちが重くなる。そんな不安があるかもしれません。\n\nこのタイプは、不安の理由が一つに絞れない状態です。将来、家計、比較、物価、ニュース、家族の予定。いろいろなものが少しずつ重なって、「なんとなく不安」として残っている可能性があります。理由が言えないからといって、気のせいではありません。ぼんやりした不安も、ちゃんと不安です。','言葉にできない不安ほど、ひとりで抱えると大きく見えます。まずは「よくわからないけど不安」で大丈夫です。','紙に「何が不安か分からない」と書いてから、思いつく単語を3つだけ出してみてください。原因探しではなく、輪郭を少し見るだけで十分です。']
+};
+const TYPE_MAX=Q.reduce((m,q)=>{Object.entries(q[1]).forEach(([k,v])=>m[k]=(m[k]||0)+v*3);return m;},{});
+let i=0,answers=[];
+function sc(id){['top','quiz','loading','result'].forEach(x=>document.getElementById(x).classList.add('hide'));document.getElementById(id).classList.remove('hide');scrollTo(0,0)}
+function start(){i=0;answers=[];sc('quiz');render()}
+function back(){if(i>0){i--;render()}}
+function render(){document.getElementById('ptext').textContent=`${i+1} / ${Q.length}`;document.getElementById('pbar').style.width=`${((i+1)/Q.length)*100}%`;document.getElementById('backbtn').disabled=i===0;document.getElementById('q').textContent=Q[i][0];const o=document.getElementById('opts');o.innerHTML='';LEVELS.forEach(l=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`${l.label}<span class="opt-sub">${l.sub}</span>`;b.onclick=()=>{answers[i]=Object.fromEntries(Object.entries(Q[i][1]).map(([k,v])=>[k,v*l.weight]));if(i<Q.length-1){i++;render()}else{sc('loading');setTimeout(show,1000)}};o.appendChild(b)})}
+function calc(){const s={A:0,B:0,C:0,D:0,E:0,F:0};answers.forEach(a=>Object.entries(a).forEach(([k,v])=>s[k]+=v));return Object.keys(s).sort((a,b)=>(s[b]/TYPE_MAX[b])-(s[a]/TYPE_MAX[a])||s[b]-s[a])[0]}
+function share(k){return `私は「${T[k][0]}」でした。お金の不安の正体を診断。\n\n▼お金の不安の正体診断\nhttps://shindan-lab.github.io/money-anxiety/\n\n#お金の不安の正体診断 #診断Lab`}
+function show(){const k=calc(),t=T[k];document.getElementById('accent').style.background=COLORS[k];document.getElementById('type-name').textContent=t[0];document.getElementById('headline').textContent=t[1];document.getElementById('body').innerHTML=t[2].split('\n\n').map(p=>`<p>${p}</p>`).join('');document.getElementById('letter').textContent=t[3];document.getElementById('pres').textContent=t[4];const a=typeof affiliateData!=='undefined'&&affiliateData[k];if(a){document.getElementById('aff').classList.remove('hide');document.getElementById('afft').textContent=a.title;document.getElementById('affd').textContent=a.desc;document.getElementById('afflink').href=a.url}const tx=encodeURIComponent(share(k));document.getElementById('sx').href=`https://twitter.com/intent/tweet?text=${tx}`;document.getElementById('st').href=`https://www.threads.net/intent/post?text=${tx}`;sc('result')}
+  </script>
+</body>
+</html>
