@@ -33,6 +33,7 @@
     .label{font-size:11px;letter-spacing:.14em;color:#C1714A;font-weight:700;margin-bottom:10px}
     .hero{padding-top:36px}.h1{font-size:31px;font-weight:700;margin:0 0 8px;line-height:1.35}
     .visual{display:block;width:100%;height:150px;object-fit:cover;border-radius:16px;margin:14px 0;background:#F8F4F1}
+    .result-type-image{display:block;width:100%;height:210px;object-fit:cover;object-position:center;border-radius:16px;margin-top:14px;background:#F8F4F1}
     .result-head{background:#fff;border:1px solid #E8D5CE;border-radius:20px;padding:12px;margin-bottom:16px;overflow:hidden}
     .accent{height:8px;border-radius:999px;margin-bottom:14px}.type-name{font-size:29px;font-weight:700;line-height:1.25;margin:0;color:#2F2119}
     .share a{display:inline-block;width:48%;text-align:center;background:#1A1A1A;color:#fff;text-decoration:none;padding:12px 0;border-radius:12px}
@@ -72,6 +73,7 @@
         <div class="accent" id="accent"></div>
         <div style="font-size:10px;letter-spacing:.22em;color:#C1714A;margin-bottom:10px;font-weight:700">あなたの理想の休日タイプ</div>
         <h2 class="type-name" id="type-name"></h2>
+        <img class="result-type-image" id="result-type-image" src="" alt="">
       </div>
       <div class="card"><div class="label">診断結果</div><div id="headline" style="font-weight:700;line-height:1.7;margin-bottom:12px"></div><div id="body" style="line-height:1.9"></div></div>
       <div class="card" style="background:#FDF0EB"><div class="label">休日の合言葉</div><div id="letter" style="line-height:1.9"></div></div>
@@ -112,6 +114,14 @@ D:['家族ゆる時間タイプ','あなたの休日は、身近な人とゆる�
 E:['ひとり没頭タイプ','あなたの休日は、自分の世界に戻る時間があるほど満たされるタイプです','読書、動画、推し、手芸、ゲーム、音楽。誰かのためではなく、自分だけの好きに集中できる時間があると、気持ちが戻ってくるのではないでしょうか。\n\nこのタイプにとって、ひとり時間はぜいたくではなく必要な栄養です。短くても、邪魔されずに好きなものへ向かう時間があると、休日の満足度が大きく変わります。','自分の好きなものに戻る時間は、ちゃんと生活を支える力になります。','次の休日は、30分だけ「誰にも説明しなくていい好きな時間」を確保してみてください。内容は役に立たなくて大丈夫です。'],
 F:['ノープラン余白タイプ','あなたの休日は、決めすぎないことそのものが心地よいタイプです','せっかくの休日だから有意義にしなきゃ。そう思うほど疲れてしまうことはありませんか。あなたには、予定を詰めるより、気分で動ける余白が必要です。\n\n起きてから考える。行きたくなったら行く。何もしなくてもよしとする。そんなゆるさが、今のあなたの休日には合っています。','予定がない休日は、空っぽではありません。自由に選べる余白がある休日です。','次の休日は、あえて半日だけ予定を空けておいてください。何をするかは、その時の自分に決めさせてあげましょう。']
 };
+const TYPE_IMAGE = {
+  A: '../shared/result-images/rest-sleep.png',
+  B: '../shared/result-images/small-outing.png',
+  C: '../shared/result-images/home-tidy.png',
+  D: '../shared/result-images/family-load.png',
+  E: '../shared/result-images/quiet-alone.png',
+  F: '../shared/result-images/vague-fog.png'
+};
 const TYPE_MAX=Q.reduce((m,q)=>{Object.entries(q[1]).forEach(([k,v])=>m[k]=(m[k]||0)+v*3);return m;},{});
 let i=0,answers=[];
 function sc(id){['top','quiz','loading','result'].forEach(x=>document.getElementById(x).classList.add('hide'));document.getElementById(id).classList.remove('hide');scrollTo(0,0)}
@@ -120,7 +130,7 @@ function back(){if(i>0){i--;render()}}
 function render(){document.getElementById('ptext').textContent=`${i+1} / ${Q.length}`;document.getElementById('pbar').style.width=`${((i+1)/Q.length)*100}%`;document.getElementById('backbtn').disabled=i===0;document.getElementById('q').textContent=Q[i][0];const o=document.getElementById('opts');o.innerHTML='';LEVELS.forEach(l=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`${l.label}<span class="opt-sub">${l.sub}</span>`;b.onclick=()=>{answers[i]=Object.fromEntries(Object.entries(Q[i][1]).map(([k,v])=>[k,v*l.weight]));if(i<Q.length-1){i++;render()}else{sc('loading');setTimeout(show,1000)}};o.appendChild(b)})}
 function calc(){const s={A:0,B:0,C:0,D:0,E:0,F:0};answers.forEach(a=>Object.entries(a).forEach(([k,v])=>s[k]+=v));return Object.keys(s).sort((a,b)=>(s[b]/TYPE_MAX[b])-(s[a]/TYPE_MAX[a])||s[b]-s[a])[0]}
 function share(k){return `私は「${T[k][0]}」でした。理想の休日タイプを診断。\n\n▼理想の休日タイプ診断\nhttps://shindan-lab.github.io/holiday-style/\n\n#理想の休日タイプ診断 #診断Lab`}
-function show(){const k=calc(),t=T[k];document.getElementById('accent').style.background=COLORS[k];document.getElementById('type-name').textContent=t[0];document.getElementById('headline').textContent=t[1];document.getElementById('body').innerHTML=t[2].split('\n\n').map(p=>`<p>${p}</p>`).join('');document.getElementById('letter').textContent=t[3];document.getElementById('pres').textContent=t[4];const a=typeof affiliateData!=='undefined'&&affiliateData[k];if(a){document.getElementById('aff').classList.remove('hide');document.getElementById('afft').textContent=a.title;document.getElementById('affd').textContent=a.desc;document.getElementById('afflink').href=a.url}const tx=encodeURIComponent(share(k));document.getElementById('sx').href=`https://twitter.com/intent/tweet?text=${tx}`;document.getElementById('st').href=`https://www.threads.net/intent/post?text=${tx}`;sc('result')}
+function show(){const k=calc(),t=T[k];document.getElementById('accent').style.background=COLORS[k];document.getElementById('type-name').textContent=t[0];document.getElementById('result-type-image').src=TYPE_IMAGE[k];document.getElementById('result-type-image').alt=`${t[0]}???????`;document.getElementById('headline').textContent=t[1];document.getElementById('body').innerHTML=t[2].split('\n\n').map(p=>`<p>${p}</p>`).join('');document.getElementById('letter').textContent=t[3];document.getElementById('pres').textContent=t[4];const a=typeof affiliateData!=='undefined'&&affiliateData[k];if(a){document.getElementById('aff').classList.remove('hide');document.getElementById('afft').textContent=a.title;document.getElementById('affd').textContent=a.desc;document.getElementById('afflink').href=a.url}const tx=encodeURIComponent(share(k));document.getElementById('sx').href=`https://twitter.com/intent/tweet?text=${tx}`;document.getElementById('st').href=`https://www.threads.net/intent/post?text=${tx}`;sc('result')}
   </script>
 </body>
 </html>

@@ -33,6 +33,7 @@
     .label{font-size:11px;letter-spacing:.14em;color:#C1714A;font-weight:700;margin-bottom:10px}
     .hero{padding-top:36px}.h1{font-size:31px;font-weight:700;margin:0 0 8px;line-height:1.35}
     .visual{display:block;width:100%;height:150px;object-fit:cover;border-radius:16px;margin:14px 0;background:#F8F4F1}
+    .result-type-image{display:block;width:100%;height:210px;object-fit:cover;object-position:center;border-radius:16px;margin-top:14px;background:#F8F4F1}
     .result-head{background:#fff;border:1px solid #E8D5CE;border-radius:20px;padding:12px;margin-bottom:16px;overflow:hidden}
     .accent{height:8px;border-radius:999px;margin-bottom:14px}.type-name{font-size:29px;font-weight:700;line-height:1.25;margin:0;color:#2F2119}
     .share a{display:inline-block;width:48%;text-align:center;background:#1A1A1A;color:#fff;text-decoration:none;padding:12px 0;border-radius:12px}
@@ -72,6 +73,7 @@
         <div class="accent" id="accent"></div>
         <div style="font-size:10px;letter-spacing:.22em;color:#C1714A;margin-bottom:10px;font-weight:700">あなたのお金の不安タイプ</div>
         <h2 class="type-name" id="type-name"></h2>
+        <img class="result-type-image" id="result-type-image" src="" alt="">
       </div>
       <div class="card"><div class="label">診断結果</div><div id="headline" style="font-weight:700;line-height:1.7;margin-bottom:12px"></div><div id="body" style="line-height:1.9"></div></div>
       <div class="card" style="background:#FDF0EB"><div class="label">あなたへ</div><div id="letter" style="line-height:1.9"></div></div>
@@ -112,6 +114,14 @@ D:['家族優先あと回しタイプ','あなたのお金の不安は、「自�
 E:['安さ探し疲れタイプ','あなたのお金の不安は、「損したくない」と考え続ける疲れから来やすいのかもしれません','少しでも安く買いたい。失敗したくない。もっとお得なものがあるかもしれない。そう考えて調べ続けるうちに、買う前から疲れてしまうことはありませんか。\n\nこのタイプは、節約上手な面があります。でも、安さを探すことに時間と気力を使いすぎると、買い物がずっと判断の連続になります。お得に買えたかどうかで安心が決まるので、買った後も比較が残りやすい。不安の正体は、金額そのものより「損したくない緊張」かもしれません。','安く買おうとするのは悪いことではありません。ただ、あなたの時間と気力も大事な資源です。','次の買い物では、調べる時間を10分だけにしてみてください。最安値ではなく「十分納得できる」で止める練習です。'],
 F:['理由不明モヤモヤタイプ','あなたのお金の不安は、はっきりした原因より「なんとなく安心できない感覚」として出やすいのかもしれません','収入が極端に足りないわけではない。使いすぎているつもりもない。でも、なぜかお金のことを考えると気持ちが重くなる。そんな不安があるかもしれません。\n\nこのタイプは、不安の理由が一つに絞れない状態です。将来、家計、比較、物価、ニュース、家族の予定。いろいろなものが少しずつ重なって、「なんとなく不安」として残っている可能性があります。理由が言えないからといって、気のせいではありません。ぼんやりした不安も、ちゃんと不安です。','言葉にできない不安ほど、ひとりで抱えると大きく見えます。まずは「よくわからないけど不安」で大丈夫です。','紙に「何が不安か分からない」と書いてから、思いつく単語を3つだけ出してみてください。原因探しではなく、輪郭を少し見るだけで十分です。']
 };
+const TYPE_IMAGE = {
+  A: '../shared/result-images/money-worry.png',
+  B: '../shared/result-images/self-reward.png',
+  C: '../shared/result-images/money-worry.png',
+  D: '../shared/result-images/family-load.png',
+  E: '../shared/result-images/home-tidy.png',
+  F: '../shared/result-images/vague-fog.png'
+};
 const TYPE_MAX=Q.reduce((m,q)=>{Object.entries(q[1]).forEach(([k,v])=>m[k]=(m[k]||0)+v*3);return m;},{});
 let i=0,answers=[];
 function sc(id){['top','quiz','loading','result'].forEach(x=>document.getElementById(x).classList.add('hide'));document.getElementById(id).classList.remove('hide');scrollTo(0,0)}
@@ -120,7 +130,7 @@ function back(){if(i>0){i--;render()}}
 function render(){document.getElementById('ptext').textContent=`${i+1} / ${Q.length}`;document.getElementById('pbar').style.width=`${((i+1)/Q.length)*100}%`;document.getElementById('backbtn').disabled=i===0;document.getElementById('q').textContent=Q[i][0];const o=document.getElementById('opts');o.innerHTML='';LEVELS.forEach(l=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`${l.label}<span class="opt-sub">${l.sub}</span>`;b.onclick=()=>{answers[i]=Object.fromEntries(Object.entries(Q[i][1]).map(([k,v])=>[k,v*l.weight]));if(i<Q.length-1){i++;render()}else{sc('loading');setTimeout(show,1000)}};o.appendChild(b)})}
 function calc(){const s={A:0,B:0,C:0,D:0,E:0,F:0};answers.forEach(a=>Object.entries(a).forEach(([k,v])=>s[k]+=v));return Object.keys(s).sort((a,b)=>(s[b]/TYPE_MAX[b])-(s[a]/TYPE_MAX[a])||s[b]-s[a])[0]}
 function share(k){return `私は「${T[k][0]}」でした。お金の不安の正体を診断。\n\n▼お金の不安の正体診断\nhttps://shindan-lab.github.io/money-anxiety/\n\n#お金の不安の正体診断 #診断Lab`}
-function show(){const k=calc(),t=T[k];document.getElementById('accent').style.background=COLORS[k];document.getElementById('type-name').textContent=t[0];document.getElementById('headline').textContent=t[1];document.getElementById('body').innerHTML=t[2].split('\n\n').map(p=>`<p>${p}</p>`).join('');document.getElementById('letter').textContent=t[3];document.getElementById('pres').textContent=t[4];const a=typeof affiliateData!=='undefined'&&affiliateData[k];if(a){document.getElementById('aff').classList.remove('hide');document.getElementById('afft').textContent=a.title;document.getElementById('affd').textContent=a.desc;document.getElementById('afflink').href=a.url}const tx=encodeURIComponent(share(k));document.getElementById('sx').href=`https://twitter.com/intent/tweet?text=${tx}`;document.getElementById('st').href=`https://www.threads.net/intent/post?text=${tx}`;sc('result')}
+function show(){const k=calc(),t=T[k];document.getElementById('accent').style.background=COLORS[k];document.getElementById('type-name').textContent=t[0];document.getElementById('result-type-image').src=TYPE_IMAGE[k];document.getElementById('result-type-image').alt=`${t[0]}???????`;document.getElementById('headline').textContent=t[1];document.getElementById('body').innerHTML=t[2].split('\n\n').map(p=>`<p>${p}</p>`).join('');document.getElementById('letter').textContent=t[3];document.getElementById('pres').textContent=t[4];const a=typeof affiliateData!=='undefined'&&affiliateData[k];if(a){document.getElementById('aff').classList.remove('hide');document.getElementById('afft').textContent=a.title;document.getElementById('affd').textContent=a.desc;document.getElementById('afflink').href=a.url}const tx=encodeURIComponent(share(k));document.getElementById('sx').href=`https://twitter.com/intent/tweet?text=${tx}`;document.getElementById('st').href=`https://www.threads.net/intent/post?text=${tx}`;sc('result')}
   </script>
 </body>
 </html>
