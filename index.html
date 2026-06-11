@@ -33,6 +33,10 @@
     .lead{font-size:14px;line-height:1.8;color:#7A5C52;margin:0}
     .quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
     .quick a{display:flex;align-items:center;min-height:52px;text-decoration:none;background:#fff;border:1px solid #E8D5CE;border-radius:14px;padding:12px 13px;font-size:13px;font-weight:700;line-height:1.45;box-shadow:0 2px 10px rgba(193,113,74,.06)}
+    .trust-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px}
+    .trust-item{min-height:52px;background:#fff;border:1px solid #E8D5CE;border-radius:14px;padding:10px 8px;text-align:center;box-shadow:0 2px 10px rgba(193,113,74,.05)}
+    .trust-label{display:block;font-size:10px;font-weight:700;line-height:1.4;color:#C1714A;margin-bottom:3px}
+    .trust-text{display:block;font-size:11px;line-height:1.45;color:#7A5C52}
     .section{margin-top:30px}
     .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:0 2px 12px}
     .section-title{font-size:17px;font-weight:700;line-height:1.4;margin:0}
@@ -58,11 +62,41 @@
     .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @media (max-width:380px){
       .quick{grid-template-columns:1fr}
+      .trust-strip{grid-template-columns:1fr}
       h1{font-size:22px}
       .diag{grid-template-columns:40px 1fr auto}
       .icon{width:40px;height:40px}
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "診断Lab",
+    "url": "https://shindan-lab.github.io/",
+    "description": "育児・仕事・家事のなかで生まれる、うまく言えない気持ちや疲れを言葉にする読み物型診断サイト。"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "診断Labの診断一覧",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"疲れのカルテ","url":"https://shindan-lab.github.io/tsukare-karte/"},
+      {"@type":"ListItem","position":2,"name":"職場しんどいカルテ","url":"https://shindan-lab.github.io/shokuba-karte/"},
+      {"@type":"ListItem","position":3,"name":"伝わらない疲れ診断","url":"https://shindan-lab.github.io/tsutawaranai-tsukare/"},
+      {"@type":"ListItem","position":4,"name":"ひとり時間の必要度診断","url":"https://shindan-lab.github.io/alone-time/"},
+      {"@type":"ListItem","position":5,"name":"育児イライラの正体診断","url":"https://shindan-lab.github.io/ikuji-iraira/"},
+      {"@type":"ListItem","position":6,"name":"夫婦のすれ違い疲れ診断","url":"https://shindan-lab.github.io/fuufu-surechigai/"},
+      {"@type":"ListItem","position":7,"name":"お金の不安の正体診断","url":"https://shindan-lab.github.io/money-anxiety/"},
+      {"@type":"ListItem","position":8,"name":"あなたの回復スイッチ診断","url":"https://shindan-lab.github.io/recovery-switch/"},
+      {"@type":"ListItem","position":9,"name":"理想の休日タイプ診断","url":"https://shindan-lab.github.io/holiday-style/"},
+      {"@type":"ListItem","position":10,"name":"自分へのごほうび診断","url":"https://shindan-lab.github.io/reward-style/"},
+      {"@type":"ListItem","position":11,"name":"あなたの強みの出方診断","url":"https://shindan-lab.github.io/strength-style/"}
+    ]
+  }
+  </script>
 </head>
 <body>
   <main class="page">
@@ -80,6 +114,11 @@
         <a href="#family">育児・夫婦</a>
         <a href="#life">暮らし・お金</a>
         <a href="#positive">休日・ごほうび</a>
+      </div>
+      <div class="trust-strip" aria-label="サイトの利用情報">
+        <div class="trust-item"><span class="trust-label">無料</span><span class="trust-text">登録なしで診断</span></div>
+        <div class="trust-item"><span class="trust-label">個人情報</span><span class="trust-text">入力不要</span></div>
+        <div class="trust-item"><span class="trust-label">PR表記</span><span class="trust-text">掲載時は明記</span></div>
       </div>
     </section>
 

@@ -12,6 +12,10 @@
 - 伝わらない疲れ診断: `https://shindan-lab.github.io/tsutawaranai-tsukare/`
 - 育児イライラの正体診断: `https://shindan-lab.github.io/ikuji-iraira/`
 - 夫婦のすれ違い疲れ診断: `https://shindan-lab.github.io/fuufu-surechigai/`
+- 理想の休日タイプ診断: `https://shindan-lab.github.io/holiday-style/`
+- 自分へのごほうび診断: `https://shindan-lab.github.io/reward-style/`
+- お金の不安の正体診断: `https://shindan-lab.github.io/money-anxiety/`
+- ひとり時間の必要度診断: `https://shindan-lab.github.io/alone-time/`
 
 ## 構成
 
@@ -20,6 +24,9 @@
 - `about.html`
 - `privacy.html`
 - `disclaimer.html`
+- `sitemap.xml`
+- `robots.txt`
+- `MONETIZATION_REVIEW.md`
 - `shared/`
   - 共通フッターなどの shared アセット
 - `tsukare-karte/`
@@ -29,6 +36,10 @@
 - `tsutawaranai-tsukare/`
 - `ikuji-iraira/`
 - `fuufu-surechigai/`
+- `holiday-style/`
+- `reward-style/`
+- `money-anxiety/`
+- `alone-time/`
 
 ## 運用ルール
 
