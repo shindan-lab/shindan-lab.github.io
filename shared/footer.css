@@ -68,6 +68,28 @@
   color:#7A5C52;
 }
 
+.site-footer .footer-article-nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:7px 10px;
+  max-width:520px;
+  margin:0 auto 16px;
+}
+
+.site-footer .footer-article-nav a{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:5px 10px;
+  border-radius:999px;
+  background:#FDF0EB;
+  color:#7A5C52;
+  text-decoration:none;
+  font-size:11px;
+  line-height:1.5;
+}
+
 .site-footer .footer-links{
   margin:0 0 10px;
   font-size:12px;

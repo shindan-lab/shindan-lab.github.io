@@ -16,6 +16,9 @@
 - 自分へのごほうび診断: `https://shindan-lab.github.io/reward-style/`
 - お金の不安の正体診断: `https://shindan-lab.github.io/money-anxiety/`
 - ひとり時間の必要度診断: `https://shindan-lab.github.io/alone-time/`
+- お金の不安が消えない理由: `https://shindan-lab.github.io/money-anxiety-column/`
+- ひとり時間が足りない人のサイン: `https://shindan-lab.github.io/alone-time-column/`
+- 育児中にイライラが止まらない理由: `https://shindan-lab.github.io/ikuji-iraira-column/`
 
 ## 構成
 
@@ -27,6 +30,8 @@
 - `sitemap.xml`
 - `robots.txt`
 - `MONETIZATION_REVIEW.md`
+- `LAUNCH_ROADMAP.md`
+- `SNS_DRAFTS.md`
 - `shared/`
   - 共通フッターなどの shared アセット
 - `tsukare-karte/`
@@ -40,6 +45,9 @@
 - `reward-style/`
 - `money-anxiety/`
 - `alone-time/`
+- `money-anxiety-column/`
+- `alone-time-column/`
+- `ikuji-iraira-column/`
 
 ## 運用ルール
 

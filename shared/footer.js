@@ -17,6 +17,11 @@
     { title: '自分へのごほうび診断', url: 'https://shindan-lab.github.io/reward-style/', desc: '今の自分に合う満たし方を見る' },
     { title: 'あなたの強みの出方診断', url: 'https://shindan-lab.github.io/strength-style/', desc: '自分の良さを見直す' }
   ];
+  const articles = [
+    { title: 'お金の不安が消えない理由', url: 'https://shindan-lab.github.io/money-anxiety-column/' },
+    { title: 'ひとり時間が足りない人のサイン', url: 'https://shindan-lab.github.io/alone-time-column/' },
+    { title: '育児中にイライラが止まらない理由', url: 'https://shindan-lab.github.io/ikuji-iraira-column/' }
+  ];
 
   if (!document.querySelector('link[data-shared-footer-css]')) {
     const link = document.createElement('link');
@@ -31,6 +36,9 @@
     <p class="footer-tagline">あなたの「なんか」を、言葉にする。</p>
     <div class="footer-diagnosis-nav" aria-label="診断メニュー">
       ${diagnoses.slice(0, 4).map(item => `<a href="${item.url}"><strong>${item.title}</strong><span>${item.desc}</span></a>`).join('')}
+    </div>
+    <div class="footer-article-nav" aria-label="読み物メニュー">
+      ${articles.map(item => `<a href="${item.url}">${item.title}</a>`).join('')}
     </div>
     <p class="footer-links">
       <a href="${root}/">トップページ</a>
