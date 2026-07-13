@@ -43,6 +43,14 @@
       visual.height = 320;
     }
 
+    if (!top.querySelector('.lab-answer-guide')) {
+      const guide = document.createElement('p');
+      guide.className = 'lab-answer-guide';
+      guide.innerHTML = '<strong>回答の目安</strong><span>ここ1か月の自分を振り返り、それぞれの文がどの程度当てはまるかを選んでください。</span>';
+      const startButton = top.querySelector('button');
+      if (startButton) top.insertBefore(guide, startButton);
+    }
+
     const quiz = document.getElementById('quiz');
     const result = document.getElementById('result');
     if (quiz) quiz.setAttribute('aria-live', 'polite');

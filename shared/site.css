@@ -144,6 +144,20 @@ body:not(.portal-page) #backbtn{
 }
 body:not(.portal-page) #backbtn:disabled{opacity:.35;cursor:default}
 body:not(.portal-page) #quiz>.card{padding:24px 20px}
+body:not(.portal-page) .lab-answer-guide{
+  display:grid;
+  gap:4px;
+  margin:18px 0;
+  padding:13px 14px;
+  background:#F7F3F0;
+  border-left:3px solid var(--lab-accent);
+  color:var(--lab-muted);
+  font-size:12px;
+  line-height:1.7;
+  text-align:left;
+}
+body:not(.portal-page) .lab-answer-guide strong{color:var(--lab-ink);font-size:12px}
+body:not(.portal-page) .lab-answer-guide span{display:block}
 body:not(.portal-page) #q{
   margin-bottom:18px;
   color:var(--lab-ink);
