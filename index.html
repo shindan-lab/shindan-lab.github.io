@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>診断Lab | あなたの「なんか」を、言葉にする。</title>
-  <meta name="description" content="育児・仕事・家事のなかで生まれる、うまく言えない気持ちや疲れを言葉にする読み物型診断サイト。">
+  <title>診断Lab｜今の気持ちに近い診断が見つかる</title>
+  <meta name="description" content="疲れ、育児、夫婦、お金、休日。11種類の無料診断から、今の自分に近いテーマを選んで気持ちを整理できます。">
   <link rel="canonical" href="https://shindan-lab.github.io/">
-  <meta property="og:title" content="診断Lab">
-  <meta property="og:description" content="あなたの「なんか」を、言葉にする。読み物型の診断サイトです。">
+  <meta property="og:title" content="診断Lab｜今の気持ちに近い診断が見つかる">
+  <meta property="og:description" content="うまく言えない疲れや気持ちを、診断で少し言葉にするサイトです。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shindan-lab.github.io/">
   <meta property="og:image" content="https://shindan-lab.github.io/header-banner.png">
@@ -15,228 +15,224 @@
   <meta property="og:image:height" content="512">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://shindan-lab.github.io/header-banner.png">
+  <meta name="theme-color" content="#F7F5F2">
   <link rel="icon" href="header-banner.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared/site.css">
   <style>
     *,*::before,*::after{box-sizing:border-box}
-    body{margin:0;font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;background:#FAF7F4;color:#3D2B1F}
-    a{color:inherit}
-    .page{max-width:560px;margin:0 auto;padding:14px 14px 44px}
-    .hero{padding:10px 0 18px}
-    .hero-banner{border-radius:18px;overflow:hidden;background:#fff;border:1px solid #E8D5CE;box-shadow:0 8px 26px rgba(193,113,74,.12)}
-    .hero-banner img{display:block;width:100%;height:auto}
-    .hero-copy{margin:16px 4px 0}
-    .eyebrow{font-size:11px;letter-spacing:.16em;color:#C1714A;font-weight:700;margin:0 0 8px}
-    h1{font-size:24px;line-height:1.45;margin:0 0 8px}
-    .lead{font-size:14px;line-height:1.8;color:#7A5C52;margin:0}
-    .quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
-    .quick a{display:flex;align-items:center;min-height:52px;text-decoration:none;background:#fff;border:1px solid #E8D5CE;border-radius:14px;padding:12px 13px;font-size:13px;font-weight:700;line-height:1.45;box-shadow:0 2px 10px rgba(193,113,74,.06)}
-    .section{margin-top:30px}
-    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:0 2px 12px}
-    .section-title{font-size:17px;font-weight:700;line-height:1.4;margin:0}
-    .section-note{font-size:11px;color:#B0978E;white-space:nowrap;margin:0 0 2px}
-    .list{display:flex;flex-direction:column;gap:10px}
-    .diag{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;text-decoration:none;background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:13px 12px;box-shadow:0 2px 12px rgba(193,113,74,.07)}
-    .diag:active{transform:translateY(1px)}
-    .icon{width:44px;height:44px;border-radius:13px;background:#FDF0EB;display:block;overflow:hidden}
-    .icon img{display:block;width:100%;height:100%;object-fit:cover}
-    .diag-name{display:block;font-size:15px;font-weight:700;line-height:1.45;margin:0 0 3px}
-    .diag-desc{display:block;font-size:12px;line-height:1.65;color:#7A5C52;margin:0}
-    .arrow{color:#C1714A;font-size:22px;line-height:1;padding:0 2px}
-    .article-list{display:grid;gap:10px}
-    .article-link{display:block;text-decoration:none;background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:16px 15px;box-shadow:0 2px 12px rgba(193,113,74,.07)}
-    .article-link strong{display:block;font-size:15px;line-height:1.55;margin-bottom:5px}
-    .article-link span{display:block;font-size:12px;line-height:1.7;color:#7A5C52}
-    .note{background:#fff;border:1px solid #E8D5CE;border-radius:16px;padding:16px;margin-top:30px}
-    .note p{font-size:13px;line-height:1.8;color:#7A5C52;margin:0}
-    footer{margin-top:46px;padding:30px 20px 42px;border-top:1px solid #E8D5CE;text-align:center}
-    .footer-logo-wrap{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;text-decoration:none}
-    .footer-brand-name{font-size:17px;font-weight:700;color:#3D2B1F;letter-spacing:.04em}
-    .footer-brand-name em{font-style:normal;color:#C1714A}
-    .footer-tagline{font-size:12px;color:#7A5C52;margin:0 0 14px;letter-spacing:.03em}
-    .footer-links{margin:0 0 10px;font-size:12px;line-height:1.8}
-    .footer-links a{color:#7A5C52;text-decoration:none}
-    .footer-copy{font-size:11px;color:#B0978E;margin:0}
-    .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    @media (max-width:380px){
-      .quick{grid-template-columns:1fr}
-      h1{font-size:22px}
-      .diag{grid-template-columns:40px 1fr auto}
-      .icon{width:40px;height:40px}
+    body.portal-page{margin:0;font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;background:#F7F5F2;color:#29231F}
+    .portal-header{position:sticky;top:0;z-index:20;background:rgba(252,251,249,.94);border-bottom:1px solid #E4DED9;backdrop-filter:blur(12px)}
+    .portal-header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1120px;min-height:62px;margin:0 auto;padding:0 22px}
+    .portal-brand{display:inline-flex;align-items:baseline;color:#29231F;font-size:21px;font-weight:700;text-decoration:none}
+    .portal-brand em{color:#B85F3C;font-style:normal}
+    .portal-nav{display:flex;gap:20px}
+    .portal-nav a{color:#70655F;font-size:12px;text-decoration:none}
+    .portal-shell{max-width:1120px;margin:0 auto;padding:44px 22px 64px}
+    .intro{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:42px;align-items:end;padding:20px 0 42px}
+    .intro-label{margin:0 0 13px;color:#B85F3C;font-size:11px;font-weight:700;letter-spacing:.16em}
+    .intro h1{max-width:660px;margin:0 0 16px;font-size:clamp(34px,5vw,58px);line-height:1.25;letter-spacing:0}
+    .intro-copy{max-width:620px;margin:0;color:#70655F;font-size:15px;line-height:2}
+    .starter{display:grid;grid-template-columns:76px 1fr auto;gap:16px;align-items:center;padding:16px;background:#fff;border:1px solid #DED7D1;border-left:4px solid #B85F3C;border-radius:8px;text-decoration:none;box-shadow:0 8px 24px rgba(66,49,39,.07)}
+    .starter img{display:block;width:76px;height:76px;border-radius:6px;object-fit:cover}
+    .starter small{display:block;margin-bottom:4px;color:#B85F3C;font-size:10px;font-weight:700;letter-spacing:.08em}
+    .starter strong{display:block;margin-bottom:4px;font-size:16px;line-height:1.5}
+    .starter span{display:block;color:#70655F;font-size:11px;line-height:1.6}
+    .starter-arrow{color:#B85F3C!important;font-size:24px!important}
+    .diagnosis-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding-top:4px;margin-bottom:20px}
+    .diagnosis-toolbar h2{margin:0;font-size:24px;line-height:1.4}
+    .diagnosis-count{margin:5px 0 0;color:#70655F;font-size:12px}
+    .filters{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}
+    .filter-btn{min-height:40px;padding:8px 13px;background:#fff;border:1px solid #DED7D1;border-radius:6px;color:#70655F;font:inherit;font-size:12px;cursor:pointer}
+    .filter-btn[aria-pressed="true"]{background:#29231F;border-color:#29231F;color:#fff}
+    .diagnosis-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .diagnosis-card{display:grid;grid-template-rows:auto 1fr auto;min-width:0;min-height:268px;padding:15px;background:#fff;border:1px solid #DED7D1;border-radius:8px;color:#29231F;text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+    .diagnosis-card[hidden]{display:none}
+    .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .card-image{display:block;width:72px;height:72px;border-radius:6px;object-fit:cover}
+    .card-category{padding-top:2px;color:#8C817B;font-size:10px;font-weight:700;letter-spacing:.08em}
+    .diagnosis-card h3{margin:0 0 8px;font-size:18px;line-height:1.5}
+    .diagnosis-card p{margin:0;color:#70655F;font-size:13px;line-height:1.8}
+    .card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:12px;border-top:1px solid #EEE9E5;color:#8C817B;font-size:10px}
+    .card-foot strong{color:#B85F3C;font-size:12px}
+    .portal-note{display:flex;align-items:flex-start;gap:12px;margin-top:28px;padding:16px 0;border-top:1px solid #DED7D1;color:#70655F;font-size:12px;line-height:1.8}
+    .portal-note::before{content:"※";color:#B85F3C;font-weight:700}
+    @media (hover:hover){
+      .diagnosis-card:hover{transform:translateY(-3px);border-color:#C9A08F;box-shadow:0 12px 28px rgba(66,49,39,.09)}
+      .starter:hover{border-color:#C9A08F}
+    }
+    @media (max-width:900px){
+      .intro{grid-template-columns:1fr;gap:24px;padding-top:10px}
+      .starter{max-width:620px}
+      .diagnosis-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .diagnosis-toolbar{align-items:flex-start;flex-direction:column}
+      .filters{justify-content:flex-start}
+    }
+    @media (max-width:580px){
+      .portal-header-inner{min-height:56px;padding:0 16px}
+      .portal-nav a:first-child{display:none}
+      .portal-shell{padding:26px 14px 46px}
+      .intro{padding:10px 0 32px}
+      .intro h1{font-size:34px}
+      .intro-copy{font-size:14px;line-height:1.9}
+      .starter{grid-template-columns:62px 1fr auto;padding:12px;gap:12px}
+      .starter img{width:62px;height:62px}
+      .starter-copy>span{display:none}
+      .diagnosis-toolbar h2{font-size:21px}
+      .filters{display:grid;grid-template-columns:repeat(3,1fr);width:100%}
+      .filter-btn{padding:8px 6px}
+      .diagnosis-grid{grid-template-columns:1fr;gap:10px}
+      .diagnosis-card{grid-template-columns:68px 1fr auto;grid-template-rows:auto;min-height:0;padding:12px;gap:12px;align-items:center}
+      .card-top{display:block;margin:0}
+      .card-image{width:68px;height:68px}
+      .card-category{display:none}
+      .card-copy h3{margin-bottom:3px;font-size:15px}
+      .card-copy p{font-size:11px;line-height:1.65}
+      .card-foot{display:block;margin:0;padding:0;border:0}
+      .card-foot span{display:none}
+      .card-foot strong{font-size:0}
+      .card-foot strong::after{content:"→";font-size:20px}
     }
   </style>
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "診断Lab",
-    "url": "https://shindan-lab.github.io/",
-    "description": "育児・仕事・家事のなかで生まれる、うまく言えない気持ちや疲れを言葉にする読み物型診断サイト。"
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "診断Labの診断一覧",
-    "itemListElement": [
-      {"@type":"ListItem","position":1,"name":"疲れのカルテ","url":"https://shindan-lab.github.io/tsukare-karte/"},
-      {"@type":"ListItem","position":2,"name":"職場しんどいカルテ","url":"https://shindan-lab.github.io/shokuba-karte/"},
-      {"@type":"ListItem","position":3,"name":"伝わらない疲れ診断","url":"https://shindan-lab.github.io/tsutawaranai-tsukare/"},
-      {"@type":"ListItem","position":4,"name":"ひとり時間の必要度診断","url":"https://shindan-lab.github.io/alone-time/"},
-      {"@type":"ListItem","position":5,"name":"育児イライラの正体診断","url":"https://shindan-lab.github.io/ikuji-iraira/"},
-      {"@type":"ListItem","position":6,"name":"夫婦のすれ違い疲れ診断","url":"https://shindan-lab.github.io/fuufu-surechigai/"},
-      {"@type":"ListItem","position":7,"name":"お金の不安の正体診断","url":"https://shindan-lab.github.io/money-anxiety/"},
-      {"@type":"ListItem","position":8,"name":"あなたの回復スイッチ診断","url":"https://shindan-lab.github.io/recovery-switch/"},
-      {"@type":"ListItem","position":9,"name":"理想の休日タイプ診断","url":"https://shindan-lab.github.io/holiday-style/"},
-      {"@type":"ListItem","position":10,"name":"自分へのごほうび診断","url":"https://shindan-lab.github.io/reward-style/"},
-      {"@type":"ListItem","position":11,"name":"あなたの強みの出方診断","url":"https://shindan-lab.github.io/strength-style/"},
-      {"@type":"ListItem","position":12,"name":"お金の不安が消えない理由","url":"https://shindan-lab.github.io/money-anxiety-column/"},
-      {"@type":"ListItem","position":13,"name":"ひとり時間が足りない人のサイン","url":"https://shindan-lab.github.io/alone-time-column/"},
-      {"@type":"ListItem","position":14,"name":"育児中にイライラが止まらない理由","url":"https://shindan-lab.github.io/ikuji-iraira-column/"}
-    ]
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"診断Lab",
+    "url":"https://shindan-lab.github.io/",
+    "description":"疲れ、育児、夫婦、お金、休日。今の気持ちを言葉にする無料診断サイト。"
   }
   </script>
 </head>
-<body>
-  <main class="page">
-    <section class="hero">
-      <div class="hero-banner">
-        <img src="header-banner.png" alt="診断Lab" width="1536" height="512">
-      </div>
-      <div class="hero-copy">
-        <p class="eyebrow">SHINDAN LAB</p>
-        <h1>今の自分に近い診断を選ぶ。</h1>
-        <p class="lead">疲れ、育児、夫婦、お金、休日。気になるところから、今の状態を少し言葉にしてみましょう。</p>
-      </div>
-      <div class="quick">
-        <a href="#mind">疲れ・モヤモヤ</a>
-        <a href="#family">育児・夫婦</a>
-        <a href="#life">暮らし・お金</a>
-        <a href="#positive">休日・ごほうび</a>
-      </div>
-    </section>
-
-    <section class="section" id="mind">
-      <div class="section-head">
-        <h2 class="section-title">疲れ・モヤモヤ</h2>
-        <p class="section-note">まず見るなら</p>
-      </div>
-      <div class="list">
-        <a class="diag" href="https://shindan-lab.github.io/tsukare-karte/">
-          <span class="icon"><img src="shared/diagnosis-icons/tsukare-karte.png" alt="" width="320" height="320" loading="lazy"></span>
-          <span><span class="diag-name">疲れのカルテ</span><span class="diag-desc">「なんか疲れた」の正体を広く見たいときに。</span></span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="diag" href="https://shindan-lab.github.io/shokuba-karte/">
-          <span class="icon"><img src="shared/diagnosis-icons/shokuba-karte.png" alt="" width="320" height="320" loading="lazy"></span>
-          <span><span class="diag-name">職場しんどいカルテ</span><span class="diag-desc">仕事や職場で削られやすい場所を見たいときに。</span></span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="diag" href="https://shindan-lab.github.io/tsutawaranai-tsukare/">
-          <span class="icon"><img src="shared/diagnosis-icons/tsutawaranai-tsukare.png" alt="" width="320" height="320" loading="lazy"></span>
-          <span><span class="diag-name">伝わらない疲れ診断</span><span class="diag-desc">しんどいのに、うまく伝わらないと感じるときに。</span></span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="diag" href="https://shindan-lab.github.io/alone-time/">
-          <span class="icon"><img src="shared/diagnosis-icons/alone-time.png" alt="" width="320" height="320" loading="lazy"></span>
-          <span><span class="diag-name">ひとり時間の必要度診断</span><span class="diag-desc">今どれくらい一人になりたいか見たいときに。</span></span>
-          <span class="arrow">→</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="section" id="family">
-      <div class="section-head">
-        <h2 class="section-title">育児・夫婦</h2>
-        <p class="section-note">家のモヤモヤ</p>
-      </div>
-      <div class="list">
-        <a class="diag" href="https://shindan-lab.github.io/ikuji-iraira/">
-          <span class="icon"><img src="shared/diagnosis-icons/ikuji-iraira.png" alt="" width="320" height="320" loading="lazy"></span>
-          <span><span class="diag-name">育児イライラの正体診断</span><span class="diag-desc">子どもに怒りたいわけじゃないのにイライラするときに。</span></span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="diag" href="https://shindan-lab.github.io/fuufu-surechigai/">
-          <span class="icon"><img src="shared/diagnosis-icons/fuufu-surechigai.png" alt="" width="320" height="320" loading="lazy"></span>
-          <span><span class="diag-name">夫婦のすれ違い疲れ診断</span><span class="diag-desc">分担、会話、察してほしさが積もっているときに。</span></span>
-          <span class="arrow">→</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="section" id="life">
-      <div class="section-head">
-        <h2 class="section-title">暮らし・お金</h2>
-        <p class="section-note">生活の不安</p>
-      </div>
-      <div class="list">
-        <a class="diag" href="https://shindan-lab.github.io/money-anxiety/">
-          <span class="icon"><img src="shared/diagnosis-icons/money-anxiety.png" alt="" width="320" height="320" loading="lazy"></span>
-          <span><span class="diag-name">お金の不安の正体診断</span><span class="diag-desc">お金の不安がどこから来やすいか見たいときに。</span></span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="diag" href="https://shindan-lab.github.io/recovery-switch/">
-          <span class="icon"><img src="shared/diagnosis-icons/recovery-switch.png" alt="" width="320" height="320" loading="lazy"></span>
-          <span><span class="diag-name">あなたの回復スイッチ診断</span><span class="diag-desc">自分に合う休み方を知りたいときに。</span></span>
-          <span class="arrow">→</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="section" id="positive">
-      <div class="section-head">
-        <h2 class="section-title">休日・ごほうび</h2>
-        <p class="section-note">軽めに試す</p>
-      </div>
-      <div class="list">
-        <a class="diag" href="https://shindan-lab.github.io/holiday-style/">
-          <span class="icon"><img src="shared/diagnosis-icons/holiday-style.png" alt="" width="320" height="320" loading="lazy"></span>
-          <span><span class="diag-name">理想の休日タイプ診断</span><span class="diag-desc">今の自分が求めている休日の形を見たいときに。</span></span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="diag" href="https://shindan-lab.github.io/reward-style/">
-          <span class="icon"><img src="shared/diagnosis-icons/reward-style.png" alt="" width="320" height="320" loading="lazy"></span>
-          <span><span class="diag-name">自分へのごほうび診断</span><span class="diag-desc">今の自分に合う満たし方を知りたいときに。</span></span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="diag" href="https://shindan-lab.github.io/strength-style/">
-          <span class="icon"><img src="shared/diagnosis-icons/strength-style.png" alt="" width="320" height="320" loading="lazy"></span>
-          <span><span class="diag-name">あなたの強みの出方診断</span><span class="diag-desc">消耗だけでなく、自分の良さも見たいときに。</span></span>
-          <span class="arrow">→</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="section" id="articles">
-      <div class="section-head">
-        <h2 class="section-title">読み物</h2>
-        <p class="section-note">診断の前に</p>
-      </div>
-      <div class="article-list">
-        <a class="article-link" href="https://shindan-lab.github.io/money-anxiety-column/">
-          <strong>お金の不安が消えない理由</strong>
-          <span>節約しているのに安心できない気持ちを、少し分解します。</span>
-        </a>
-        <a class="article-link" href="https://shindan-lab.github.io/alone-time-column/">
-          <strong>ひとり時間が足りない人のサイン</strong>
-          <span>誰かといるのが嫌ではないのに、疲れが抜けないときに。</span>
-        </a>
-        <a class="article-link" href="https://shindan-lab.github.io/ikuji-iraira-column/">
-          <strong>育児中にイライラが止まらない理由</strong>
-          <span>子どもが嫌いなわけではないのに怒ってしまう背景を見ます。</span>
-        </a>
-      </div>
-    </section>
-
-    <div class="note">
-      <p>診断Labは、答えを決めつける場所ではなく、今の自分に近い言葉を見つけるための入口です。</p>
+<body class="portal-page">
+  <header class="portal-header">
+    <div class="portal-header-inner">
+      <a class="portal-brand" href="./">診断<em>Lab</em></a>
+      <nav class="portal-nav" aria-label="補助メニュー">
+        <a href="#diagnoses">診断一覧</a>
+        <a href="about.html">このサイトについて</a>
+      </nav>
     </div>
+  </header>
+
+  <main class="portal-shell">
+    <section class="intro" aria-labelledby="portal-title">
+      <div>
+        <p class="intro-label">SHINDAN LAB</p>
+        <h1 id="portal-title">今の気持ちに、<br>近い診断を。</h1>
+        <p class="intro-copy">疲れ、育児、夫婦、お金、休日。うまく説明できない気持ちを、短い質問に答えながら少しずつ整理できます。</p>
+      </div>
+      <a class="starter" href="tsukare-karte/">
+        <img src="shared/diagnosis-icons/tsukare-karte.png" alt="" width="320" height="320">
+        <span class="starter-copy">
+          <small>迷ったら、まずはこちら</small>
+          <strong>疲れのカルテ</strong>
+          <span>今の疲れ方を広く見ていく基本診断</span>
+        </span>
+        <span class="starter-arrow" aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <section id="diagnoses" aria-labelledby="diagnosis-title">
+      <div class="diagnosis-toolbar">
+        <div>
+          <h2 id="diagnosis-title">診断を選ぶ</h2>
+          <p class="diagnosis-count"><span id="visible-count">11</span>件の診断</p>
+        </div>
+        <div class="filters" role="group" aria-label="診断カテゴリ">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">すべて</button>
+          <button class="filter-btn" type="button" data-filter="mind" aria-pressed="false">疲れ</button>
+          <button class="filter-btn" type="button" data-filter="family" aria-pressed="false">育児・夫婦</button>
+          <button class="filter-btn" type="button" data-filter="life" aria-pressed="false">暮らし</button>
+          <button class="filter-btn" type="button" data-filter="positive" aria-pressed="false">休日</button>
+        </div>
+      </div>
+
+      <div class="diagnosis-grid">
+        <a class="diagnosis-card" data-category="mind" href="tsukare-karte/">
+          <div class="card-top"><img class="card-image" src="shared/diagnosis-icons/tsukare-karte.png" alt="" loading="lazy"><span class="card-category">疲れ</span></div>
+          <div class="card-copy"><h3>疲れのカルテ</h3><p>「なんか疲れた」の正体を、広い角度から見つけます。</p></div>
+          <div class="card-foot"><span>12問・約2分</span><strong>診断する →</strong></div>
+        </a>
+        <a class="diagnosis-card" data-category="mind" href="shokuba-karte/">
+          <div class="card-top"><img class="card-image" src="shared/diagnosis-icons/shokuba-karte.png" alt="" loading="lazy"><span class="card-category">仕事</span></div>
+          <div class="card-copy"><h3>職場しんどいカルテ</h3><p>仕事や人間関係の、どこで気力が削られやすいかを見ます。</p></div>
+          <div class="card-foot"><span>12問・約2分</span><strong>診断する →</strong></div>
+        </a>
+        <a class="diagnosis-card" data-category="mind" href="tsutawaranai-tsukare/">
+          <div class="card-top"><img class="card-image" src="shared/diagnosis-icons/tsutawaranai-tsukare.png" alt="" loading="lazy"><span class="card-category">気持ち</span></div>
+          <div class="card-copy"><h3>伝わらない疲れ診断</h3><p>しんどさがうまく届かない理由を、言葉にしていきます。</p></div>
+          <div class="card-foot"><span>12問・約2分</span><strong>診断する →</strong></div>
+        </a>
+        <a class="diagnosis-card" data-category="mind" href="alone-time/">
+          <div class="card-top"><img class="card-image" src="shared/diagnosis-icons/alone-time.png" alt="" loading="lazy"><span class="card-category">余白</span></div>
+          <div class="card-copy"><h3>ひとり時間の必要度診断</h3><p>今どれくらい一人になりたいか、必要な余白を見ます。</p></div>
+          <div class="card-foot"><span>12問・約2分</span><strong>診断する →</strong></div>
+        </a>
+        <a class="diagnosis-card" data-category="family" href="ikuji-iraira/">
+          <div class="card-top"><img class="card-image" src="shared/diagnosis-icons/ikuji-iraira.png" alt="" loading="lazy"><span class="card-category">育児</span></div>
+          <div class="card-copy"><h3>育児イライラの正体診断</h3><p>子どもに怒りたいわけではないのに、苦しくなる背景を見ます。</p></div>
+          <div class="card-foot"><span>12問・約2分</span><strong>診断する →</strong></div>
+        </a>
+        <a class="diagnosis-card" data-category="family" href="fuufu-surechigai/">
+          <div class="card-top"><img class="card-image" src="shared/diagnosis-icons/fuufu-surechigai.png" alt="" loading="lazy"><span class="card-category">夫婦</span></div>
+          <div class="card-copy"><h3>夫婦のすれ違い疲れ診断</h3><p>分担、会話、察してほしさ。積もったモヤモヤを整理します。</p></div>
+          <div class="card-foot"><span>12問・約2分</span><strong>診断する →</strong></div>
+        </a>
+        <a class="diagnosis-card" data-category="life" href="money-anxiety/">
+          <div class="card-top"><img class="card-image" src="shared/diagnosis-icons/money-anxiety.png" alt="" loading="lazy"><span class="card-category">お金</span></div>
+          <div class="card-copy"><h3>お金の不安の正体診断</h3><p>消えにくいお金の不安が、どこから来ているかを見ます。</p></div>
+          <div class="card-foot"><span>12問・約2分</span><strong>診断する →</strong></div>
+        </a>
+        <a class="diagnosis-card" data-category="life" href="recovery-switch/">
+          <div class="card-top"><img class="card-image" src="shared/diagnosis-icons/recovery-switch.png" alt="" loading="lazy"><span class="card-category">回復</span></div>
+          <div class="card-copy"><h3>あなたの回復スイッチ診断</h3><p>今の自分が戻りやすい休み方と、回復の入口を探します。</p></div>
+          <div class="card-foot"><span>12問・約2分</span><strong>診断する →</strong></div>
+        </a>
+        <a class="diagnosis-card" data-category="positive" href="holiday-style/">
+          <div class="card-top"><img class="card-image" src="shared/diagnosis-icons/holiday-style.png" alt="" loading="lazy"><span class="card-category">休日</span></div>
+          <div class="card-copy"><h3>理想の休日タイプ診断</h3><p>今の自分が本当に求めている、休日の過ごし方を見ます。</p></div>
+          <div class="card-foot"><span>12問・約2分</span><strong>診断する →</strong></div>
+        </a>
+        <a class="diagnosis-card" data-category="positive" href="reward-style/">
+          <div class="card-top"><img class="card-image" src="shared/diagnosis-icons/reward-style.png" alt="" loading="lazy"><span class="card-category">ごほうび</span></div>
+          <div class="card-copy"><h3>自分へのごほうび診断</h3><p>今の自分に合う、無理なく気持ちを満たす方法を探します。</p></div>
+          <div class="card-foot"><span>12問・約2分</span><strong>診断する →</strong></div>
+        </a>
+        <a class="diagnosis-card" data-category="positive" href="strength-style/">
+          <div class="card-top"><img class="card-image" src="shared/diagnosis-icons/strength-style.png" alt="" loading="lazy"><span class="card-category">強み</span></div>
+          <div class="card-copy"><h3>あなたの強みの出方診断</h3><p>消耗だけでなく、自分の良さがどう表れやすいかを見ます。</p></div>
+          <div class="card-foot"><span>12問・約2分</span><strong>診断する →</strong></div>
+        </a>
+      </div>
+
+      <div class="portal-note">診断結果は、今の状態を整理するための読み物です。医療・心理などの専門的な判断を代替するものではありません。</div>
+    </section>
+
+    <footer class="site-footer" data-root="."></footer>
   </main>
 
-  <footer class="site-footer" data-root="."></footer>
   <script src="shared/footer.js"></script>
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const diagnosisCards = document.querySelectorAll('.diagnosis-card');
+    const visibleCount = document.getElementById('visible-count');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        filterButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        let count = 0;
+        diagnosisCards.forEach(card => {
+          const visible = filter === 'all' || card.dataset.category === filter;
+          card.hidden = !visible;
+          if (visible) count += 1;
+        });
+        visibleCount.textContent = count;
+      });
+    });
+  </script>
 </body>
 </html>
