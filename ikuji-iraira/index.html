@@ -130,6 +130,7 @@
   </main>
 
   <script src="affiliate.js"></script>
+  <script src="result-depth.js"></script>
   <script src="../shared/footer.js"></script>
   <script>
 const typeColors = {
@@ -348,6 +349,7 @@ function show() {
   document.getElementById('result-type-image').alt = `${main[0]}のイメージ画像`;
   document.getElementById('headline').textContent = main[1];
   document.getElementById('body').innerHTML = main[2].split('\n\n').map((paragraph) => `<p>${paragraph}</p>`).join('');
+  window.renderDeepResult({ result, types: T, questions: Q, answers, depth: window.RESULT_DEPTH, subInfluence: window.RESULT_SUB_INFLUENCE });
   document.getElementById('letter').textContent = main[3];
   document.getElementById('pres').textContent = main[4];
   const affiliate = (

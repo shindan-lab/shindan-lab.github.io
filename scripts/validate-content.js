@@ -4,6 +4,7 @@ const vm = require('vm');
 
 const root = path.resolve(__dirname, '..');
 const htmlFiles = [];
+const jsFiles = [];
 const errors = [];
 let diagnosisCount = 0;
 let questionCount = 0;
@@ -13,6 +14,7 @@ function walk(directory) {
     const filePath = path.join(directory, entry.name);
     if (entry.isDirectory()) walk(filePath);
     if (entry.isFile() && entry.name.endsWith('.html')) htmlFiles.push(filePath);
+    if (entry.isFile() && entry.name.endsWith('.js')) jsFiles.push(filePath);
   }
 }
 
@@ -115,6 +117,26 @@ function checkJavaScript(filePath) {
   }
 }
 
+function checkResultDepth(filePath) {
+  const sandbox = { window: {} };
+  try {
+    vm.runInNewContext(fs.readFileSync(filePath, 'utf8'), sandbox);
+    const depth = sandbox.window.RESULT_DEPTH;
+    const subInfluence = sandbox.window.RESULT_SUB_INFLUENCE;
+    const keys = Object.keys(depth || {});
+    if (keys.length !== 8) errors.push(`${filePath}: expected 8 depth types, found ${keys.length}`);
+    for (const key of keys) {
+      const item = depth[key];
+      if (!item.outside || !item.inside || !item.combo) errors.push(`${filePath}: type ${key} has incomplete insight text`);
+      if (!Array.isArray(item.signs) || item.signs.length !== 3) errors.push(`${filePath}: type ${key} must have 3 signs`);
+      if (!item.actions?.today || !item.actions?.week || !item.actions?.words) errors.push(`${filePath}: type ${key} has incomplete actions`);
+      if (!subInfluence?.[key]) errors.push(`${filePath}: type ${key} has no sub-type influence`);
+    }
+  } catch (error) {
+    errors.push(`${filePath}: invalid result depth data (${error.message})`);
+  }
+}
+
 walk(root);
 for (const filePath of htmlFiles) {
   const html = fs.readFileSync(filePath, 'utf8');
@@ -124,8 +146,12 @@ for (const filePath of htmlFiles) {
   if (html.includes('????')) errors.push(`${filePath}: contains corrupted text`);
 }
 
-checkJavaScript(path.join(root, 'shared', 'site.js'));
-checkJavaScript(path.join(root, 'shared', 'footer.js'));
+jsFiles.forEach(checkJavaScript);
+[
+  path.join(root, 'tsukare-karte', 'result-depth.js'),
+  path.join(root, 'ikuji-iraira', 'result-depth.js'),
+  path.join(root, 'fuufu-surechigai', 'result-depth.js')
+].forEach(checkResultDepth);
 
 if (errors.length) {
   console.error(errors.join('\n'));
