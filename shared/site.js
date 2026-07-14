@@ -21,9 +21,10 @@
       .map(item => item.text);
   }
 
-  window.renderDeepResult = function renderDeepResult({ result, types, questions, answers, depth, subInfluence }) {
+  window.renderDeepResult = function renderDeepResult({ result, questions, answers, depth }) {
     const resultSection = document.getElementById('result');
-    const mainData = depth?.[result.main];
+    const mainKey = typeof result === 'string' ? result : result?.main;
+    const mainData = depth?.[mainKey];
     if (!resultSection || !mainData) return;
 
     let root = document.getElementById('result-depth');
@@ -46,11 +47,6 @@
             <div><span>あなたの中では</span><p id="result-inside"></p></div>
           </div>
         </section>
-        <section class="result-depth-section result-combination">
-          <div class="result-depth-kicker">もうひとつの傾向</div>
-          <h3 id="result-combo-title"></h3>
-          <p id="result-combo-body"></p>
-        </section>
         <section class="result-depth-section">
           <div class="result-depth-kicker">見逃したくない変化</div>
           <h3>余裕が減っているときのサイン</h3>
@@ -71,15 +67,13 @@
       resultSection.insertBefore(root, letterCard || document.getElementById('aff'));
     }
 
-    const evidence = selectedInsights(result.main, questions, answers);
+    const evidence = selectedInsights(mainKey, questions, answers);
     appendList(
       document.getElementById('result-evidence-list'),
       evidence.length ? evidence : ['このタイプに強く偏る回答は少なく、複数の傾向が近い強さで表れていました。']
     );
     document.getElementById('result-outside').textContent = mainData.outside;
     document.getElementById('result-inside').textContent = mainData.inside;
-    document.getElementById('result-combo-title').textContent = `${types[result.main][0]} × ${types[result.sub][0]}`;
-    document.getElementById('result-combo-body').textContent = `${mainData.combo} ${subInfluence[result.sub] || ''}`.trim();
     appendList(document.getElementById('result-sign-list'), mainData.signs);
     document.getElementById('result-action-today').textContent = mainData.actions.today;
     document.getElementById('result-action-week').textContent = mainData.actions.week;

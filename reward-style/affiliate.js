@@ -1,7 +1,7 @@
 const affiliateData = {
   A: {
-    title: "甘いごほうび時間に合う一品",
-    desc: "がんばった日の終わりに、分かりやすく気分を上げたい人向けです。",
+    title: "ごほうび時間に飲みたいハーブティー",
+    desc: "がんばった日の終わりに、温かい飲み物でひと息つきたい人向けです。",
     url: "https://hb.afl.rakuten.co.jp/hgc/g00u2kdm.nyudx064.g00u2kdm.nyudy36d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftreeoflife-official%2F029991330%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftreeoflife-official%2Fi%2F10000533%2F&rafcid=wsc_i_is_eacfc477-340d-49be-aa99-ad64f3346062"
   },
   B: {
@@ -20,8 +20,8 @@ const affiliateData = {
     url: "https://hb.afl.rakuten.co.jp/hgc/g00u2kdm.nyudx064.g00u2kdm.nyudy36d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftreeoflife-official%2F084438340%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftreeoflife-official%2Fi%2F10000263%2F&rafcid=wsc_i_is_eacfc477-340d-49be-aa99-ad64f3346062"
   },
   E: {
-    title: "暮らしを少し楽にするごほうび",
-    desc: "毎日の小さな面倒を減らすことを、自分へのごほうびにしたい人向けです。",
+    title: "目元を温めて休むごほうび",
+    desc: "毎日の作業をいったん止め、目と頭を短時間休ませたい人向けの温感アイテムです。",
     url: "https://hb.afl.rakuten.co.jp/hgc/g00q9fkm.nyudx412.g00q9fkm.nyudyba5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpupuhima%2Fh4901301460547-12%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpupuhima%2Fi%2F10055594%2F&rafcid=wsc_i_is_eacfc477-340d-49be-aa99-ad64f3346062"
   },
   F: {

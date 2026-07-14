@@ -247,8 +247,7 @@ body:not(.portal-page) .result-two-sides{display:grid;gap:10px}
 body:not(.portal-page) .result-two-sides>div{padding:15px;background:#F8F6F3;border-left:3px solid #CFC4BD}
 body:not(.portal-page) .result-two-sides>div:last-child{background:#FFF5F0;border-left-color:var(--lab-accent)}
 body:not(.portal-page) .result-two-sides span,body:not(.portal-page) .result-action-list span{display:block;margin-bottom:5px;color:var(--lab-muted);font-size:10px;font-weight:800;letter-spacing:0}
-body:not(.portal-page) .result-two-sides p,body:not(.portal-page) .result-combination p,body:not(.portal-page) .result-action-list p{margin:0;color:#4E4540;font-size:14px;line-height:1.85}
-body:not(.portal-page) .result-combination{background:#F5F7F3}
+body:not(.portal-page) .result-two-sides p,body:not(.portal-page) .result-action-list p{margin:0;color:#4E4540;font-size:14px;line-height:1.85}
 body:not(.portal-page) .result-action-list{display:grid;gap:0;border-top:1px solid var(--lab-line)}
 body:not(.portal-page) .result-action-list>div{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--lab-line)}
 body:not(.portal-page) .result-action-list span{margin:2px 0 0;color:var(--lab-accent-dark)}
@@ -260,6 +259,7 @@ body:not(.portal-page) #aff a{display:block}
 body:not(.portal-page) #afft{font-size:16px;line-height:1.65}
 body:not(.portal-page) #affd{line-height:1.8}
 body:not(.portal-page) .lab-affiliate-note{margin:0 0 12px;color:var(--lab-muted);font-size:11px;line-height:1.7}
+body:not(.portal-page) #affnote{display:none}
 body:not(.portal-page) .share{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
 body:not(.portal-page) .share a{
   width:auto;

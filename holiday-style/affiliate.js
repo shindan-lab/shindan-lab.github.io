@@ -5,8 +5,8 @@ const affiliateData = {
     url: "https://hb.afl.rakuten.co.jp/hgc/g00q9fkm.nyudx412.g00q9fkm.nyudyba5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpupuhima%2Fh4901301460547-12%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpupuhima%2Fi%2F10055594%2F&rafcid=wsc_i_is_eacfc477-340d-49be-aa99-ad64f3346062"
   },
   B: {
-    title: "気軽なおでかけに持ちたい小さな相棒",
-    desc: "外で過ごす休日を少し快適にする、軽く持ち出しやすいアイテムです。",
+    title: "移動中の刺激を減らしやすい耳栓",
+    desc: "外出先や移動中の音を少し抑え、自分のペースを守りたいときのアイテムです。",
     url: "https://hb.afl.rakuten.co.jp/hgc/g00r56hm.nyudx7ae.g00r56hm.nyudy4f5/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faichi12%2F401w0002%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faichi12%2Fi%2F10004941%2F&rafcid=wsc_i_is_eacfc477-340d-49be-aa99-ad64f3346062"
   },
   C: {
@@ -15,8 +15,8 @@ const affiliateData = {
     url: "https://hb.afl.rakuten.co.jp/hgc/g00u2kdm.nyudx064.g00u2kdm.nyudy36d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftreeoflife-official%2F084438340%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftreeoflife-official%2Fi%2F10000263%2F&rafcid=wsc_i_is_eacfc477-340d-49be-aa99-ad64f3346062"
   },
   D: {
-    title: "家族でゆるく楽しむ休日のお供",
-    desc: "家で過ごす時間に、会話や小さな楽しみを足しやすいアイテムです。",
+    title: "家族でゆっくりお風呂を楽しむ入浴剤",
+    desc: "家で過ごす休日の終わりに、温かいお風呂を楽しみやすい入浴アイテムです。",
     url: "https://hb.afl.rakuten.co.jp/hgc/g00pzczm.nyudx39c.g00pzczm.nyudy9d6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkoyama-p%2F4580294set4%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkoyama-p%2Fi%2F10012324%2F&rafcid=wsc_i_is_eacfc477-340d-49be-aa99-ad64f3346062"
   },
   E: {
